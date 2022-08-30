@@ -1,0 +1,3677 @@
+[
+    {
+        "id": "7c7a09edf982e2f4",
+        "type": "tab",
+        "label": "全局配置(巴法云平台)",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e93bbc67912b9178",
+        "type": "tab",
+        "label": "订阅/发布",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "46a5ba0d798d87c3",
+        "type": "tab",
+        "label": "接口调用",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f7e96a32e56d72eb",
+        "type": "tab",
+        "label": "接口处理",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "396cbecdd6c41306",
+        "type": "tab",
+        "label": "巴法云",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "33ea2d5b80781f0b",
+        "type": "tab",
+        "label": "巴法云-影子",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8790bac5eca885ba",
+        "type": "tab",
+        "label": "影子协议",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4f298837cfcb1b75",
+        "type": "mqtt-broker",
+        "name": "push",
+        "broker": "push-access.sdp.101.com",
+        "port": "11885",
+        "clientid": "",
+        "autoConnect": false,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ec385154ba1b4fae",
+        "type": "mqtt-broker",
+        "name": "bemfa",
+        "broker": "bemfa.com",
+        "port": "9501",
+        "clientid": "aa11295e7e7a275d41580a1fbdc787ec",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b5ef31a7a90ee4e8",
+        "type": "mqtt-broker",
+        "name": "north",
+        "broker": "push-access.sdp.101.com",
+        "port": "1780",
+        "clientid": "",
+        "autoConnect": false,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ccc535250cd7677b",
+        "type": "mqtt-broker",
+        "name": "dataio_output",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": false,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "340486ab3bf5bf39",
+        "type": "mqtt-broker",
+        "name": "dataio_input",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": false,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f544f205.d51a7",
+        "type": "inject",
+        "z": "7c7a09edf982e2f4",
+        "name": "初始化",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "683f9c514d3dc3f8"
+            ]
+        ]
+    },
+    {
+        "id": "52f82eb73840e302",
+        "type": "OS",
+        "z": "7c7a09edf982e2f4",
+        "name": "",
+        "x": 490,
+        "y": 100,
+        "wires": [
+            [
+                "705cd1a4e7548610"
+            ]
+        ]
+    },
+    {
+        "id": "705cd1a4e7548610",
+        "type": "change",
+        "z": "7c7a09edf982e2f4",
+        "name": "OS",
+        "rules": [
+            {
+                "t": "set",
+                "p": "os",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 100,
+        "wires": [
+            [
+                "c27b74647cc92e82"
+            ]
+        ]
+    },
+    {
+        "id": "c27b74647cc92e82",
+        "type": "home-dir",
+        "z": "7c7a09edf982e2f4",
+        "x": 780,
+        "y": 100,
+        "wires": [
+            [
+                "3e822ed879b8777e"
+            ]
+        ]
+    },
+    {
+        "id": "3e822ed879b8777e",
+        "type": "change",
+        "z": "7c7a09edf982e2f4",
+        "name": "datadir",
+        "rules": [
+            {
+                "t": "set",
+                "p": "os.datadir",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 100,
+        "wires": [
+            [
+                "a6a4ebf94a8b8924"
+            ]
+        ]
+    },
+    {
+        "id": "4aa5b949a197bcb7",
+        "type": "inject",
+        "z": "7c7a09edf982e2f4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "data",
+        "payloadType": "global",
+        "x": 280,
+        "y": 680,
+        "wires": [
+            [
+                "61299e55f08ac3e1"
+            ]
+        ]
+    },
+    {
+        "id": "61299e55f08ac3e1",
+        "type": "debug",
+        "z": "7c7a09edf982e2f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "1188b78d61e6e2a8",
+        "type": "link out",
+        "z": "7c7a09edf982e2f4",
+        "name": "配置完成",
+        "mode": "link",
+        "links": [
+            "906bb62a708b4c0c",
+            "59181471dbc6175b",
+            "b2168926188a5904"
+        ],
+        "x": 975,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "6423346762c80c34",
+        "type": "debug",
+        "z": "7c7a09edf982e2f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4754da03d64fad4b",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "数据初始化",
+        "func": "let config = msg.payload;\n\nlet _ids = global.get(\"ids\");\n\nObject.keys(config).forEach(key => {\n    global.set(key, config[key])\n})\n\nlet data = global.get(\"data\");\nif (_ids) global.set(\"ids\", _ids);\nlet ids = global.get(\"ids\");\n\nlet app = data.app;\nlet plf = app.platform;\nplf.devices = plf.devices || {};\n\ndata.platform = plf\ndata.devices = plf.devices || {};\ndata.mqtt = plf.mqtt;\ndata.topics = plf.mqtt.topics;\ndata.mongodb = plf.mongodb;\ndata.shadows = plf.shadows;\ndata.ids = ids;\n\nreturn {payload: data};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 340,
+        "wires": [
+            [
+                "0666cb29a70a9804"
+            ]
+        ]
+    },
+    {
+        "id": "fe1774a6b4d68308",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "展开主题函数",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet gids = global.get(\"ids\");\n\nlet expandTopic = {\n    expandStr : function(v, _ids) {\n        let ids = Object.assign({}, gids);\n        ids = Object.assign(ids, _ids || {});\n\n        if (typeof v == \"string\") {\n            v = v.replace(/\\{APP_ID\\}/g, env.get(\"IOT_APP_ID\") || \"\");\n            v = v.replace(/\\{DOM_ID\\}/g, env.get(\"IOT_DOM_ID\") || \"\");\n            v = v.replace(/\\{DSP_ID\\}/g, env.get(\"IOT_DSP_ID\") || \"\");\n            v = v.replace(/\\{EDG_ID\\}/g, env.get(\"IOT_EDG_ID\") || \"\");\n            v = v.replace(/\\{DIO_ID\\}/g, env.get(\"IOT_DIO_ID\") || \"\");\n            v = v.replace(/\\{PLF_ID\\}/g, env.get(\"IOT_PLF_ID\") || \"\");\n            v = v.replace(/\\{HOSTNAME\\}/g, env.get(\"HOSTNAME\") || env.get(\"COMPUTERNAME\") || \"\");\n            \n            v = v.replace(/\\{app\\}/g, ids.app || \"\");\n            v = v.replace(/\\{dom\\}/g, ids.dom || \"\");\n            v = v.replace(/\\{dsp\\}/g, ids.dsp || \"\");\n            v = v.replace(/\\{edg\\}/g, ids.edg || \"\");\n            v = v.replace(/\\{dio\\}/g, ids.dio || \"\");\n            v = v.replace(/\\{plf\\}/g, ids.plf || \"\");\n            if (ids.dev)\n                v = v.replace(/\\{dev\\}/g, ids.dev || \"\");\n        }\n        return v;\n    },\n    expandArray : function(v, _ids) {\n        if (Array.isArray(v)) {\n            for(let i=0; i < v.length; i++) {\n                v[i] = this.expand(v[i], _ids);\n            }\n        }\n        return arr;\n    },\n    expandObj : function(v, _ids) {\n        if (typeof v == \"object\") {\n            let keys = Object.keys(v);\n            keys.forEach(k => {\n                v[k] = this.expand(v[k], _ids);\n            });\n        }\n        return v;        \n    },\n    expand : function(v, _ids) {\n        if (typeof v == \"string\")\n            v = this.expandStr(v, _ids);\n                    \n        if (Array.isArray(v)) {\n            v = expandArray(v, _ids);\n        }\n        \n        if (typeof v == \"object\") {\n            v = this.expandObj(v, _ids)\n        }\n                \n        return v\n    }\n}\n    \n\n\ncommon.expandTopic = expandTopic;\n\nreturn {payload: data};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 380,
+        "wires": [
+            [
+                "de1af31ddcf813b0"
+            ]
+        ]
+    },
+    {
+        "id": "de1af31ddcf813b0",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "缓存数据函数",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\n\nlet online = function(){\n    let events = this.events;\n    if (events && events.status)\n        return events.status.pld.online;\n    return 0;\n}\n\nlet cachePayload = function(payload) {\n    let hd = payload.hd;\n    if (hd.from.type == \"dev\") {\n        let dysub = false;\n        let dev = data.devices[hd.from.id];\n        if (!dev) {\n            dev = {};\n            dysub = true;\n        }\n        dev.id = hd.from.id;\n        dev.events = dev.events || {};\n        if (hd.from.pid)\n            dev.pid = hd.from.pid;\n        dev.events[hd.entry.id] = payload;\n        dev.online = online;\n        data.devices[hd.from.id] = dev;\n        if (dysub) node.send({device: dev}, null);\n    }\n\n}\n\ncommon.cachePayload = cachePayload;\n\nreturn [null, {payload: data}];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "cf8bb3ede866fe12"
+            ],
+            [
+                "aea3af329e2e33ba"
+            ]
+        ]
+    },
+    {
+        "id": "5cddc77aa8c606cd",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "获取HD主题函数",
+        "func": "let common = global.get(\"common\");\nlet ids = global.get(\"data\").ids;\n\nlet getHDTopic = function(hd) {\n    let tpc = \"\";\n    if (!hd.pref) hd.pref = {};\n    if (!hd.pref.app) hd.pref.app = (ids.app ? ids.app : \"0\");\n    if (!hd.pref.dom) hd.pref.dom = (ids.dom ? ids.dom : \"0\");\n    \n    if (!hd.from) hd.from = {};\n    if (!hd.from.type) hd.from.type = \"plf\";\n    if (!hd.from.id) hd.from.id = ids.plf;\n    if (!hd.to) hd.to = {};\n    if (!hd.to.type) hd.to.type = \"0\";\n    if (!hd.to.id) hd.to.id = \"0\";\n    if (!hd.entry) hd.entry = {};\n    if (!hd.entry.type) hd.entry.type = \"0\";\n    if (!hd.entry.id) hd.entry.id = \"0\";\n    if (!hd.sid) hd.sid = \"0\";\n    if (!hd.stp) hd.stp = 0;\n    if (!hd.version) hd.version = global.get(\"version\");\n    \n    tpc =   hd.pref.app + \"/\" + hd.pref.dom + \"/\" + \n            hd.from.type + \"/\" + hd.from.id + \"/\" + \n            hd.to.type + \"/\" + hd.to.id + \"/\" + \n            hd.entry.type + \"/\" + hd.entry.id;\n    return tpc;\n}\n\n\ncommon.getHDTopic = getHDTopic;\n\nreturn {payload: common};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 500,
+        "wires": [
+            [
+                "fc89e9165d2ffb12"
+            ]
+        ]
+    },
+    {
+        "id": "aea3af329e2e33ba",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "键值转ID函数",
+        "func": "let common = global.get(\"common\");\n\nlet keyToObjId = function(objs) {\n    let keys = Object.keys(objs);\n    keys.forEach(key => {\n        let obj = objs[key];\n        if (typeof obj == \"object\") \n            obj.id = key;\n    })        \n}\n    \nlet keyDot2DUnder = function (objs, recu) {\n    Object.keys(objs).forEach(key => {\n        let obj = objs[key];\n        delete objs[key];\n        key = key.replace(/\\./g, \"__\");\n        objs[key] = obj;\n        if (typeof obj == \"object\" && recu) \n            this.keyDot2DUnder(obj, recu);\n    })     \n}\n\nlet keyDUnder2Dot = function (objs, recu) {\n    Object.keys(objs).forEach(key => {\n        let obj = objs[key];\n        delete objs[key];\n        key = key.replace(/__/g, \".\");\n        objs[key] = obj;\n        if (typeof obj == \"object\" && recu) \n            this.keyDUnder2Dot(obj, recu);\n    })     \n}\n\n\ncommon.keyToObjId = keyToObjId;\ncommon.keyDot2DUnder = keyDot2DUnder;\ncommon.keyDUnder2Dot = keyDUnder2Dot;\n\nreturn {payload: common};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 460,
+        "wires": [
+            [
+                "5cddc77aa8c606cd"
+            ]
+        ]
+    },
+    {
+        "id": "fc89e9165d2ffb12",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "数据补全",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\n\nlet fixUpDev = function(_dev, notNewIfNotExist) {\n    if (!_dev || !_dev.id || !_dev.dom_id) {\n        if (_dev && _dev.id)\n            data.devices[_dev.id] = _dev;\n        return;\n    }\n\n    let devId = _dev.id;\n    let devs = data.devices;\n    let dev = devs[devId];\n    let dysub = false;\n\n    \n    if (!dev) {\n        if (notNewIfNotExist)\n            dev = _dev;\n        else\n            dev = Object.assign({}, _dev);\n        dysub = true;\n    } else {\n        dev = Object.assign(dev, _dev);\n    }\n    \n    dev.id = devId;\n    data.devices[devId] = dev;\n    \n    //订阅设备上下线\n    if (dysub)  node.send([{device: dev}, null]);\n    \n}\n\n\n\n\ncommon.fixUpDev = fixUpDev;\n\n\ncommon.expandTopic.expand(data.ids);   \ncommon.expandTopic.expand(data.app);   \ncommon.expandTopic.expand(data.topics.subs);\ncommon.expandTopic.expand(data.topics.services);\n\ncommon.keyToObjId(data.devices);\n\nreturn [null, {payload: data}];\n\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 540,
+        "wires": [
+            [
+                "cf8bb3ede866fe12",
+                "7fa3eee6c9989b58"
+            ],
+            [
+                "1188b78d61e6e2a8",
+                "effcf217acb43dfa",
+                "6423346762c80c34"
+            ]
+        ]
+    },
+    {
+        "id": "a6a4ebf94a8b8924",
+        "type": "switch",
+        "z": "7c7a09edf982e2f4",
+        "name": "是否激活？",
+        "property": "IOT_ENABLE_PLF_BFY",
+        "propertyType": "env",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "c0624055eec65ac4"
+            ],
+            [
+                "222a754589dfce9c"
+            ]
+        ]
+    },
+    {
+        "id": "c0624055eec65ac4",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "配置文件",
+        "func": "\nreturn {\n    filename: env.get(\"IOT_CONFIG_FILE\")\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "387bc8ba683df91f"
+            ]
+        ]
+    },
+    {
+        "id": "874e2ff0304f3dd7",
+        "type": "json",
+        "z": "7c7a09edf982e2f4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 180,
+        "wires": [
+            [
+                "1924f7fd90ef314c"
+            ]
+        ]
+    },
+    {
+        "id": "387bc8ba683df91f",
+        "type": "file in",
+        "z": "7c7a09edf982e2f4",
+        "name": "读配置文件",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "874e2ff0304f3dd7"
+            ]
+        ]
+    },
+    {
+        "id": "b1a104c8f9b78d59",
+        "type": "link in",
+        "z": "7c7a09edf982e2f4",
+        "name": "重载配置输入",
+        "links": [
+            "3be6aa741efc38c0"
+        ],
+        "x": 125,
+        "y": 240,
+        "wires": [
+            [
+                "a6a4ebf94a8b8924"
+            ]
+        ]
+    },
+    {
+        "id": "1924f7fd90ef314c",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "获取数据节点",
+        "func": "let config = msg.payload;\nlet plf = config.platforms[\"bfy\"];\nif (plf && plf.global) {\n    return {\n        payload: plf.global\n    };\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 180,
+        "wires": [
+            [
+                "4754da03d64fad4b"
+            ]
+        ]
+    },
+    {
+        "id": "222a754589dfce9c",
+        "type": "debug",
+        "z": "7c7a09edf982e2f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "cf8bb3ede866fe12",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "订阅上下线主题",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet topic;\nlet ids = {};\nif (msg.dispatcher) {\n    topic = data.topics.dysubs.dsp_evt_status;\n    ids.dsp = msg.dispatcher.id;\n}\n\nif (msg.edge) {\n    topic = data.topics.dysubs.edg_evt_status;\n    ids.edg = msg.edge.id;    \n}\n\nif (msg.device) {\n    topic = data.topics.dysubs.dev_evt_status;\n    ids.dev = msg.device.id;    \n}\n\nif (msg.platform) {\n    topic = data.topics.dysubs.plf_evt_status;\n    ids.plf = msg.platform.id;      \n}\n\nif (topic) {\n    topic = common.expandTopic.expandStr(topic, ids);\n\n    // node.send({\n    //         action: \"unsubscribe\",\n    //         topic: topic\n    // })\n    \n    node.send({\n            action: \"subscribe\",\n            topic: topic\n    })\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 420,
+        "wires": [
+            [
+                "92d872156e511bd6"
+            ]
+        ]
+    },
+    {
+        "id": "92d872156e511bd6",
+        "type": "link out",
+        "z": "7c7a09edf982e2f4",
+        "name": "订阅上下线主题输出",
+        "mode": "link",
+        "links": [
+            "1fbea7baf2a0c450"
+        ],
+        "x": 975,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "effcf217acb43dfa",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "上线通知",
+        "func": "let data = global.get(\"data\")\nlet ids = data.ids;\nif (ids.app && ids.dio) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "48de9ecdbc8dbeaf"
+            ]
+        ]
+    },
+    {
+        "id": "48de9ecdbc8dbeaf",
+        "type": "delay",
+        "z": "7c7a09edf982e2f4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 580,
+        "wires": [
+            [
+                "0ecafaa953e1df94",
+                "558d6a7b4117d101"
+            ]
+        ]
+    },
+    {
+        "id": "0ecafaa953e1df94",
+        "type": "link out",
+        "z": "7c7a09edf982e2f4",
+        "name": "上线通知输出",
+        "mode": "link",
+        "links": [
+            "b784350e948a9e8b",
+            "1e99de387ea3035c"
+        ],
+        "x": 975,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "558d6a7b4117d101",
+        "type": "debug",
+        "z": "7c7a09edf982e2f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "683f9c514d3dc3f8",
+        "type": "change",
+        "z": "7c7a09edf982e2f4",
+        "name": "version",
+        "rules": [
+            {
+                "t": "set",
+                "p": "version",
+                "pt": "global",
+                "to": "0.0.1",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "ids",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "52f82eb73840e302"
+            ]
+        ]
+    },
+    {
+        "id": "0666cb29a70a9804",
+        "type": "function",
+        "z": "7c7a09edf982e2f4",
+        "name": "GUID函数",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\n   \nlet guid = function(len, start) {\n    let result = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c){\n        let r = Math.random()*16|0;\n        let v = c == 'x' ? r : (r&0x3|0x8);\n        return v.toString(16);\n    })\n    len = len ? len : result.length;\n    return result.substr(start, len);\n}\n\ncommon.guid = guid;\n\nreturn {payload: data};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 340,
+        "wires": [
+            [
+                "fe1774a6b4d68308"
+            ]
+        ]
+    },
+    {
+        "id": "7fa3eee6c9989b58",
+        "type": "link out",
+        "z": "7c7a09edf982e2f4",
+        "name": "设备更新输出",
+        "mode": "link",
+        "links": [
+            "5978606df958b8b1"
+        ],
+        "x": 975,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "0f989c13f4e0c1cb",
+        "type": "mqtt in",
+        "z": "e93bbc67912b9178",
+        "name": "终端订阅",
+        "topic": "",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "4f298837cfcb1b75",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "0050c31c1969d8ff",
+                "c503d35a9ca051ed"
+            ]
+        ]
+    },
+    {
+        "id": "906bb62a708b4c0c",
+        "type": "link in",
+        "z": "e93bbc67912b9178",
+        "name": "",
+        "links": [
+            "f70a2bb4819417da",
+            "1188b78d61e6e2a8"
+        ],
+        "x": 115,
+        "y": 240,
+        "wires": [
+            [
+                "922cb1ac3370ad75"
+            ]
+        ]
+    },
+    {
+        "id": "589883c5ddd06e17",
+        "type": "function",
+        "z": "e93bbc67912b9178",
+        "name": "订阅主题",
+        "func": "let data = global.get(\"data\")\nlet topics = data.topics;\nlet ids = data.ids;\nif (ids.app && ids.dio) {\n    node.send({\n            action: \"unsubscribe\",\n            topic: Object.values(topics.subs)\n    })\n    \n    node.send({\n            action: \"unsubscribe\",\n            topic: Object.values(topics.services)\n    })  \n    \n    node.send({\n            action: \"subscribe\",\n            topic: Object.values(topics.subs)\n    })\n    \n    node.send({\n            action: \"subscribe\",\n            topic: Object.values(topics.services)\n    })    \n} else {\n    node.send({\n            action: \"unsubscribe\",\n            topic: topics.services.plf_svc_login\n    })  \n    \n    node.send({\n            action: \"subscribe\",\n            topic: topics.services.plf_svc_login\n    })      \n}\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 140,
+        "wires": [
+            [
+                "0f989c13f4e0c1cb",
+                "f6ce25be1914c84e"
+            ]
+        ]
+    },
+    {
+        "id": "745ba2affb87c4cd",
+        "type": "debug",
+        "z": "e93bbc67912b9178",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ee0217ceba515222",
+        "type": "function",
+        "z": "e93bbc67912b9178",
+        "name": "缓存数据",
+        "func": "msg.topics = msg.topic.split(\"/\");\nlet hd = msg.payload.hd;\nif (!hd.pref) {\n    hd.pref = {\n        app: msg.topics[0],\n        dom: msg.topics[1]\n    }\n}\n\nlet common = global.get(\"common\");\ncommon.cachePayload(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 140,
+        "wires": [
+            [
+                "be8cd487c69c6c5a"
+            ]
+        ]
+    },
+    {
+        "id": "be8cd487c69c6c5a",
+        "type": "link out",
+        "z": "e93bbc67912b9178",
+        "name": "订阅输出",
+        "mode": "link",
+        "links": [
+            "2ff5101df1ab6584",
+            "b293cfb8b41ad91f"
+        ],
+        "x": 965,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "13403285d1db57b7",
+        "type": "function",
+        "z": "e93bbc67912b9178",
+        "name": "时间戳",
+        "func": "let date = new Date()\nmsg.payload.hd.tpc = msg.topic;\nmsg.payload.hd.tms=date.valueOf();\nmsg.payload.hd.tm=date.toLocaleString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 140,
+        "wires": [
+            [
+                "745ba2affb87c4cd",
+                "ee0217ceba515222"
+            ]
+        ]
+    },
+    {
+        "id": "1fbea7baf2a0c450",
+        "type": "link in",
+        "z": "e93bbc67912b9178",
+        "name": "动态订阅主题",
+        "links": [
+            "83c403b1c017c665",
+            "92d872156e511bd6"
+        ],
+        "x": 125,
+        "y": 100,
+        "wires": [
+            [
+                "0f989c13f4e0c1cb",
+                "f6ce25be1914c84e"
+            ]
+        ]
+    },
+    {
+        "id": "f6ce25be1914c84e",
+        "type": "debug",
+        "z": "e93bbc67912b9178",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "0050c31c1969d8ff",
+        "type": "json",
+        "z": "e93bbc67912b9178",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 550,
+        "y": 140,
+        "wires": [
+            [
+                "13403285d1db57b7"
+            ]
+        ]
+    },
+    {
+        "id": "c503d35a9ca051ed",
+        "type": "debug",
+        "z": "e93bbc67912b9178",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "922cb1ac3370ad75",
+        "type": "function",
+        "z": "e93bbc67912b9178",
+        "name": "自动连接",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\ndata.mqtt.clientid = data.mqtt.clientid || (data.ids.plf + \"-\" + common.guid(8));\n\nmsg = {};\nmsg.action = \"connect\";\nmsg.broker = {\n    autoConnect: true,\n    force: false,\n    clientid: data.mqtt.clientid\n}\nObject.assign(msg.broker, data.mqtt.broker);\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [
+                "fcc0eb8cbb3816df"
+            ]
+        ]
+    },
+    {
+        "id": "e8ef1027fa074cf4",
+        "type": "json",
+        "z": "e93bbc67912b9178",
+        "name": "",
+        "property": "broker.will.payload",
+        "action": "str",
+        "pretty": false,
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "0f989c13f4e0c1cb",
+                "589883c5ddd06e17"
+            ]
+        ]
+    },
+    {
+        "id": "fcc0eb8cbb3816df",
+        "type": "function",
+        "z": "e93bbc67912b9178",
+        "name": "遗嘱消息",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\n\nlet hd = {\n    pref: {\n      app: \"0\",\n      dom: \"0\"\n    },\n    from: {\n        type: \"plf\",\n        id: data.ids.plf\n    },\n    to: {\n        type: \"0\",\n        id: \"0\"\n    },\n    entry: {\n        type: \"evt\",\n        id: \"status\"\n    },\n    version: global.get(\"version\")\n};\n\nlet pld = {\n    id: data.ids.dsp,\n    online: 0\n};\n\nlet topic = common.getHDTopic(hd);\n\n\nlet will = {\n    topic: topic,\n    qos: 2,\n    retain: true,\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n}\n\n\nmsg.broker.will = will;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "e8ef1027fa074cf4"
+            ]
+        ]
+    },
+    {
+        "id": "43bf37762f52e71c",
+        "type": "function",
+        "z": "e93bbc67912b9178",
+        "name": "发布主题",
+        "func": "let common = global.get(\"common\")\nif (!msg.topic)\n    msg.topic = common.getHDTopic(msg.payload.hd);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 540,
+        "wires": [
+            [
+                "120048209dc2727c",
+                "32bbd9c52100b210",
+                "bc16ce4047ca6ec7"
+            ]
+        ]
+    },
+    {
+        "id": "120048209dc2727c",
+        "type": "mqtt out",
+        "z": "e93bbc67912b9178",
+        "name": "mqtt发布",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4f298837cfcb1b75",
+        "x": 500,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "774d0cb8ef787fc2",
+        "type": "link in",
+        "z": "e93bbc67912b9178",
+        "name": "mqtt发布",
+        "links": [
+            "9b3a8e543bd70406",
+            "5002cb933f4b4eb5",
+            "cb5a80219ea82576",
+            "befe5b1ac4389423",
+            "8f5000be83384a7a",
+            "a6df7d880adde7dd",
+            "9bdce921275b0acd",
+            "b45b2eba09115dae",
+            "f2d3874c6b2d73f3",
+            "250ffb893d37d89a"
+        ],
+        "x": 225,
+        "y": 540,
+        "wires": [
+            [
+                "43bf37762f52e71c"
+            ]
+        ]
+    },
+    {
+        "id": "32bbd9c52100b210",
+        "type": "debug",
+        "z": "e93bbc67912b9178",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "bc16ce4047ca6ec7",
+        "type": "debug",
+        "z": "e93bbc67912b9178",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "0a1080acec8b4c30",
+        "type": "inject",
+        "z": "e93bbc67912b9178",
+        "name": "连接",
+        "props": [
+            {
+                "p": "action",
+                "v": "connect",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "60",
+        "topic": "",
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "0f989c13f4e0c1cb"
+            ]
+        ]
+    },
+    {
+        "id": "aa68c847c104a5e7",
+        "type": "inject",
+        "z": "e93bbc67912b9178",
+        "name": "断开",
+        "props": [
+            {
+                "p": "action",
+                "v": "disconnect",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "60",
+        "topic": "",
+        "x": 230,
+        "y": 360,
+        "wires": [
+            [
+                "0f989c13f4e0c1cb"
+            ]
+        ]
+    },
+    {
+        "id": "c730d99f09571fa2",
+        "type": "inject",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 980,
+        "wires": [
+            [
+                "288f169baa4b62b3"
+            ]
+        ]
+    },
+    {
+        "id": "288f169baa4b62b3",
+        "type": "function",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: \"0x00158d0003539f17\",\n    },\n    entry: {\n        type: \"svc\",\n        id: \"request\",\n        name: \"set\"\n    },\n    sid: \"0\",\n    stp: 0\n}\nlet pld = {\"state\":\"OFF\"}\n\n// let topic = \"ndiot/test/0/0/dev/ESP8266x00068a16/svc/request\";\n\nlet topic = common.getHDTopic({\n    pref: {app: ids.app, dom: \"0\"},\n    to: {type: \"dio\", id: ids.dio},\n    entry: {type: \"svc\", id: \"turn\"}\n    \n});\n\n\nreturn {\n    topic: topic,\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 980,
+        "wires": [
+            [
+                "9bdce921275b0acd"
+            ]
+        ]
+    },
+    {
+        "id": "9bdce921275b0acd",
+        "type": "link out",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "774d0cb8ef787fc2"
+        ],
+        "x": 615,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "26b03579838bb361",
+        "type": "function",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: \"0x00158d0003539f17\",\n    },\n    entry: {\n        type: \"svc\",\n        id: \"request\",\n        name: \"set\"\n    },\n    sid: \"0\",\n    stp: 0\n}\nlet pld = {\"state\":\"ON\"}\n\n// let topic = \"ndiot/test/0/0/dev/ESP8266x00068a16/svc/request\";\n\nlet topic = common.getHDTopic({\n    pref: {app: ids.app, dom: \"0\"},\n    to: {type: \"dio\", id: ids.dio},\n    entry: {type: \"svc\", id: \"turn\"}\n    \n});\n\n\nreturn {\n    topic: topic,\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1060,
+        "wires": [
+            [
+                "9bdce921275b0acd"
+            ]
+        ]
+    },
+    {
+        "id": "4026664a021455be",
+        "type": "inject",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 1080,
+        "wires": [
+            [
+                "26b03579838bb361"
+            ]
+        ]
+    },
+    {
+        "id": "59181471dbc6175b",
+        "type": "link in",
+        "z": "46a5ba0d798d87c3",
+        "name": "请求",
+        "links": [
+            "1188b78d61e6e2a8"
+        ],
+        "x": 165,
+        "y": 200,
+        "wires": [
+            [
+                "a1d93e26f00d9928"
+            ]
+        ]
+    },
+    {
+        "id": "9b39f6a45516c881",
+        "type": "delay",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "b5c10fec2a171dec"
+            ]
+        ]
+    },
+    {
+        "id": "b5c10fec2a171dec",
+        "type": "function",
+        "z": "46a5ba0d798d87c3",
+        "name": "登入请求",
+        "func": "let data = global.get(\"data\");\nlet ids = data.ids;\nreturn {\n    payload: {\n        hd: {\n            pref: {\n                app: ids.app,\n                dom: \"0\"\n            },\n            to: {\n                type: \"0\",\n                id: \"0\"\n            },\n            entry: {\n                type: \"svc\",\n                id: \"login\"\n            }\n        },\n        pld: {\n            id: data.ids.plf\n        }\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 200,
+        "wires": [
+            [
+                "daa6a0cef19c038d",
+                "fa0afe6023cff548",
+                "b45b2eba09115dae"
+            ]
+        ]
+    },
+    {
+        "id": "daa6a0cef19c038d",
+        "type": "trigger",
+        "z": "46a5ba0d798d87c3",
+        "name": "超时5秒",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 540,
+        "y": 260,
+        "wires": [
+            [],
+            [
+                "9b39f6a45516c881"
+            ]
+        ]
+    },
+    {
+        "id": "a08e3843c15e944d",
+        "type": "change",
+        "z": "46a5ba0d798d87c3",
+        "name": "重置",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "daa6a0cef19c038d"
+            ]
+        ]
+    },
+    {
+        "id": "81d871be6af1b2a9",
+        "type": "link in",
+        "z": "46a5ba0d798d87c3",
+        "name": "重置登入请求",
+        "links": [
+            "87bda24bd97b90b7",
+            "7cc27320956b5354",
+            "e15f8affc75b6294"
+        ],
+        "x": 165,
+        "y": 260,
+        "wires": [
+            [
+                "a08e3843c15e944d"
+            ]
+        ]
+    },
+    {
+        "id": "1c8bebd4730ca10f",
+        "type": "comment",
+        "z": "46a5ba0d798d87c3",
+        "name": "登入",
+        "info": "",
+        "x": 170,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "fa0afe6023cff548",
+        "type": "debug",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b45b2eba09115dae",
+        "type": "link out",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "774d0cb8ef787fc2"
+        ],
+        "x": 1005,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1824d5d7cbf864c9",
+        "type": "inject",
+        "z": "46a5ba0d798d87c3",
+        "name": "ESP8266x0098b096",
+        "props": [
+            {
+                "p": "payload.id",
+                "v": "ESP8266x0098b096",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 1180,
+        "wires": [
+            [
+                "c552a06182e3ca45"
+            ]
+        ]
+    },
+    {
+        "id": "c552a06182e3ca45",
+        "type": "function",
+        "z": "46a5ba0d798d87c3",
+        "name": "reboot",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"test\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: msg.payload.id,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"reboot\"\n    },\n    sid: \"0\",\n    stp: 0\n}\nlet pld = {id: msg.payload.id}\n\n\n\nreturn {\n\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1220,
+        "wires": [
+            [
+                "9bdce921275b0acd"
+            ]
+        ]
+    },
+    {
+        "id": "3fa9fcd54c78334f",
+        "type": "inject",
+        "z": "46a5ba0d798d87c3",
+        "name": "ESP8266x0006dbe5",
+        "props": [
+            {
+                "p": "payload.id",
+                "v": "ESP8266x0006dbe5",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 1220,
+        "wires": [
+            [
+                "c552a06182e3ca45"
+            ]
+        ]
+    },
+    {
+        "id": "3287fe114d8ea737",
+        "type": "inject",
+        "z": "46a5ba0d798d87c3",
+        "name": "ESP8266x00c17ca1",
+        "props": [
+            {
+                "p": "payload.id",
+                "v": "ESP8266x00c17ca1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 1260,
+        "wires": [
+            [
+                "c552a06182e3ca45"
+            ]
+        ]
+    },
+    {
+        "id": "f1cf34b3aa953436",
+        "type": "inject",
+        "z": "46a5ba0d798d87c3",
+        "name": "ESP8266x00068a16",
+        "props": [
+            {
+                "p": "payload.id",
+                "v": "ESP8266x00068a16",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 1300,
+        "wires": [
+            [
+                "c552a06182e3ca45"
+            ]
+        ]
+    },
+    {
+        "id": "8eedbf4597c81fc2",
+        "type": "function",
+        "z": "46a5ba0d798d87c3",
+        "name": "注册",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"test\"\n    },\n    from: {\n        type: \"dev\",\n        id: msg.payload.id\n    },\n    to: {\n        type: \"dio\",\n        id: data.ids.dio,\n    },\n    entry: {\n        type: \"evt\",\n        id: \"device_joined\"\n    },\n    sid: \"0\",\n    stp: 0\n}\nlet pld = msg.payload\n\n\nreturn {\n\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 880,
+        "wires": [
+            [
+                "9bdce921275b0acd"
+            ]
+        ]
+    },
+    {
+        "id": "630671762dec0b37",
+        "type": "inject",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.id",
+                "v": "ESP32x6dabf498",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 880,
+        "wires": [
+            [
+                "8eedbf4597c81fc2"
+            ]
+        ]
+    },
+    {
+        "id": "6daf1af57e46df30",
+        "type": "function",
+        "z": "46a5ba0d798d87c3",
+        "name": "状态发布",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\n\nlet hd = {\n    pref: {\n        app: \"0\",\n        dom: \"0\"\n    },\n    from: {\n        type: \"plf\",\n        id: data.ids.plf\n    },\n    to: {\n        type: \"0\",\n        id: \"0\"\n    },\n    entry: {\n        type: \"evt\",\n        id: \"status\"\n    },\n    version: global.get(\"version\")\n};\n\nlet pld = {\n    id: data.ids.plf,\n    online: 1\n};\n\nreturn {\n    payload:{\n        hd: hd,\n        pld: pld\n    },\n    qos: 2,\n    retain: true\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 380,
+        "wires": [
+            [
+                "7dc6bf6f82555874",
+                "b45b2eba09115dae"
+            ]
+        ]
+    },
+    {
+        "id": "b784350e948a9e8b",
+        "type": "link in",
+        "z": "46a5ba0d798d87c3",
+        "name": "状态发布输入",
+        "links": [
+            "0ecafaa953e1df94",
+            "09cf3f2506fb6591",
+            "810c9c146d81321c",
+            "41780e48f27ccf1c"
+        ],
+        "x": 165,
+        "y": 380,
+        "wires": [
+            [
+                "6daf1af57e46df30"
+            ]
+        ]
+    },
+    {
+        "id": "7dc6bf6f82555874",
+        "type": "debug",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a1d93e26f00d9928",
+        "type": "function",
+        "z": "46a5ba0d798d87c3",
+        "name": "未登入？",
+        "func": "let data = global.get(\"data\");\nif (!data.ids.app || !data.ids.dio) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "9b39f6a45516c881"
+            ]
+        ]
+    },
+    {
+        "id": "1e99de387ea3035c",
+        "type": "link in",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "links": [
+            "0ecafaa953e1df94"
+        ],
+        "x": 165,
+        "y": 580,
+        "wires": [
+            [
+                "9c88fd5568c36785"
+            ]
+        ]
+    },
+    {
+        "id": "9c88fd5568c36785",
+        "type": "http request",
+        "z": "46a5ba0d798d87c3",
+        "name": "http获取设备",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://iot-mqtt.beta.ndaeweb.com/dio/get_devices",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 410,
+        "y": 580,
+        "wires": [
+            [
+                "728f165358bdc6bc",
+                "35cf1e9005e8cb0a"
+            ]
+        ]
+    },
+    {
+        "id": "3b2f3e44ab9a8250",
+        "type": "inject",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 680,
+        "wires": [
+            [
+                "9c88fd5568c36785"
+            ]
+        ]
+    },
+    {
+        "id": "728f165358bdc6bc",
+        "type": "debug",
+        "z": "46a5ba0d798d87c3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "35cf1e9005e8cb0a",
+        "type": "function",
+        "z": "46a5ba0d798d87c3",
+        "name": "设备补全",
+        "func": "let  common = global.get(\"common\");\nlet devs = msg.payload;\nif (devs) {\n    devs.forEach(dev => {\n        common.fixUpDev(dev);\n    })\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b293cfb8b41ad91f",
+        "type": "link in",
+        "z": "f7e96a32e56d72eb",
+        "name": "接口处理输入",
+        "links": [
+            "be8cd487c69c6c5a"
+        ],
+        "x": 165,
+        "y": 160,
+        "wires": [
+            [
+                "f3fbccc82b509675",
+                "6514803e7db80cac"
+            ]
+        ]
+    },
+    {
+        "id": "f3fbccc82b509675",
+        "type": "function",
+        "z": "f7e96a32e56d72eb",
+        "name": "数据服务响应",
+        "func": "let hd = msg.payload.hd;\nif (hd.stp == 1 && hd.entry.type == \"svc\" && hd.from.type == \"dio\" ) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "43bd55a5970c54c2"
+            ]
+        ]
+    },
+    {
+        "id": "43bd55a5970c54c2",
+        "type": "switch",
+        "z": "f7e96a32e56d72eb",
+        "name": "",
+        "property": "payload.hd.entry.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "login",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "c3275c69d557b333"
+            ]
+        ]
+    },
+    {
+        "id": "c3275c69d557b333",
+        "type": "function",
+        "z": "f7e96a32e56d72eb",
+        "name": "登入响应处理",
+        "func": "let data = global.get(\"data\");\nlet pld = msg.payload.pld;\nif (pld.app_id && pld.dio_id && pld.plf_id) {\n    data.ids.app = pld.app_id;\n    data.ids.dio = pld.dio_id;\n    data.ids.plf = pld.plf_id;\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 120,
+        "wires": [
+            [
+                "7cc27320956b5354",
+                "3be6aa741efc38c0"
+            ]
+        ]
+    },
+    {
+        "id": "7cc27320956b5354",
+        "type": "link out",
+        "z": "f7e96a32e56d72eb",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "81d871be6af1b2a9"
+        ],
+        "x": 945,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3be6aa741efc38c0",
+        "type": "link out",
+        "z": "f7e96a32e56d72eb",
+        "name": "重载配置",
+        "mode": "link",
+        "links": [
+            "b1a104c8f9b78d59"
+        ],
+        "x": 945,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6514803e7db80cac",
+        "type": "function",
+        "z": "f7e96a32e56d72eb",
+        "name": "数据事件请求",
+        "func": "let hd = msg.payload.hd;\nif (hd.stp == 0 && hd.entry.type == \"evt\" && hd.from.type == \"dio\" ) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "4788e4fd31445485"
+            ]
+        ]
+    },
+    {
+        "id": "4788e4fd31445485",
+        "type": "switch",
+        "z": "f7e96a32e56d72eb",
+        "name": "",
+        "property": "payload.hd.entry.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "status",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "1ea18b95bf25cb02",
+                "294724a339ded15a"
+            ]
+        ]
+    },
+    {
+        "id": "1ea18b95bf25cb02",
+        "type": "function",
+        "z": "f7e96a32e56d72eb",
+        "name": "上线",
+        "func": "return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 220,
+        "wires": [
+            [
+                "41780e48f27ccf1c"
+            ]
+        ]
+    },
+    {
+        "id": "41780e48f27ccf1c",
+        "type": "link out",
+        "z": "f7e96a32e56d72eb",
+        "name": "状态发布",
+        "mode": "link",
+        "links": [
+            "b784350e948a9e8b"
+        ],
+        "x": 945,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "294724a339ded15a",
+        "type": "debug",
+        "z": "f7e96a32e56d72eb",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "495b2151060ac9ea",
+        "type": "mqtt in",
+        "z": "396cbecdd6c41306",
+        "name": "bemfa",
+        "topic": "",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "ec385154ba1b4fae",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "2e518fac66237f3d",
+                "080e207f32fb2e99"
+            ]
+        ]
+    },
+    {
+        "id": "2e518fac66237f3d",
+        "type": "debug",
+        "z": "396cbecdd6c41306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c167ac0254e12076",
+        "type": "function",
+        "z": "396cbecdd6c41306",
+        "name": "订阅主题",
+        "func": "let topics = [\n    \"0x00158d0003539f17\",\n    \"0x00158d000353c53f\",\n    \"ESP8266x00c03831\",\n    \"ESP8266x00c17ca1\",\n    \"ESP8266x00068a16\",\n    \"ESP8266x0098b1f8\",\n    \"ESP8266x00c22bf6\",\n    \"ESP8266x00c20638\",\n    \"ESP8266x00c1cd77\",\n    \"ESP8266x00c1a22a\",\n    \"ESP8266x003d92de\",\n    \"ESP8266x00c1ad5e\",\n    \"ESP8266x00c1cbb8\"\n    ]\n\n\nnode.send({\n        action: \"unsubscribe\",\n        topic: topics\n})\n\nnode.send({\n        action: \"subscribe\",\n        topic: topics\n})\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "495b2151060ac9ea"
+            ]
+        ]
+    },
+    {
+        "id": "681cf9f3977b8b71",
+        "type": "inject",
+        "z": "396cbecdd6c41306",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "c167ac0254e12076"
+            ]
+        ]
+    },
+    {
+        "id": "554aef77843aa777",
+        "type": "switch",
+        "z": "396cbecdd6c41306",
+        "name": "协调器",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ESP8266x00c17ca1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00068a16",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 820,
+        "wires": [
+            [
+                "3c5c174ae97a1079"
+            ],
+            [
+                "3c5c174ae97a1079"
+            ]
+        ]
+    },
+    {
+        "id": "ebad675731c9f853",
+        "type": "switch",
+        "z": "396cbecdd6c41306",
+        "name": "子设备开关",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0x00158d0003539f17",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0x00158d000353c53f",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 860,
+        "wires": [
+            [
+                "c4a4de242e3bade7"
+            ],
+            [
+                "c4a4de242e3bade7"
+            ]
+        ]
+    },
+    {
+        "id": "c4a4de242e3bade7",
+        "type": "function",
+        "z": "396cbecdd6c41306",
+        "name": "子设备_协议转换",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet devId = msg.topic;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"request\",\n        func: \"set\"\n    },\n    sid: common.guid(10),\n    stp: 0\n}\n\n\nlet c= msg.payload;\nlet len = c.length;\nlet pld = {};\n\n//插座，1路开关\nif (c == \"0\" || c ==\"1\" || c ==\"2\") {\n    let name = \"state\";\n    pld[name] = c == \"0\" ? \"off\" : \n                c == \"1\" ? \"on\"  : \"\";\n            \n}\n\n//多路开关\nif (len == 2) {\n    let name;\n    let c0 = c[0];\n    let c1 = c[1];\n    if (c0 == \"1\" || c0 == \"2\" || c0 == \"3\") {\n        name = \"state_\" + c0;\n        pld[name] = c1 == \"0\" ? \"off\" : \n                    c1 == \"1\" ? \"on\"  : \"\";\n    }\n    \n    if (c0 == \"l\" || c0 == \"c\" || c0 == \"r\") {\n        name = \"state_\" + (c0 == \"l\" ? \"left\" : c0 == \"r\" ? \"right\" : \"center\");\n        pld[name] = c1 == \"0\" ? \"off\" : \n                    c1 == \"1\" ? \"on\"  : \"\";\n    }\n    \n}\n\n\n\n\nreturn {\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 440,
+        "wires": [
+            [
+                "f782abfd31d4bf71"
+            ]
+        ]
+    },
+    {
+        "id": "f782abfd31d4bf71",
+        "type": "function",
+        "z": "396cbecdd6c41306",
+        "name": "中转",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\n\nlet topic = common.getHDTopic({\n    pref: {app: ids.app, dom: \"0\"},\n    to: {type: \"dio\", id: ids.dio},\n    entry: {type: \"svc\", id: \"turn\"}\n    \n});\n\n\nreturn {\n    topic: topic,\n    payload: msg.payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 440,
+        "wires": [
+            [
+                "f2d3874c6b2d73f3",
+                "f5cb5e8b4bab0cae"
+            ]
+        ]
+    },
+    {
+        "id": "f2d3874c6b2d73f3",
+        "type": "link out",
+        "z": "396cbecdd6c41306",
+        "name": "控制输入",
+        "mode": "link",
+        "links": [
+            "774d0cb8ef787fc2",
+            "1cc085b57aa685b5"
+        ],
+        "x": 1105,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3c5c174ae97a1079",
+        "type": "function",
+        "z": "396cbecdd6c41306",
+        "name": "协调器_协议转换",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet devId = msg.topic;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"request\",\n        func: \"permit_join\"\n    },\n    sid: common.guid(10),\n    stp: 0\n}\n\nlet value = msg.payload.toLowerCase() == \"on\" ? true : false;\n\nlet pld = {\"value\": value, \"time\": 254}\n\n\n\nreturn {\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "f782abfd31d4bf71"
+            ]
+        ]
+    },
+    {
+        "id": "f5cb5e8b4bab0cae",
+        "type": "debug",
+        "z": "396cbecdd6c41306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6da42e39a2a7dfba",
+        "type": "switch",
+        "z": "396cbecdd6c41306",
+        "name": "空调",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ESP8266x00c22bf6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c20638",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x0098b1f8",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP32x6dabf498",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c1a22a",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x003d92de",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c1ad5e",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c1cbb8",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 430,
+        "y": 960,
+        "wires": [
+            [
+                "c03190c995601283"
+            ],
+            [
+                "c03190c995601283"
+            ],
+            [
+                "c03190c995601283"
+            ],
+            [
+                "c03190c995601283"
+            ],
+            [
+                "c03190c995601283"
+            ],
+            [
+                "c03190c995601283"
+            ],
+            [
+                "c03190c995601283"
+            ],
+            [
+                "c03190c995601283"
+            ]
+        ]
+    },
+    {
+        "id": "f122ee5a2f45d4fd",
+        "type": "change",
+        "z": "396cbecdd6c41306",
+        "name": "设备分类",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 160,
+        "y": 820,
+        "wires": [
+            [
+                "ebad675731c9f853",
+                "6da42e39a2a7dfba",
+                "b8c30c195c0c7128",
+                "554aef77843aa777"
+            ]
+        ]
+    },
+    {
+        "id": "c03190c995601283",
+        "type": "function",
+        "z": "396cbecdd6c41306",
+        "name": "空调_协议转换",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet devId = msg.topic;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"set\"\n    },\n    sid: common.guid(10),\n    stp: 0\n}\n\nlet code= msg.payload;\nlet len = code.length;\nlet c0 = len > 0 ? code[0] : \"\";\nlet c1 = len > 1 ? code[1] : \"\";\nlet c2 = len > 2 ? code.substr(2, 2) : \"\";\nlet c3 = len > 4 ? code[4] : \"\";\n\nlet pld = { id : devId };\nif (c0==\"0\") pld.power = \"off\";\nif (c0==\"1\") pld.power = \"on\";\nif (c0==\"2\") hd.entry.id = \"get\";\nif (c0==\"3\") hd.entry.id = \"reboot\";\n\nif (c1 == \"0\") pld.mode = \"auto\";\nif (c1 == \"1\") pld.mode = \"cool\";\nif (c1 == \"2\") pld.mode = \"heat\";\nif (c1 == \"3\") pld.mode = \"fan\";\n\nif (c2) pld.temperature = parseInt(c2);\n\n\nreturn {\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 480,
+        "wires": [
+            [
+                "f782abfd31d4bf71"
+            ]
+        ]
+    },
+    {
+        "id": "b8c30c195c0c7128",
+        "type": "switch",
+        "z": "396cbecdd6c41306",
+        "name": "窗帘",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ESP8266x00c1cd77",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c03831",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 1060,
+        "wires": [
+            [
+                "88a6e59d31de8571"
+            ],
+            [
+                "88a6e59d31de8571"
+            ]
+        ]
+    },
+    {
+        "id": "88a6e59d31de8571",
+        "type": "function",
+        "z": "396cbecdd6c41306",
+        "name": "窗帘_协议转换",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet devId = msg.topic;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"set\"\n    },\n    sid: common.guid(10),\n    stp: 0\n}\n\nlet pld = {id: devId};\n\nlet code= parseInt(msg.payload);\n\nswitch(code) {\n    case -1:   \n        hd.entry.id = \"get\"\n        break;    \n    case 101:   \n        hd.entry.name = \"open\"\n        break;\n    case 102:\n        hd.entry.name = \"close\"\n        break;   \n    case 103:\n        hd.entry.name = \"stop\"\n        break;  \n    case 200:\n        hd.entry.name = \"dir\"\n        pld.dir = 0;\n        break;\n    case 201:\n        hd.entry.name = \"dir\"\n        pld.dir = 1;\n        break;\n    case 210:\n        hd.entry.name = \"up_travel\"\n        break;  \n    case 211:\n        hd.entry.name = \"down_travel\"\n        break;\n    case 212:\n        hd.entry.name = \"del_travel\"\n        break;        \n    case 220:\n        hd.entry.name = \"power_on_prompt\"\n        pld.prompt = 0\n        break;        \n    case 221:\n        hd.entry.name = \"power_on_prompt\"\n        pld.prompt = 1\n        break;        \n    case 222:\n        hd.entry.name = \"power_on_prompt\"\n        pld.prompt = 2\n        break;        \n    case 223:\n        hd.entry.name = \"power_on_prompt\"\n        pld.prompt = 3\n        break;  \n    default:\n        pld.pos = code;\n        break;      \n}\n\n// pld.code = \"0x55FEFE030414E6ED\"\n\n\nreturn {\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 520,
+        "wires": [
+            [
+                "f782abfd31d4bf71"
+            ]
+        ]
+    },
+    {
+        "id": "5978606df958b8b1",
+        "type": "link in",
+        "z": "396cbecdd6c41306",
+        "name": "",
+        "links": [
+            "7fa3eee6c9989b58"
+        ],
+        "x": 125,
+        "y": 120,
+        "wires": [
+            [
+                "1376c7ec286101dd"
+            ]
+        ]
+    },
+    {
+        "id": "1376c7ec286101dd",
+        "type": "function",
+        "z": "396cbecdd6c41306",
+        "name": "动态订阅主题",
+        "func": "let topic = msg.topic;\nlet topics = topic.split(\"/\");\nif (topics.length == 8 && topics[2] == \"dev\") {\n    topic = topics[3];\n    let _msg = Object.assign({}, msg);\n    _msg.topic = topic;\n    return _msg;\n} else {\n    return msg;\n}\n\n// let devices = msg.payload;\n// devices.forEach(device => {\n//     node.send({\n//             action: \"subscribe\",\n//             topic: device.id\n//     })\n// })\n\n// let topic = msg.topic;\n// let topics = topic.split(\"/\");\n// if (topics.length == 8 && topics[2] == \"dev\") {\n//     topic = topics[3];\n//     let _msg = Object.assign({}, msg);\n//     _msg.topic = topic;\n//     return _msg;\n// } else {\n//     return msg;\n// }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 120,
+        "wires": [
+            [
+                "495b2151060ac9ea",
+                "c119e5638910918a"
+            ]
+        ]
+    },
+    {
+        "id": "c119e5638910918a",
+        "type": "debug",
+        "z": "396cbecdd6c41306",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "080e207f32fb2e99",
+        "type": "function",
+        "z": "396cbecdd6c41306",
+        "name": "获取设备",
+        "func": "let data = global.get(\"data\");\nmsg.device = data.devices[msg.topic]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "3ce2b7ede245f34a",
+                "5c20f22430cc1842"
+            ]
+        ]
+    },
+    {
+        "id": "3ce2b7ede245f34a",
+        "type": "switch",
+        "z": "396cbecdd6c41306",
+        "name": "",
+        "property": "device.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "CO",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "CO_PL",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "CO_SW",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AC",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "CT",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 6,
+        "x": 170,
+        "y": 460,
+        "wires": [
+            [
+                "3c5c174ae97a1079"
+            ],
+            [
+                "c4a4de242e3bade7"
+            ],
+            [
+                "c4a4de242e3bade7"
+            ],
+            [
+                "c03190c995601283"
+            ],
+            [
+                "88a6e59d31de8571"
+            ],
+            [
+                "f122ee5a2f45d4fd"
+            ]
+        ]
+    },
+    {
+        "id": "5c20f22430cc1842",
+        "type": "debug",
+        "z": "396cbecdd6c41306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c9f8076ce7a79d93",
+        "type": "mqtt in",
+        "z": "33ea2d5b80781f0b",
+        "name": "bemfa",
+        "topic": "",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "ec385154ba1b4fae",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 590,
+        "y": 260,
+        "wires": [
+            [
+                "f56d3285ce01288a",
+                "81d5e441c64f0b3d"
+            ]
+        ]
+    },
+    {
+        "id": "f56d3285ce01288a",
+        "type": "debug",
+        "z": "33ea2d5b80781f0b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ef7dcd7a3085334d",
+        "type": "function",
+        "z": "33ea2d5b80781f0b",
+        "name": "订阅主题",
+        "func": "let topics = [\n    \"0x00158d0003539f17\",\n    \"0x00158d000353c53f\",\n    \"ESP8266x00c03831\",\n    \"ESP8266x00c17ca1\",\n    \"ESP8266x00068a16\",\n    \"ESP8266x0098b1f8\",\n    \"ESP8266x00c22bf6\",\n    \"ESP8266x00c20638\",\n    \"ESP8266x00c1cd77\",\n    \"ESP8266x00c1a22a\",\n    \"ESP8266x003d92de\",\n    \"ESP8266x00c1ad5e\",\n    \"ESP8266x00c1cbb8\"\n    ]\n\n\nnode.send({\n        action: \"unsubscribe\",\n        topic: topics\n})\n\nnode.send({\n        action: \"subscribe\",\n        topic: topics\n})\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 260,
+        "wires": [
+            [
+                "c9f8076ce7a79d93"
+            ]
+        ]
+    },
+    {
+        "id": "a67adff65a99e703",
+        "type": "inject",
+        "z": "33ea2d5b80781f0b",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "ef7dcd7a3085334d"
+            ]
+        ]
+    },
+    {
+        "id": "45b39bb41f3f87f0",
+        "type": "switch",
+        "z": "33ea2d5b80781f0b",
+        "name": "协调器",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ESP8266x00c17ca1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00068a16",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 880,
+        "wires": [
+            [
+                "eb8c2afdefbdfe40"
+            ],
+            [
+                "eb8c2afdefbdfe40"
+            ]
+        ]
+    },
+    {
+        "id": "8ece469ab8c7712b",
+        "type": "switch",
+        "z": "33ea2d5b80781f0b",
+        "name": "子设备开关",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0x00158d0003539f17",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0x00158d000353c53f",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 920,
+        "wires": [
+            [
+                "72c1b81e5290e4ae"
+            ],
+            [
+                "72c1b81e5290e4ae"
+            ]
+        ]
+    },
+    {
+        "id": "72c1b81e5290e4ae",
+        "type": "function",
+        "z": "33ea2d5b80781f0b",
+        "name": "子设备_协议转换",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet devId = msg.topic;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"set\"\n    },\n    sid: common.guid(10),\n    stp: 0\n}\n\n\nlet c= msg.payload;\nlet len = c.length;\nlet pld = {};\n\n//插座，1路开关\nif (c == \"0\" || c ==\"1\" || c ==\"2\") {\n    let name = \"state\";\n    pld[name] = c == \"0\" ? \"off\" : \n                c == \"1\" ? \"on\"  : \"\";\n            \n}\n\n//多路开关\nif (len == 2) {\n    let name;\n    let c0 = c[0];\n    let c1 = c[1];\n    if (c0 == \"1\" || c0 == \"2\" || c0 == \"3\") {\n        name = \"state_\" + c0;\n        pld[name] = c1 == \"0\" ? \"off\" : \n                    c1 == \"1\" ? \"on\"  : \"\";\n    }\n    \n    if (c0 == \"l\" || c0 == \"c\" || c0 == \"r\") {\n        name = \"state_\" + (c0 == \"l\" ? \"left\" : c0 == \"r\" ? \"right\" : \"center\");\n        pld[name] = c1 == \"0\" ? \"off\" : \n                    c1 == \"1\" ? \"on\"  : \"\";\n    }\n    \n}\n\n\n\n\nreturn {\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 500,
+        "wires": [
+            [
+                "911f28cc3b2bef9d"
+            ]
+        ]
+    },
+    {
+        "id": "911f28cc3b2bef9d",
+        "type": "function",
+        "z": "33ea2d5b80781f0b",
+        "name": "中转",
+        "func": "// let data = global.get(\"data\");\n// let common = global.get(\"common\");\n// let ids = data.ids;\n\n// let topic = common.getHDTopic({\n//     pref: {app: ids.app, dom: \"0\"},\n//     to: {type: \"dio\", id: ids.dio},\n//     entry: {type: \"svc\", id: \"turn\"}\n    \n// });\n\n\n// return {\n//     topic: topic,\n//     payload: msg.payload\n// };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 500,
+        "wires": [
+            [
+                "b92885d63c1f2156",
+                "2d7ebd6a4dfe2ae6"
+            ]
+        ]
+    },
+    {
+        "id": "b92885d63c1f2156",
+        "type": "link out",
+        "z": "33ea2d5b80781f0b",
+        "name": "控制输入",
+        "mode": "link",
+        "links": [
+            "1cc085b57aa685b5"
+        ],
+        "x": 1205,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "eb8c2afdefbdfe40",
+        "type": "function",
+        "z": "33ea2d5b80781f0b",
+        "name": "协调器_协议转换",
+        "func": "// let data = global.get(\"data\");\n// let common = global.get(\"common\");\n// let ids = data.ids;\n// let devId = msg.topic;\n\n// let hd = {\n//     pref: {\n//         app: ids.app,\n//         dom: \"\"\n//     },\n//     from: {\n//         type: \"0\",\n//         id: \"0\"\n//     },\n//     to: {\n//         type: \"dev\",\n//         id: devId,\n//     },\n//     entry: {\n//         type: \"svc\",\n//         id: \"request\",\n//         func: \"permit_join\"\n//     },\n//     sid: common.guid(10),\n//     stp: 0\n// }\n\n// let value = msg.payload.toLowerCase() == \"on\" ? true : false;\n\n// let pld = {\"value\": value, \"time\": 254}\n\n\n\n// return {\n//     payload: {\n//         hd: hd,\n//         pld: pld\n//     }\n// };\n\n\n\n\nlet data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet devId = msg.topic;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"set\"\n    },\n    sid: common.guid(10),\n    stp: 0\n}\n\nlet value = msg.payload.toLowerCase();\nvalue = (value === \"on\" || value === \"1\") ? true : false;\n\nlet pld = {\"permit_join\": value}\n\n\n\nreturn {\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 460,
+        "wires": [
+            [
+                "911f28cc3b2bef9d"
+            ]
+        ]
+    },
+    {
+        "id": "2d7ebd6a4dfe2ae6",
+        "type": "debug",
+        "z": "33ea2d5b80781f0b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "4ebb6dfdfe4752ce",
+        "type": "switch",
+        "z": "33ea2d5b80781f0b",
+        "name": "空调",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ESP8266x00c22bf6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c20638",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x0098b1f8",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP32x6dabf498",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c1a22a",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x003d92de",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c1ad5e",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c1cbb8",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 530,
+        "y": 1020,
+        "wires": [
+            [
+                "d56e8d53999eff47"
+            ],
+            [
+                "d56e8d53999eff47"
+            ],
+            [
+                "d56e8d53999eff47"
+            ],
+            [
+                "d56e8d53999eff47"
+            ],
+            [
+                "d56e8d53999eff47"
+            ],
+            [
+                "d56e8d53999eff47"
+            ],
+            [
+                "d56e8d53999eff47"
+            ],
+            [
+                "d56e8d53999eff47"
+            ]
+        ]
+    },
+    {
+        "id": "2d359a4c69b7db5f",
+        "type": "change",
+        "z": "33ea2d5b80781f0b",
+        "d": true,
+        "name": "设备分类",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 880,
+        "wires": [
+            [
+                "8ece469ab8c7712b",
+                "4ebb6dfdfe4752ce",
+                "09558a327d004817",
+                "45b39bb41f3f87f0"
+            ]
+        ]
+    },
+    {
+        "id": "d56e8d53999eff47",
+        "type": "function",
+        "z": "33ea2d5b80781f0b",
+        "name": "空调_协议转换",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet devId = msg.topic;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"set\"\n    },\n    sid: common.guid(10),\n    stp: 0\n}\n\nlet code= msg.payload;\nlet len = code.length;\nlet c0 = len > 0 ? code[0] : \"\";\nlet c1 = len > 1 ? code[1] : \"\";\nlet c2 = len > 2 ? code.substr(2, 2) : \"\";\nlet c3 = len > 4 ? code[4] : \"\";\n\nlet pld = { id : devId };\nif (c0==\"0\") pld.power = \"off\";\nif (c0==\"1\") pld.power = \"on\";\nif (c0==\"2\") hd.entry.id = \"get\";\nif (c0==\"3\") hd.entry.id = \"reboot\";\n\nif (c1 == \"0\") pld.mode = \"auto\";\nif (c1 == \"1\") pld.mode = \"cool\";\nif (c1 == \"2\") pld.mode = \"heat\";\nif (c1 == \"3\") pld.mode = \"fan\";\n\nif (c2) pld.temperature = parseInt(c2);\n\n\nreturn {\n    payload: {\n        hd: hd,\n        pld: pld\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 540,
+        "wires": [
+            [
+                "911f28cc3b2bef9d"
+            ]
+        ]
+    },
+    {
+        "id": "09558a327d004817",
+        "type": "switch",
+        "z": "33ea2d5b80781f0b",
+        "name": "窗帘",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ESP8266x00c1cd77",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ESP8266x00c03831",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 1120,
+        "wires": [
+            [
+                "c71d8a04a991dcc2"
+            ],
+            [
+                "c71d8a04a991dcc2"
+            ]
+        ]
+    },
+    {
+        "id": "c71d8a04a991dcc2",
+        "type": "function",
+        "z": "33ea2d5b80781f0b",
+        "name": "窗帘_协议转换",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet ids = data.ids;\nlet devId = msg.topic;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: \"\"\n    },\n    from: {\n        type: \"0\",\n        id: \"0\"\n    },\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"set\"\n    },\n    sid: common.guid(10),\n    stp: 0\n}\n\nlet pld = {id: devId};\n\nlet code= parseInt(msg.payload);\n\nswitch(code) {\n    case -1:   \n        hd.entry.id = \"get\"\n        break;    \n    case 101:   \n        hd.entry.name = \"open\"\n        break;\n    case 102:\n        hd.entry.name = \"close\"\n        break;   \n    case 103:\n        hd.entry.name = \"stop\"\n        break;  \n    case 200:\n        hd.entry.name = \"dir\"\n        pld.dir = 0;\n        break;\n    case 201:\n        hd.entry.name = \"dir\"\n        pld.dir = 1;\n        break;\n    case 210:\n        hd.entry.name = \"up_travel\"\n        break;  \n    case 211:\n        hd.entry.name = \"down_travel\"\n        break;\n    case 212:\n        hd.entry.name = \"del_travel\"\n        break;        \n    case 220:\n        hd.entry.name = \"power_on_prompt\"\n        pld.prompt = 0\n        break;        \n    case 221:\n        hd.entry.name = \"power_on_prompt\"\n        pld.prompt = 1\n        break;        \n    case 222:\n        hd.entry.name = \"power_on_prompt\"\n        pld.prompt = 2\n        break;        \n    case 223:\n        hd.entry.name = \"power_on_prompt\"\n        pld.prompt = 3\n        break;  \n    default:\n        pld.pos = code;\n        break;      \n}\n\n// pld.code = \"0x55FEFE030414E6ED\"\n\n\nreturn {\n    payload: {\n        hd: hd,\n        pld: {\n            open: code\n        }\n    }\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 580,
+        "wires": [
+            [
+                "911f28cc3b2bef9d"
+            ]
+        ]
+    },
+    {
+        "id": "94c787385fe89583",
+        "type": "link in",
+        "z": "33ea2d5b80781f0b",
+        "name": "",
+        "links": [
+            "094870fa884c4cc9",
+            "1bdc14d23c7d0019"
+        ],
+        "x": 225,
+        "y": 180,
+        "wires": [
+            [
+                "37b80e9a15b24ede"
+            ]
+        ]
+    },
+    {
+        "id": "37b80e9a15b24ede",
+        "type": "function",
+        "z": "33ea2d5b80781f0b",
+        "name": "动态订阅主题",
+        "func": "let data = {}\nlet devices = {};\ndata.devices = devices;\nflow.set(\"data\", data);\n\nlet devs = msg.payload;\ndevs.forEach(dev => {\n    devices[dev.id] = dev\n    node.send({\n            action: \"subscribe\",\n            topic: dev.id\n    })\n})\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "c9f8076ce7a79d93",
+                "bf610e3311101745"
+            ]
+        ]
+    },
+    {
+        "id": "bf610e3311101745",
+        "type": "debug",
+        "z": "33ea2d5b80781f0b",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "81d5e441c64f0b3d",
+        "type": "function",
+        "z": "33ea2d5b80781f0b",
+        "name": "获取设备",
+        "func": "let data = flow.get(\"data\");\nmsg.device = data.devices[msg.topic]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 420,
+        "wires": [
+            [
+                "2bb0c5c76e3a7184",
+                "3975a7312ca5190f"
+            ]
+        ]
+    },
+    {
+        "id": "2bb0c5c76e3a7184",
+        "type": "switch",
+        "z": "33ea2d5b80781f0b",
+        "name": "",
+        "property": "device.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "CO",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "CO_PL",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "CO_SW",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AC",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "CT",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 6,
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "eb8c2afdefbdfe40"
+            ],
+            [
+                "72c1b81e5290e4ae"
+            ],
+            [
+                "72c1b81e5290e4ae"
+            ],
+            [
+                "d56e8d53999eff47"
+            ],
+            [
+                "c71d8a04a991dcc2"
+            ],
+            [
+                "2d359a4c69b7db5f"
+            ]
+        ]
+    },
+    {
+        "id": "3975a7312ca5190f",
+        "type": "debug",
+        "z": "33ea2d5b80781f0b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1cc085b57aa685b5",
+        "type": "link in",
+        "z": "8790bac5eca885ba",
+        "name": "控制设备输入",
+        "links": [
+            "f2d3874c6b2d73f3",
+            "b92885d63c1f2156"
+        ],
+        "x": 325,
+        "y": 460,
+        "wires": [
+            [
+                "3134d006736621c4"
+            ]
+        ]
+    },
+    {
+        "id": "3134d006736621c4",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "主题",
+        "func": "msg.topic = \"0/0/0/0/dev/\" + msg.payload.hd.to.id + \"/0/0\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 460,
+        "wires": [
+            [
+                "6cb182dc40c0572c",
+                "4e76d74694bb3924"
+            ]
+        ]
+    },
+    {
+        "id": "adeb7a4edd9ba86a",
+        "type": "link out",
+        "z": "8790bac5eca885ba",
+        "name": "北向输入",
+        "mode": "link",
+        "links": [
+            "bcb80ed091975c9a"
+        ],
+        "x": 1015,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6cb182dc40c0572c",
+        "type": "mqtt out",
+        "z": "8790bac5eca885ba",
+        "name": "北向输入发布",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b5ef31a7a90ee4e8",
+        "x": 650,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "a5fab40b8a440bb5",
+        "type": "mqtt in",
+        "z": "8790bac5eca885ba",
+        "name": "北向输出订阅",
+        "topic": "",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "b5ef31a7a90ee4e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 650,
+        "y": 240,
+        "wires": [
+            [
+                "821bd3a334fab03b"
+            ]
+        ]
+    },
+    {
+        "id": "dd907b890a084ac6",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "北向连接",
+        "func": "let data = global.get(\"data\")\n\nmsg = {};\nmsg.action = \"connect\";\nmsg.broker = {\n    autoConnect: true,\n    force: false\n}\nObject.assign(msg.broker, data.shadows.mqtt.north.broker);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 140,
+        "wires": [
+            [
+                "5dd7b802a624a206",
+                "d43f3585a9691357"
+            ]
+        ]
+    },
+    {
+        "id": "5dd7b802a624a206",
+        "type": "mqtt in",
+        "z": "8790bac5eca885ba",
+        "name": "北向连接",
+        "topic": "",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "b5ef31a7a90ee4e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 820,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d43f3585a9691357",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "北向输出订阅",
+        "func": "node.send({\n        action: \"subscribe\",\n        topic: \"+/+/dev/+/+/+/+/+\"\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "a5fab40b8a440bb5"
+            ]
+        ]
+    },
+    {
+        "id": "f0c709d34e0511b9",
+        "type": "inject",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "dd907b890a084ac6"
+            ]
+        ]
+    },
+    {
+        "id": "821bd3a334fab03b",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "设备ID",
+        "func": "msg.id =  msg.topic.split(\"/\")[5]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 240,
+        "wires": [
+            [
+                "adeb7a4edd9ba86a"
+            ]
+        ]
+    },
+    {
+        "id": "4e76d74694bb3924",
+        "type": "debug",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b1b26ec4df650231",
+        "type": "status",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "scope": [
+            "5dd7b802a624a206"
+        ],
+        "x": 450,
+        "y": 720,
+        "wires": [
+            [
+                "21f8b284430ba53f"
+            ]
+        ]
+    },
+    {
+        "id": "21f8b284430ba53f",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "func": "let date = new Date()\nmsg.tm=date.toLocaleString();\n\nreturn {payload: msg};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 720,
+        "wires": [
+            [
+                "d6cadcc63d204593",
+                "fee3b5c053f26757"
+            ]
+        ]
+    },
+    {
+        "id": "d6cadcc63d204593",
+        "type": "debug",
+        "z": "8790bac5eca885ba",
+        "name": "连接断开",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "fee3b5c053f26757",
+        "type": "file",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "filename": "log.txt",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 790,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2168926188a5904",
+        "type": "link in",
+        "z": "8790bac5eca885ba",
+        "name": "数据连接输入",
+        "links": [
+            "1188b78d61e6e2a8"
+        ],
+        "x": 335,
+        "y": 1060,
+        "wires": [
+            [
+                "88a125ccc32b4a71",
+                "aef6ad1ee73fbcd5"
+            ]
+        ]
+    },
+    {
+        "id": "88a125ccc32b4a71",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "数据连接",
+        "func": "let data = global.get(\"data\");\n\nmsg = {};\nmsg.action = \"connect\";\nmsg.broker = {\n    autoConnect: true,\n    cleansession: false,\n    force: false\n}\nObject.assign(msg.broker, data.shadows.mqtt.south.broker);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1060,
+        "wires": [
+            [
+                "cd4afa8b8133945b",
+                "3ecc698ece0dd59f",
+                "a33fdc542c669b38"
+            ]
+        ]
+    },
+    {
+        "id": "cd4afa8b8133945b",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "dataio_output",
+        "func": "let common = global.get(\"common\");\n\nmsg.broker.clientid = \"dataio_output_\" + common.guid(8)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1060,
+        "wires": [
+            [
+                "04bebc4484d6545e"
+            ]
+        ]
+    },
+    {
+        "id": "04bebc4484d6545e",
+        "type": "mqtt out",
+        "z": "8790bac5eca885ba",
+        "name": "数据服务发布",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ccc535250cd7677b",
+        "x": 710,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "b887e394a5738c26",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "发布主题",
+        "func": "\nlet data = global.get(\"data\");\nlet id = data.ids.plf;\nlet hd = msg.payload.hd;\nlet topic = \"0/0/plf/\" + id + \n            \"/\" + (hd.to && hd.to.type || \"dio\") + \n            \"/\" + (hd.to && hd.to.id || data.ids.dio || \"ndiot-dio\") +\n            \"/\" +hd.entry.type + \"/\" + hd.entry.id\n            \nmsg.topic = msg.topic || topic\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1180,
+        "wires": [
+            [
+                "04bebc4484d6545e",
+                "ed6cc0f42be8422c"
+            ]
+        ]
+    },
+    {
+        "id": "77a6699fe0159bd7",
+        "type": "link in",
+        "z": "8790bac5eca885ba",
+        "name": "数据发布输入",
+        "links": [
+            "4ebb953fc2da0575",
+            "4f7045dc033c2a06"
+        ],
+        "x": 335,
+        "y": 1180,
+        "wires": [
+            [
+                "b887e394a5738c26"
+            ]
+        ]
+    },
+    {
+        "id": "93954e61143fa48c",
+        "type": "mqtt in",
+        "z": "8790bac5eca885ba",
+        "name": "数据服务订阅",
+        "topic": "",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "340486ab3bf5bf39",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 700,
+        "y": 1120,
+        "wires": [
+            [
+                "f64765ee0e62dc76"
+            ]
+        ]
+    },
+    {
+        "id": "3ecc698ece0dd59f",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "dataio_input",
+        "func": "let common = global.get(\"common\");\n\nmsg.broker.clientid = \"dataio_input_\" + common.guid(8)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 1020,
+        "wires": [
+            [
+                "93954e61143fa48c"
+            ]
+        ]
+    },
+    {
+        "id": "a33fdc542c669b38",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "订阅主题",
+        "func": "\nlet data = global.get(\"data\");\n\nlet id = data.ids.plf;\nlet topics = [\n    \"+/+/+/+/plf/\" + id + \"/+/+\"\n    ]\n    \nreturn {\n        action: \"subscribe\",\n        topic: topics\n    }\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1120,
+        "wires": [
+            [
+                "93954e61143fa48c"
+            ]
+        ]
+    },
+    {
+        "id": "9d1336cb73be0cad",
+        "type": "debug",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1310,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "ed6cc0f42be8422c",
+        "type": "debug",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "f64765ee0e62dc76",
+        "type": "switch",
+        "z": "8790bac5eca885ba",
+        "name": "数据服务",
+        "property": "payload.hd.entry.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "shadows_get_devices",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 960,
+        "y": 1120,
+        "wires": [
+            [
+                "cfbe796f07da9f3e"
+            ]
+        ]
+    },
+    {
+        "id": "cfbe796f07da9f3e",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "转换",
+        "func": "\nreturn {payload: msg.payload.pld};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 1120,
+        "wires": [
+            [
+                "9d1336cb73be0cad",
+                "1bdc14d23c7d0019"
+            ]
+        ]
+    },
+    {
+        "id": "6d73c3dbf25efcd9",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "获取设备",
+        "func": "let data = global.get(\"data\");\n\npayload = {\n    hd: {\n        entry: {\n            type: \"svc\",\n            id: \"shadows_get_devices\"\n        }\n    },\n    pld: {\n        edg_id: data.ids.plf\n    }\n    \n}\n\nreturn {payload: payload};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1280,
+        "wires": [
+            [
+                "b887e394a5738c26"
+            ]
+        ]
+    },
+    {
+        "id": "1bdc14d23c7d0019",
+        "type": "link out",
+        "z": "8790bac5eca885ba",
+        "name": "获取设备输出",
+        "mode": "link",
+        "links": [
+            "b5034fa324ebdc56",
+            "94c787385fe89583"
+        ],
+        "x": 1275,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "aef6ad1ee73fbcd5",
+        "type": "delay",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 1280,
+        "wires": [
+            [
+                "6d73c3dbf25efcd9"
+            ]
+        ]
+    }
+]
