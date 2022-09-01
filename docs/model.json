@@ -1,0 +1,62 @@
+[
+{
+  "tsl_version": 1,
+  "profile": {
+    "org_id": "test",
+    "manufacturer": "ND",
+    "device_model": "Z3CO2652ESP8266",
+    "heart_beat_sec": 0,
+    "report_exp_sec": 0,
+    "category_id": "string",
+    "offline_notify": true,
+    "extend_info": "string",
+    "remark": "Z3透传网关模型"
+  },
+  "properties": [
+    {
+      "identifier": "permit_join",
+      "name": "入网开关",
+      "desc": "是否允许设备入网",
+      "access_mode": "rw",
+      "hide": false,
+      "required": true,
+      "write_interval": 0,
+      "data_type": {
+        "type": "bool"
+      }
+    }
+  ]
+
+},
+{
+  "tsl_version": 1,
+  "profile": {
+    "org_id": "test",
+    "manufacturer": "Xiaomi",
+    "device_model": "ZNCZ02LM",
+    "heart_beat_sec": 0,
+    "report_exp_sec": 0,
+    "category_id": "string",
+    "offline_notify": true,
+    "extend_info": "string",
+    "remark": "绿米插座模型"
+  },
+  "properties": [
+    {
+      "identifier": "state",
+      "name": "开关",
+      "desc": "通电状态接通或断开",
+      "access_mode": "rw",
+      "hide": false,
+      "required": true,
+      "write_interval": 0,
+      "data_type": { 
+        "type": "text"
+      }
+    }
+  ]
+ 
+}
+
+
+]

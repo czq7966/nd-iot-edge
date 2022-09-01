@@ -43,7 +43,7 @@
         "id": "a0c4930c5cd95a68",
         "type": "tab",
         "label": "平台-接口处理",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -264,8 +264,8 @@
         "topic": "",
         "payload": "data",
         "payloadType": "global",
-        "x": 280,
-        "y": 680,
+        "x": 260,
+        "y": 740,
         "wires": [
             [
                 "726372e989cf332e"
@@ -284,8 +284,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 470,
-        "y": 680,
+        "x": 450,
+        "y": 740,
         "wires": []
     },
     {
@@ -301,7 +301,7 @@
             "ee3fc65607a36a31"
         ],
         "x": 975,
-        "y": 540,
+        "y": 580,
         "wires": []
     },
     {
@@ -318,7 +318,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 830,
-        "y": 500,
+        "y": 540,
         "wires": []
     },
     {
@@ -431,12 +431,12 @@
         "finalize": "",
         "libs": [],
         "x": 420,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "7665542f0efa9c7e",
                 "9a6b106ca9bc18fb",
-                "0c099849a6952611"
+                "002af4323e67ab16"
             ]
         ]
     },
@@ -610,25 +610,6 @@
         "wires": []
     },
     {
-        "id": "0c099849a6952611",
-        "type": "function",
-        "z": "830e6099ab0b63c9",
-        "name": "上线通知",
-        "func": "let data = global.get(\"data\")\nlet ids = data.ids;\nif (ids.app && ids.dio) {\n    return msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 580,
-        "wires": [
-            [
-                "002af4323e67ab16"
-            ]
-        ]
-    },
-    {
         "id": "002af4323e67ab16",
         "type": "delay",
         "z": "830e6099ab0b63c9",
@@ -646,7 +627,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 840,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "3993a480bc4186d7",
@@ -666,7 +647,7 @@
             "9685fc5038d33366"
         ],
         "x": 975,
-        "y": 580,
+        "y": 620,
         "wires": []
     },
     {
@@ -682,7 +663,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 990,
-        "y": 660,
+        "y": 700,
         "wires": []
     },
     {
@@ -765,6 +746,25 @@
         "libs": [],
         "x": 460,
         "y": 540,
+        "wires": [
+            [
+                "ae41ab375db2ecf6"
+            ]
+        ]
+    },
+    {
+        "id": "ae41ab375db2ecf6",
+        "type": "function",
+        "z": "830e6099ab0b63c9",
+        "name": "事件触发器",
+        "func": "let EventEmitter = {\n  _events: {} ,\n\n  on: function(event, cb) {\n    const query = this._events[event] || [] \n    query.push(cb)  \n    this._events[event] = query \n    return this\n  },\n\n  off: function(event, cb) {\n    const query = this._events[event] \n    this._events[event] = query && query.filter(fn => fn !== cb) \n    return this\n  },\n\n\n  emit: function(...args) {\n    const query = this._events[args[0]],  params = Array.prototype.slice.call(args, 1) \n    query.forEach(fn => {\n      fn(...params)\n    })\n    return this\n  },\n\n\n  once: function(event, cb) {\n    const wrapperFun = (...args) => {\n      cb(...args) \n      this.off(event, wrapperFun) \n    }\n    this.on(event, wrapperFun) \n    return this\n  }\n}\n\nlet common = global.get(\"common\");\ncommon.eventEmitter = EventEmitter;\nreturn {payload: common};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 580,
         "wires": [
             [
                 "714ac6065cde5a65"
@@ -874,8 +874,7 @@
         "links": [
             "2ff5101df1ab6584",
             "b293cfb8b41ad91f",
-            "bcb80ed091975c9a",
-            "47b4149d1dc4b567"
+            "bcb80ed091975c9a"
         ],
         "x": 1005,
         "y": 180,
@@ -1078,8 +1077,7 @@
             "b45b2eba09115dae",
             "f2d3874c6b2d73f3",
             "250ffb893d37d89a",
-            "c7b7c2d7a905a76d",
-            "4ea4814dd67bee17"
+            "c7b7c2d7a905a76d"
         ],
         "x": 265,
         "y": 580,
@@ -1498,242 +1496,14 @@
         "z": "6a098faa50c428e7",
         "name": "接口处理输入",
         "links": [
-            "f3642bd38a876f99"
+            "adeb7a4edd9ba86a"
         ],
-        "x": 165,
-        "y": 160,
+        "x": 135,
+        "y": 460,
         "wires": [
             [
-                "2fe59698779d4231",
-                "e3efc5ce2e80ef06",
-                "b8966dbdded9baf4",
-                "668ef4a4f209f345"
-            ]
-        ]
-    },
-    {
-        "id": "2fe59698779d4231",
-        "type": "function",
-        "z": "6a098faa50c428e7",
-        "name": "数据服务响应",
-        "func": "let hd = msg.payload.hd;\nif (hd.stp == 1 && hd.entry.type == \"svc\" && hd.from.type == \"dio\" ) {\n    return msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 160,
-        "wires": [
-            [
-                "8fe966b2dedc8bb4"
-            ]
-        ]
-    },
-    {
-        "id": "8fe966b2dedc8bb4",
-        "type": "switch",
-        "z": "6a098faa50c428e7",
-        "name": "",
-        "property": "payload.hd.entry.id",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "login",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 520,
-        "y": 160,
-        "wires": [
-            [
-                "a40c5a49244e0c23"
-            ]
-        ]
-    },
-    {
-        "id": "a40c5a49244e0c23",
-        "type": "function",
-        "z": "6a098faa50c428e7",
-        "name": "登入响应处理",
-        "func": "let data = global.get(\"data\");\nlet pld = msg.payload.pld;\nif (pld.app_id && pld.dio_id && pld.plf_id) {\n    data.ids.app = pld.app_id;\n    data.ids.dio = pld.dio_id;\n    data.ids.plf = pld.plf_id;\n    return msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 120,
-        "wires": [
-            [
-                "77d19c6b68bc8a7b",
-                "dc90b1f191aa5f6b"
-            ]
-        ]
-    },
-    {
-        "id": "77d19c6b68bc8a7b",
-        "type": "link out",
-        "z": "6a098faa50c428e7",
-        "name": "",
-        "mode": "link",
-        "links": [
-            "81d871be6af1b2a9"
-        ],
-        "x": 945,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "dc90b1f191aa5f6b",
-        "type": "link out",
-        "z": "6a098faa50c428e7",
-        "name": "重载配置",
-        "mode": "link",
-        "links": [
-            "28563d57299b212c"
-        ],
-        "x": 945,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "e3efc5ce2e80ef06",
-        "type": "function",
-        "z": "6a098faa50c428e7",
-        "name": "数据事件请求",
-        "func": "let hd = msg.payload.hd;\nif (hd.stp == 0 && hd.entry.type == \"evt\" && hd.from.type == \"dio\" ) {\n    return msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 260,
-        "wires": [
-            [
-                "034db2c219b783d9"
-            ]
-        ]
-    },
-    {
-        "id": "034db2c219b783d9",
-        "type": "switch",
-        "z": "6a098faa50c428e7",
-        "name": "",
-        "property": "payload.hd.entry.id",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "status",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "device_joined",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "device_leave",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "device_announce",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "device_interview",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 5,
-        "x": 510,
-        "y": 260,
-        "wires": [
-            [
-                "fd111729edd5b641",
-                "dac55ce74b2fb7df"
-            ],
-            [],
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "fd111729edd5b641",
-        "type": "function",
-        "z": "6a098faa50c428e7",
-        "name": "上线",
-        "func": "return msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 710,
-        "y": 220,
-        "wires": [
-            [
-                "bd442c488be65a35"
-            ]
-        ]
-    },
-    {
-        "id": "bd442c488be65a35",
-        "type": "link out",
-        "z": "6a098faa50c428e7",
-        "name": "状态发布",
-        "mode": "link",
-        "links": [
-            "b784350e948a9e8b"
-        ],
-        "x": 945,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "dac55ce74b2fb7df",
-        "type": "debug",
-        "z": "6a098faa50c428e7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 730,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "b8966dbdded9baf4",
-        "type": "function",
-        "z": "6a098faa50c428e7",
-        "name": "设备事件请求",
-        "func": "let hd = msg.payload.hd;\nif (hd.stp == 0 && hd.entry.type == \"evt\" && hd.from.type == \"dev\" ) {\n    return msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 440,
-        "wires": [
-            [
-                "8b16690ef017cd56"
+                "a1c72a437d3f6924",
+                "e399673896a19444"
             ]
         ]
     },
@@ -1754,31 +1524,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 510,
-        "y": 440,
+        "x": 750,
+        "y": 420,
         "wires": [
             [
                 "3679da38e0d5e2c1"
-            ]
-        ]
-    },
-    {
-        "id": "668ef4a4f209f345",
-        "type": "function",
-        "z": "6a098faa50c428e7",
-        "name": "设备服务响应",
-        "func": "let hd = msg.payload.hd;\nif (hd.stp == 1 && hd.entry.type == \"svc\" && hd.from.type == \"dev\" ) {\n    return msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 540,
-        "wires": [
-            [
-                "103f5748ed939612",
-                "acc8fe4bac1b5665"
             ]
         ]
     },
@@ -1804,8 +1554,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 510,
-        "y": 540,
+        "x": 750,
+        "y": 520,
         "wires": [
             [
                 "92dcf0f04f7dbdb5"
@@ -1820,15 +1570,15 @@
         "type": "debug",
         "z": "6a098faa50c428e7",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 450,
-        "y": 740,
+        "x": 470,
+        "y": 600,
         "wires": []
     },
     {
@@ -1836,14 +1586,14 @@
         "type": "function",
         "z": "6a098faa50c428e7",
         "name": "上报",
-        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet topic = data.topics.platform.pubs.plf_dev_evt;\ntopic = common.expandTopic.expand(topic, hd.ids);\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(10),\n    message_type: \"properties_notify\",\n    device_id: hd.ids.dev,\n    properties: common.objToTslProps(pld)\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_prop;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(10),\n    message_type: \"properties_notify\",\n    device_id: attrs.id,\n    properties: common.objToTslProps(pld)\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 440,
+        "x": 950,
+        "y": 420,
         "wires": [
             [
                 "2d9b2482c7473080",
@@ -1865,8 +1615,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 940,
-        "y": 360,
+        "x": 1120,
+        "y": 340,
         "wires": []
     },
     {
@@ -1881,8 +1631,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 400,
+        "x": 1190,
+        "y": 380,
         "wires": []
     },
     {
@@ -1894,8 +1644,8 @@
         "links": [
             "fd685b5571c25f48"
         ],
-        "x": 985,
-        "y": 520,
+        "x": 1185,
+        "y": 700,
         "wires": []
     },
     {
@@ -1903,14 +1653,14 @@
         "type": "function",
         "z": "6a098faa50c428e7",
         "name": "设置响应",
-        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet topic = data.topics.platform.pubs.plf_dev_srv;\ntopic = common.expandTopic.expand(topic, hd.ids);\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(16),\n    message_type: \"properties_set_feedback\",\n    related_message_id: hd.sid,\n    device_id: hd.ids.dev,\n    result_code: (pld._success == 1 ? 0: 1)\n    \n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_srv;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\n\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(16),\n    message_type: \"properties_set_feedback\",\n    related_message_id: hd.sid,\n    device_id: attrs.id,\n    result_code: (pld._success == 1 ? 0: 1)\n    \n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 560,
+        "x": 940,
+        "y": 540,
         "wires": [
             [
                 "343cc42e55f8f701",
@@ -1923,14 +1673,14 @@
         "type": "function",
         "z": "6a098faa50c428e7",
         "name": "查询响应",
-        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet topic = data.topics.platform.pubs.plf_dev_srv;\ntopic = common.expandTopic.expand(topic, hd.ids);\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(16),\n    message_type: \"properties_get_feedback\",\n    related_message_id: hd.sid,\n    device_id: hd.ids.dev,\n    result_code: (pld._success == 1 ? 0: 1),\n    properties: common.objToTslProps(pld)\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_srv;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\n\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(16),\n    message_type: \"properties_get_feedback\",\n    related_message_id: hd.sid,\n    device_id: attrs.id,\n    result_code: (pld._success == 1 ? 0: 1),\n    properties: common.objToTslProps(pld)\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 520,
+        "x": 940,
+        "y": 500,
         "wires": [
             [
                 "343cc42e55f8f701",
@@ -1950,8 +1700,276 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 660,
+        "x": 1250,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3fc97a0f2515f1df",
+        "type": "function",
+        "z": "6a098faa50c428e7",
+        "name": "边缘事件请求",
+        "func": "let hd = msg.payload.hd;\nif (hd.stp == 0 && hd.entry.type == \"evt\"  ) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 760,
+        "wires": [
+            [
+                "e2b32536a34f996f"
+            ]
+        ]
+    },
+    {
+        "id": "a08c0acdfdaed4e5",
+        "type": "link in",
+        "z": "6a098faa50c428e7",
+        "name": "",
+        "links": [
+            "7f449b765689707d"
+        ],
+        "x": 145,
+        "y": 760,
+        "wires": [
+            [
+                "3fc97a0f2515f1df"
+            ]
+        ]
+    },
+    {
+        "id": "e2b32536a34f996f",
+        "type": "switch",
+        "z": "6a098faa50c428e7",
+        "name": "",
+        "property": "payload.hd.entry.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "device_joined",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "device_interview",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "device_leave",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 490,
+        "y": 760,
+        "wires": [
+            [
+                "e8613b02a153e6d7"
+            ],
+            [
+                "e8613b02a153e6d7"
+            ],
+            [
+                "a0e264c774b23b08"
+            ]
+        ]
+    },
+    {
+        "id": "e8613b02a153e6d7",
+        "type": "function",
+        "z": "6a098faa50c428e7",
+        "name": "device_joined",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_ctrl;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.id,\n    dev: pld.id\n}\ntopic = common.expandTopic.expand(topic, ids);\n\nlet props = {\n    org_id: pld.dom_id,\n    manufacturer: pld.vendor,\n    device_model: pld.model,\n    device_id: pld.id,\n    parent_device_id: attrs.id\n}\n\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(10),\n    send_time: new Date().valueOf(),\n    message_type: \"device_manage\",\n    device_id: pld.id,\n    operation: \"reg\",\n    profile: props\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 740,
+        "wires": [
+            [
+                "343cc42e55f8f701",
+                "f190b796c335cba7"
+            ]
+        ]
+    },
+    {
+        "id": "a0e264c774b23b08",
+        "type": "function",
+        "z": "6a098faa50c428e7",
+        "name": "device_leave",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_ctrl;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.id,\n    dev: pld.id\n}\ntopic = common.expandTopic.expand(topic, ids);\n\nlet props = {\n    org_id: pld.dom_id,\n    manufacturer: pld.vendor,\n    device_model: pld.model,\n    device_id: pld.id,\n    parent_device_id: attrs.id    \n}\n\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(10),\n    send_time: new Date().valueOf(),\n    message_type: \"device_manage\",\n    device_id: pld.id,\n    operation: \"unreg\",\n    profile: props\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 800,
+        "wires": [
+            [
+                "343cc42e55f8f701",
+                "ef2983a0abcbdcf9"
+            ]
+        ]
+    },
+    {
+        "id": "f190b796c335cba7",
+        "type": "debug",
+        "z": "6a098faa50c428e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "ef2983a0abcbdcf9",
+        "type": "debug",
+        "z": "6a098faa50c428e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "a1c72a437d3f6924",
+        "type": "function",
+        "z": "6a098faa50c428e7",
+        "name": "设备事件",
+        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device.attrs;\nif ( attrs && hd.entry.type == \"evt\" ) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 420,
+        "wires": [
+            [
+                "139981cddfe38680",
+                "acc8fe4bac1b5665"
+            ]
+        ]
+    },
+    {
+        "id": "139981cddfe38680",
+        "type": "switch",
+        "z": "6a098faa50c428e7",
+        "name": "请求/响应",
+        "property": "payload.hd.stp",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "103f5748ed939612",
+                "c970954ca362153d"
+            ],
+            [
+                "8b16690ef017cd56"
+            ]
+        ]
+    },
+    {
+        "id": "e399673896a19444",
+        "type": "function",
+        "z": "6a098faa50c428e7",
+        "name": "设备服务",
+        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device.attrs;\nif ( attrs && hd.entry.type == \"svc\" ) {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 500,
+        "wires": [
+            [
+                "b0d53a4de19f2905",
+                "acc8fe4bac1b5665"
+            ]
+        ]
+    },
+    {
+        "id": "b0d53a4de19f2905",
+        "type": "switch",
+        "z": "6a098faa50c428e7",
+        "name": "请求/响应",
+        "property": "payload.hd.stp",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 520,
+        "y": 500,
+        "wires": [
+            [],
+            [
+                "103f5748ed939612",
+                "c970954ca362153d"
+            ]
+        ]
+    },
+    {
+        "id": "c970954ca362153d",
+        "type": "debug",
+        "z": "6a098faa50c428e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 620,
         "wires": []
     },
     {
@@ -2014,7 +2032,7 @@
         "type": "function",
         "z": "4f6f6a4be1a5f2a2",
         "name": "订阅主题",
-        "func": "let data = global.get(\"data\")\nlet topics = data.topics;\nlet ids = data.ids;\nif (ids.app && ids.dio) {\n\n    node.send({\n            action: \"subscribe\",\n            topic: Object.values(topics.platform.subs)\n    })\n    \n    node.send({\n            action: \"subscribe\",\n            topic: Object.values(topics.platform.services)\n    })    \n}\n\n\n\n",
+        "func": "let data = global.get(\"data\")\nlet topics = data.topics;\nlet ids = data.ids;\n\n\n    node.send({\n            action: \"subscribe\",\n            topic: Object.values(topics.platform.subs)\n    })\n    \n    node.send({\n            action: \"subscribe\",\n            topic: Object.values(topics.platform.services)\n    })    \n\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2170,7 +2188,7 @@
         "type": "debug",
         "z": "4f6f6a4be1a5f2a2",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2274,7 +2292,9 @@
         "x": 580,
         "y": 180,
         "wires": [
-            []
+            [
+                "a384a1f21b168012"
+            ]
         ]
     },
     {
@@ -2282,7 +2302,7 @@
         "type": "function",
         "z": "a0c4930c5cd95a68",
         "name": "设备属性设置",
-        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\n\nlet payload = msg.payload;\nlet devId = payload.device_id;\nlet dev = data.devices[devId];\nlet ids;\n\nif (dev && dev.events && dev.events.report) {\n    let rep = dev.events.report;\n    ids = rep.hd.ids;\n}\n\nif (!ids) return;\n\nlet hd = {\n    pref: {\n        app: ids.app,\n        dom: ids.dom\n    },\n\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"set\"\n    },\n    sid: payload.message_id,\n    stp: 0\n}\n\nlet pld = {id: devId};\ncommon.tslPropsToObj(payload.properties, pld);\n\nreturn {\n    payload: {\n        hd: hd, \n        pld: pld\n    }\n}\n\n\n",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\n\nlet payload = msg.payload;\nlet devId = payload.device_id;\n\n\n\nlet hd = {\n\n    to: {\n        type: \"dev\",\n        id: devId,\n    },\n    entry: {\n        type: \"svc\",\n        id: \"set\"\n    },\n    sid: payload.message_id,\n    stp: 0\n}\n\nlet pld = {id: devId};\ncommon.tslPropsToObj(payload.properties, pld);\n\nreturn {\n    payload: {\n        hd: hd, \n        pld: pld\n    }\n}\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2320,10 +2340,26 @@
         "name": "",
         "mode": "link",
         "links": [
-            "44c1802636397f44"
+            "1cc085b57aa685b5"
         ],
         "x": 845,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a384a1f21b168012",
+        "type": "debug",
+        "z": "a0c4930c5cd95a68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 160,
         "wires": []
     },
     {
@@ -2441,7 +2477,8 @@
             "21290856fdc17bf5",
             "aba9c53c961e20ad",
             "86248ce81c2f0ae7",
-            "bbbabbbac3b1536b"
+            "bbbabbbac3b1536b",
+            "4ea4814dd67bee17"
         ],
         "x": 325,
         "y": 460,
@@ -2466,7 +2503,8 @@
         "y": 460,
         "wires": [
             [
-                "6cb182dc40c0572c"
+                "6cb182dc40c0572c",
+                "64b843e872bac2c9"
             ]
         ]
     },
@@ -2478,9 +2516,10 @@
         "mode": "link",
         "links": [
             "bcb80ed091975c9a",
-            "6a93f55caada7f66"
+            "6a93f55caada7f66",
+            "47b4149d1dc4b567"
         ],
-        "x": 1015,
+        "x": 1185,
         "y": 240,
         "wires": []
     },
@@ -2501,105 +2540,6 @@
         "x": 650,
         "y": 460,
         "wires": []
-    },
-    {
-        "id": "85aa389fc8bf6d32",
-        "type": "inject",
-        "z": "8790bac5eca885ba",
-        "name": "reboot",
-        "props": [
-            {
-                "p": "payload.hd",
-                "v": "{\"stp\":0,\"entry\":{\"type\":\"svc\",\"id\":\"reboot\"}}",
-                "vt": "json"
-            },
-            {
-                "p": "payload.pld",
-                "v": "{\"id\":\"ESP8266x00c20638\"}",
-                "vt": "json"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 410,
-        "y": 800,
-        "wires": [
-            [
-                "a2d0e622513cb23a"
-            ]
-        ]
-    },
-    {
-        "id": "a5d0b173d185afed",
-        "type": "inject",
-        "z": "8790bac5eca885ba",
-        "name": "off",
-        "props": [
-            {
-                "p": "payload.pld.power",
-                "v": "off",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 390,
-        "y": 880,
-        "wires": [
-            [
-                "a2d0e622513cb23a"
-            ]
-        ]
-    },
-    {
-        "id": "a2d0e622513cb23a",
-        "type": "function",
-        "z": "8790bac5eca885ba",
-        "name": "ESP8266x00c20638",
-        "func": "msg.payload.hd = msg.payload.hd ||\n{\n    \"stp\": 0,\n    \"entry\": {\n        \"type\": \"svc\",\n        \"id\": \"set\"\n    },\n    \"to\": {\n        \"type\": \"dev\",\n        \"id\": \"ESP8266x00c20638\"\n    }\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 860,
-        "y": 820,
-        "wires": [
-            [
-                "3134d006736621c4"
-            ]
-        ]
-    },
-    {
-        "id": "ce9a2df578966fd0",
-        "type": "inject",
-        "z": "8790bac5eca885ba",
-        "name": "on",
-        "props": [
-            {
-                "p": "payload.pld.power",
-                "v": "on",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 430,
-        "y": 940,
-        "wires": [
-            [
-                "a2d0e622513cb23a"
-            ]
-        ]
     },
     {
         "id": "a5fab40b8a440bb5",
@@ -2638,7 +2578,8 @@
         "wires": [
             [
                 "5dd7b802a624a206",
-                "d43f3585a9691357"
+                "d43f3585a9691357",
+                "d12db58422191154"
             ]
         ]
     },
@@ -2666,7 +2607,7 @@
         "type": "function",
         "z": "8790bac5eca885ba",
         "name": "北向输出订阅",
-        "func": "node.send({\n        action: \"subscribe\",\n        topic: \"+/+/dev/+/+/+/+/+\"\n})",
+        "func": "let topics = [\n    \"+/+/dev/ESP8266x0006cf1d/+/+/+/+\",\n    \"+/+/dev/0x00158d000353c53f/+/+/+/+\"\n]\nnode.send({\n        action: \"subscribe\",\n        topic: topics\n})",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2685,13 +2626,13 @@
         "type": "function",
         "z": "8790bac5eca885ba",
         "name": "设备ID",
-        "func": "msg.id =  msg.topic.split(\"/\")[5]\nreturn msg;",
+        "func": "msg.id =  msg.topic.split(\"/\")[3]\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
+        "x": 890,
         "y": 240,
         "wires": [
             [
@@ -2728,8 +2669,113 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
+        "x": 1150,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "98c4bb486ced24ec",
+        "type": "mqtt in",
+        "z": "8790bac5eca885ba",
+        "name": "北向边缘输出订阅",
+        "topic": "",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "b5ef31a7a90ee4e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 670,
         "y": 300,
+        "wires": [
+            [
+                "417c911e44e0890c"
+            ]
+        ]
+    },
+    {
+        "id": "d12db58422191154",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "北向边缘输出订阅",
+        "func": "node.send({\n        action: \"subscribe\",\n        topic: \"+/+/+/+/edg/+/+/+\"\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "98c4bb486ced24ec"
+            ]
+        ]
+    },
+    {
+        "id": "417c911e44e0890c",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "边缘ID",
+        "func": "msg.id =  msg.topic.split(\"/\")[5]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 300,
+        "wires": [
+            [
+                "7f449b765689707d",
+                "694d7917663414b3"
+            ]
+        ]
+    },
+    {
+        "id": "7f449b765689707d",
+        "type": "link out",
+        "z": "8790bac5eca885ba",
+        "name": "北向边缘事件输入",
+        "mode": "link",
+        "links": [
+            "a08c0acdfdaed4e5"
+        ],
+        "x": 1185,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "694d7917663414b3",
+        "type": "debug",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "64b843e872bac2c9",
+        "type": "debug",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 560,
         "wires": []
     },
     {
