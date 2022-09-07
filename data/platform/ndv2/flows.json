@@ -1653,7 +1653,7 @@
         "type": "function",
         "z": "6a098faa50c428e7",
         "name": "设置响应",
-        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_srv;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\n\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(16),\n    message_type: \"properties_set_feedback\",\n    related_message_id: hd.sid,\n    device_id: attrs.id,\n    result_code: (pld._success == 1 ? 0: 1)\n    \n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_srv;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\n\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(16),\n    message_type: \"properties_set_feedback\",\n    related_message_id: hd.sid,\n    device_id: attrs.id,\n    result_code: 0,\n    properties: common.objToTslProps(pld)\n    \n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1673,7 +1673,7 @@
         "type": "function",
         "z": "6a098faa50c428e7",
         "name": "查询响应",
-        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_srv;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\n\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(16),\n    message_type: \"properties_get_feedback\",\n    related_message_id: hd.sid,\n    device_id: attrs.id,\n    result_code: (pld._success == 1 ? 0: 1),\n    properties: common.objToTslProps(pld)\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_srv;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\n\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(16),\n    message_type: \"properties_get_feedback\",\n    related_message_id: hd.sid,\n    device_id: attrs.id,\n    result_code: 0,\n    properties: common.objToTslProps(pld)\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1857,7 +1857,7 @@
         "type": "function",
         "z": "6a098faa50c428e7",
         "name": "设备事件",
-        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device.attrs;\nif ( attrs && hd.entry.type == \"evt\" ) {\n    return msg;\n}",
+        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device && msg.payload.device.attrs;\nif ( attrs && hd.entry.type == \"evt\" ) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1909,7 +1909,7 @@
         "type": "function",
         "z": "6a098faa50c428e7",
         "name": "设备服务",
-        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device.attrs;\nif ( attrs && hd.entry.type == \"svc\" ) {\n    return msg;\n}",
+        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device && msg.payload.device.attrs;\nif ( attrs && hd.entry.type == \"svc\" ) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2607,7 +2607,7 @@
         "type": "function",
         "z": "8790bac5eca885ba",
         "name": "北向输出订阅",
-        "func": "let topics = [\n    \"+/+/dev/ESP8266x0006cf1d/+/+/+/+\",\n    \"+/+/dev/0x00158d000353c53f/+/+/+/+\"\n]\nnode.send({\n        action: \"subscribe\",\n        topic: topics\n})",
+        "func": "    // \"+/+/dev/ESP8266x0006cf1d/+/+/+/+\",\n    // \"+/+/dev/0x00158d000353c53f/+/+/+/+\",\n    // \"+/+/dev/ESP8266x008f8517/+/+/+/+\"\nlet topics = [\n    \"+/+/dev/+/+/+/+/+\"\n]\nnode.send({\n        action: \"subscribe\",\n        topic: topics\n})",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2776,6 +2776,76 @@
         "statusType": "auto",
         "x": 610,
         "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e6b6f2df214c21b8",
+        "type": "link in",
+        "z": "8790bac5eca885ba",
+        "name": "控制设备北向输出",
+        "links": [
+            "f4ace31c7377e017"
+        ],
+        "x": 325,
+        "y": 700,
+        "wires": [
+            [
+                "d5d6fcd0b2bf4691"
+            ]
+        ]
+    },
+    {
+        "id": "d5d6fcd0b2bf4691",
+        "type": "function",
+        "z": "8790bac5eca885ba",
+        "name": "主题",
+        "func": "msg.topic = msg.topic || \"0/0/dev/\" + msg.id + \"/0/0/0/0\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 700,
+        "wires": [
+            [
+                "19748527d70a76a0",
+                "8ade72181d7aad6d"
+            ]
+        ]
+    },
+    {
+        "id": "19748527d70a76a0",
+        "type": "mqtt out",
+        "z": "8790bac5eca885ba",
+        "name": "北向输出发布",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b5ef31a7a90ee4e8",
+        "x": 650,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "8ade72181d7aad6d",
+        "type": "debug",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 800,
         "wires": []
     },
     {
@@ -3005,5 +3075,97 @@
         "x": 1190,
         "y": 600,
         "wires": []
+    },
+    {
+        "id": "21b11c9bb9a05d1f",
+        "type": "comment",
+        "z": "05ab6743f31497ca",
+        "name": "设备入网",
+        "info": "",
+        "x": 220,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "ebc84dc2058a033a",
+        "type": "inject",
+        "z": "05ab6743f31497ca",
+        "name": "入网",
+        "props": [
+            {
+                "p": "action",
+                "v": "device_joined",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 410,
+        "y": 900,
+        "wires": [
+            [
+                "869eebba1b9ffa94"
+            ]
+        ]
+    },
+    {
+        "id": "869eebba1b9ffa94",
+        "type": "function",
+        "z": "05ab6743f31497ca",
+        "name": "设备",
+        "func": "\nlet hd = {\n    entry: {\n        type: \"evt\",\n        id: msg.action\n    }\n}\n\nlet pld = {\n    id: \"ESP32x6abf713c\",\n    app_id: \"ndiot\",\n    dom_id: \"test\",\n    pid: null,\n    desc: \"ESP32红外透传接收发射器\",\n    model: \"RFIRPENETESP32\",\n    vendor: \"ND\",\n    type: \"AC\"\n}\n\nlet topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n\nlet _msg = {\n    id: pld.id,\n    payload: {\n        hd: hd,\n        pld: pld\n    },\n    topic: topic\n}\n\n\n\nreturn _msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 920,
+        "wires": [
+            [
+                "f4ace31c7377e017"
+            ]
+        ]
+    },
+    {
+        "id": "f4ace31c7377e017",
+        "type": "link out",
+        "z": "05ab6743f31497ca",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "e6b6f2df214c21b8"
+        ],
+        "x": 955,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "736771191d7991d2",
+        "type": "inject",
+        "z": "05ab6743f31497ca",
+        "name": "脱网",
+        "props": [
+            {
+                "p": "action",
+                "v": "device_leave",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 410,
+        "y": 960,
+        "wires": [
+            [
+                "869eebba1b9ffa94"
+            ]
+        ]
     }
 ]

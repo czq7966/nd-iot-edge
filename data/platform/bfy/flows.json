@@ -3673,5 +3673,24 @@
                 "6d73c3dbf25efcd9"
             ]
         ]
+    },
+    {
+        "id": "d66b5e93e289ac10",
+        "type": "inject",
+        "z": "8790bac5eca885ba",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 310,
+        "y": 1380,
+        "wires": [
+            [
+                "6d73c3dbf25efcd9"
+            ]
+        ]
     }
 ]
