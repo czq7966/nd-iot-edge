@@ -2188,7 +2188,7 @@
         "type": "debug",
         "z": "4f6f6a4be1a5f2a2",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2262,11 +2262,16 @@
                 "t": "eq",
                 "v": "properties_set",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "device_manage_notify",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 2,
+        "outputs": 3,
         "x": 390,
         "y": 200,
         "wires": [
@@ -2275,6 +2280,9 @@
             ],
             [
                 "59eef5abdfbfc6d5"
+            ],
+            [
+                "ab1f2526d9a5c0b0"
             ]
         ]
     },
@@ -2322,14 +2330,14 @@
         "type": "debug",
         "z": "a0c4930c5cd95a68",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
+        "x": 950,
         "y": 240,
         "wires": []
     },
@@ -2342,8 +2350,8 @@
         "links": [
             "1cc085b57aa685b5"
         ],
-        "x": 845,
-        "y": 340,
+        "x": 825,
+        "y": 240,
         "wires": []
     },
     {
@@ -2351,7 +2359,7 @@
         "type": "debug",
         "z": "a0c4930c5cd95a68",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2360,6 +2368,56 @@
         "statusType": "auto",
         "x": 790,
         "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ab1f2526d9a5c0b0",
+        "type": "function",
+        "z": "a0c4930c5cd95a68",
+        "name": "入网/脱网",
+        "func": "let data = global.get(\"data\");\n\nlet payload = msg.payload;\nlet profile = payload.profile;\nlet operation = payload.operation == \"unreg\" ? \"device_leave\" : \"device_joined\"\n\nlet hd = {\n    entry: {\n        type: \"evt\",\n        id: operation\n    }\n}\n\nlet pld = {\n    id: profile.device_id,\n    app_id: data.ids.app,\n    dom_id: profile.org_id,\n    pid: profile.parent_device_id,\n    name: profile.device_name,\n    desc: profile.remark,\n    model: profile.device_model,\n    vendor: profile.manufacturer\n}\n\nlet topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n\nlet _msg = {\n    id: pld.id,\n    payload: {\n        hd: hd,\n        pld: pld\n    },\n    topic: topic\n}\n\n\n\nreturn _msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 340,
+        "wires": [
+            [
+                "c86948c3bea6274b",
+                "b831eb71acd8f56b"
+            ]
+        ]
+    },
+    {
+        "id": "c86948c3bea6274b",
+        "type": "link out",
+        "z": "a0c4930c5cd95a68",
+        "name": "平台入网脱网输出",
+        "mode": "link",
+        "links": [
+            "e6b6f2df214c21b8"
+        ],
+        "x": 825,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b831eb71acd8f56b",
+        "type": "debug",
+        "z": "a0c4930c5cd95a68",
+        "name": "平台入网脱网输出",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 440,
         "wires": []
     },
     {
@@ -2478,7 +2536,8 @@
             "aba9c53c961e20ad",
             "86248ce81c2f0ae7",
             "bbbabbbac3b1536b",
-            "4ea4814dd67bee17"
+            "4ea4814dd67bee17",
+            "b1f9c6e0689535d1"
         ],
         "x": 325,
         "y": 460,
@@ -2784,7 +2843,8 @@
         "z": "8790bac5eca885ba",
         "name": "控制设备北向输出",
         "links": [
-            "f4ace31c7377e017"
+            "f4ace31c7377e017",
+            "c86948c3bea6274b"
         ],
         "x": 325,
         "y": 700,
