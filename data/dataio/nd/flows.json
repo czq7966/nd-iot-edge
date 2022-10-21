@@ -377,7 +377,8 @@
                 "82d624e156acd716"
             ],
             [
-                "0666cb29a70a9804"
+                "0666cb29a70a9804",
+                "87a29e8ed86c5747"
             ]
         ]
     },
@@ -676,7 +677,7 @@
             "95f8abc4558b9fe4"
         ],
         "x": 935,
-        "y": 380,
+        "y": 300,
         "wires": []
     },
     {
@@ -697,7 +698,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 780,
-        "y": 380,
+        "y": 300,
         "wires": [
             [
                 "fcb9bbaa875f8ea9"
@@ -899,7 +900,7 @@
             "fbd24133642ac624"
         ],
         "x": 935,
-        "y": 340,
+        "y": 380,
         "wires": []
     },
     {
@@ -1720,7 +1721,7 @@
         "type": "function",
         "z": "25fe735d371c65bb",
         "name": "获取环境连接",
-        "func": "let data = global.get(\"data\");\n\nlet podname = env.get(\"POD_NAME\") || \"\";\nlet name = \"develop\";\nif (podname.indexOf(\"-preproduct-\") >=0 )\n    name = \"preproduct\";\nelse if (podname.indexOf(\"-product-\") >=0 )\n    name = \"product\";\nelse if (podname.indexOf(\"-test-\") >=0 )\n    name = \"test\";\n\n\nlet mgUrl = data.mongodb[name] || data.mongodb[develop];\n\nreturn {\n    action: \"connect\",\n    url: mgUrl.url\n};\n",
+        "func": "let data = global.get(\"data\");\n\nlet podname = env.get(\"POD_NAME\") || \"\";\n// if (podname) {\nif (true) {\n    let name = \"default\";\n    if (podname.indexOf(\"-preproduct-\") >=0 )\n        name = \"preproduct\";\n    else if (podname.indexOf(\"-product-\") >=0 )\n        name = \"product\";\n    else if (podname.indexOf(\"-test-\") >=0 )\n        name = \"test\";\n    else if (podname.indexOf(\"-develop-\") >=0 )\n        name = \"develop\";\n    \n    \n    let mgUrl = data.mongodb[name] || data.mongodb.develop;\n    \n    return {\n        action: \"connect\",\n        url: mgUrl.url\n    };\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1731,7 +1732,8 @@
         "wires": [
             [
                 "46f6c14ebaa1abda",
-                "a87fabeecac73db8"
+                "a87fabeecac73db8",
+                "ff14bae15a77e9ee"
             ]
         ]
     },
@@ -1863,6 +1865,23 @@
         "statusType": "auto",
         "x": 350,
         "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ff14bae15a77e9ee",
+        "type": "debug",
+        "z": "25fe735d371c65bb",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "url",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 120,
         "wires": []
     },
     {

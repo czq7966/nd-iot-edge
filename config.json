@@ -53,7 +53,10 @@
                                 },
                                 "product": {
                                     "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
-                                }                                
+                                },
+                                "default": {
+                                    "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                }                                 
                             },
                             "shadows": {
                                 "dio_url": "https://nd-iot-edge.debug.ndaeweb.com/dio",
@@ -61,14 +64,14 @@
                                     "south": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "south",
+                                            "username": "62f36682a30e9400102f4f23",
                                             "password": ""
                                         }                                        
                                     },
                                     "north": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "north",
+                                            "username": "60b603a0d9419c00107e378d",
                                             "password": ""
                                         }                                        
                                     }                                          
@@ -160,7 +163,10 @@
                                 },
                                 "product": {
                                     "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
-                                }                                
+                                },
+                                "default": {
+                                    "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                }                                 
                             },
                             "shadows": {
                                 "dio_url": "https://nd-iot-edge.debug.ndaeweb.com/dio",
@@ -168,14 +174,14 @@
                                     "south": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "south",
+                                            "username": "62f36682a30e9400102f4f23",
                                             "password": ""
                                         }                                        
                                     },
                                     "north": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "north",
+                                            "username": "60b603a0d9419c00107e378d",
                                             "password": ""
                                         }                                        
                                     }                                          
@@ -251,7 +257,10 @@
                                 },
                                 "product": {
                                     "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
-                                }                                
+                                },
+                                "default": {
+                                    "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                }                                 
                             },
                             "shadows": {
                                 "dio_url": "https://nd-iot-edge.debug.ndaeweb.com/dio",
@@ -259,14 +268,14 @@
                                     "south": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "south",
+                                            "username": "62f36682a30e9400102f4f23",
                                             "password": ""
                                         }                                        
                                     },
                                     "north": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "north",
+                                            "username": "60b603a0d9419c00107e378d",
                                             "password": ""
                                         }                                        
                                     }                                          
@@ -339,7 +348,10 @@
                                 },
                                 "product": {
                                     "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
-                                }                                
+                                },
+                                "default": {
+                                    "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                }                                 
                             },
                             "shadows": {
                                 "dio_url": "https://nd-iot-edge.debug.ndaeweb.com/dio",
@@ -347,14 +359,14 @@
                                     "south": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "south",
+                                            "username": "62f36682a30e9400102f4f23",
                                             "password": ""
                                         }                                        
                                     },
                                     "north": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "north",
+                                            "username": "60b603a0d9419c00107e378d",
                                             "password": ""
                                         }                                        
                                     }                                          
@@ -442,14 +454,14 @@
                                     "south": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "south",
+                                            "username": "62f36682a30e9400102f4f23",
                                             "password": ""
                                         }                                        
                                     },
                                     "north": {
                                         "broker" : {
                                             "url": "mqtt://push-access.sdp.101.com:1780",
-                                            "username": "north",
+                                            "username": "60b603a0d9419c00107e378d",
                                             "password": ""
                                         }                                        
                                     }                                    
@@ -466,7 +478,10 @@
                                     },
                                     "product": {
                                         "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
-                                    }                                
+                                    },
+                                    "default": {
+                                        "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                    }                                 
                                 },
                                 "shadows": {
                                     "dio_url": "https://nd-iot-edge.debug.ndaeweb.com/dio",
@@ -474,14 +489,14 @@
                                         "south": {
                                             "broker" : {
                                                 "url": "mqtt://push-access.sdp.101.com:1780",
-                                                "username": "south",
+                                                "username": "62f36682a30e9400102f4f23",
                                                 "password": ""
                                             }                                        
                                         },
                                         "north": {
                                             "broker" : {
                                                 "url": "mqtt://push-access.sdp.101.com:1780",
-                                                "username": "north",
+                                                "username": "60b603a0d9419c00107e378d",
                                                 "password": ""
                                             }                                        
                                         }                                          
@@ -620,7 +635,10 @@
                         },
                         "product": {
                             "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
-                        }                                
+                        },
+                        "default": {
+                            "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                        }                                 
                     },
                     "shadows": {
                         "dio_url": "https://nd-iot-edge.debug.ndaeweb.com/dio",
@@ -628,14 +646,14 @@
                             "south": {
                                 "broker" : {
                                     "url": "mqtt://push-access.sdp.101.com:1780",
-                                    "username": "south",
+                                    "username": "62f36682a30e9400102f4f23",
                                     "password": ""
                                 }                                        
                             },
                             "north": {
                                 "broker" : {
                                     "url": "mqtt://push-access.sdp.101.com:1780",
-                                    "username": "north",
+                                    "username": "60b603a0d9419c00107e378d",
                                     "password": ""
                                 }                                        
                             }                                          
@@ -702,17 +720,20 @@
                     },
                     "mongodb": {
                         "develop": {
-                            "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                            "url": "mongodb://dev_mdb_iot_edge:6OGadkcKJDl8@m1.all.dev2.mongod3.sdp:34004/dev_mdb_iot_edge?autoConnectRetry=true"
                         },
                         "test": {
-                            "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                            "url": "mongodb://dev_mdb_iot_edge:6OGadkcKJDl8@m1.all.dev2.mongod3.sdp:34004/dev_mdb_iot_edge?autoConnectRetry=true"
                         },
                         "preproduct": {
-                            "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                            "url": "mongodb://dev_mdb_iot_edge:6OGadkcKJDl8@m1.all.dev2.mongod3.sdp:34004/dev_mdb_iot_edge?autoConnectRetry=true"
                         },
                         "product": {
-                            "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
-                        }                                
+                            "url": "mongodb://dev_mdb_iot_edge:6OGadkcKJDl8@m1.all.dev2.mongod3.sdp:34004/dev_mdb_iot_edge?autoConnectRetry=true"
+                        },
+                        "default": {
+                            "url": "mongodb://dev_mdb_iot_edge:6OGadkcKJDl8@m1.all.dev2.mongod3.sdp:34004/dev_mdb_iot_edge?autoConnectRetry=true"
+                        }                              
                     },
                     "shadows": {
                         "dio_url": "https://nd-iot-edge.debug.ndaeweb.com/dio",
@@ -720,14 +741,14 @@
                             "south": {
                                 "broker" : {
                                     "url": "mqtt://push-access.sdp.101.com:1780",
-                                    "username": "south",
+                                    "username": "62f36682a30e9400102f4f23",
                                     "password": ""
                                 }                                        
                             },
                             "north": {
                                 "broker" : {
                                     "url": "mqtt://push-access.sdp.101.com:1780",
-                                    "username": "north",
+                                    "username": "60b603a0d9419c00107e378d",
                                     "password": ""
                                 }                                        
                             }                                          
