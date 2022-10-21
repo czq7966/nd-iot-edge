@@ -6,6 +6,16 @@ let spawn = require("child_process").spawn;
 let useSpawn = true;
 
 let init = () => {
+    process.on('uncaughtException', (e)=>{
+        console.log("uncaughtException:");
+        console.error(e);
+    });
+
+    process.on('unhandledRejection', (e)=>{
+        console.log("unhandledRejection:");
+        console.error(e);
+    });
+
     process.env.IOT_CONFIG_FILE = process.env.IOT_CONFIG_FILE || path.resolve(__dirname, "config.json");
     process.env.IOT_NGINX_CONF = process.env.IOT_NGINX_CONF || "/usr/local/nginx/conf/nginx.conf";  
 }

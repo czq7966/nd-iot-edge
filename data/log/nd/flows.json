@@ -1137,6 +1137,36 @@
         ]
     },
     {
+        "id": "9332cd3157aafe85",
+        "type": "inject",
+        "z": "edb25e171bdb8773",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "collection",
+                "v": "ndiot_shadows_20221020",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "ecd4b9fb7586dc9f"
+            ]
+        ]
+    },
+    {
         "id": "9c88fd5568c36785",
         "type": "http request",
         "z": "05ab6743f31497ca",
@@ -1282,8 +1312,7 @@
         "y": 340,
         "wires": [
             [
-                "615669b1330a651f",
-                "39e5ad23d4337e8e"
+                "c1804ac331e12111"
             ]
         ]
     },
@@ -1296,7 +1325,7 @@
         "links": [
             "16086666a5330f52"
         ],
-        "x": 975,
+        "x": 1215,
         "y": 360,
         "wires": []
     },
@@ -1312,7 +1341,7 @@
         "finalize": "",
         "libs": [],
         "x": 850,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
                 "489eca10a9043253"
@@ -1330,12 +1359,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
+        "x": 1070,
         "y": 360,
         "wires": [
             [
                 "160e3ce504dc0b49",
-                "2eb444bcc2d2bf9a"
+                "2eb444bcc2d2bf9a",
+                "d4425d878bcca652"
             ]
         ]
     },
@@ -1365,7 +1395,7 @@
         "name": "南向输出订阅",
         "topic": "",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto",
         "broker": "790bcfc072decbef",
         "nl": false,
         "rap": true,
@@ -1375,7 +1405,7 @@
         "y": 380,
         "wires": [
             [
-                "05c96c86f6fe24ae"
+                "53d26fe368be7925"
             ]
         ]
     },
@@ -1390,7 +1420,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
+        "x": 850,
         "y": 380,
         "wires": [
             [
@@ -1424,7 +1454,7 @@
         "name": "北向输出订阅",
         "topic": "",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto",
         "broker": "7a928bcc4b06cbcc",
         "nl": false,
         "rap": true,
@@ -1434,7 +1464,7 @@
         "y": 700,
         "wires": [
             [
-                "2b6aef5620e1034d"
+                "6b7481897f3a0393"
             ]
         ]
     },
@@ -1447,7 +1477,7 @@
         "links": [
             "16086666a5330f52"
         ],
-        "x": 995,
+        "x": 1195,
         "y": 680,
         "wires": []
     },
@@ -1462,7 +1492,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
+        "x": 850,
         "y": 660,
         "wires": [
             [
@@ -1481,7 +1511,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
+        "x": 1070,
         "y": 680,
         "wires": [
             [
@@ -1516,7 +1546,7 @@
         "name": "北向输入订阅",
         "topic": "",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto",
         "broker": "b5ef31a7a90ee4e8",
         "nl": false,
         "rap": true,
@@ -1526,7 +1556,7 @@
         "y": 660,
         "wires": [
             [
-                "af75deeb2568b54e"
+                "3c14fb1d18817c51"
             ]
         ]
     },
@@ -1541,7 +1571,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
+        "x": 850,
         "y": 700,
         "wires": [
             [
@@ -1580,7 +1610,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1070,
+        "x": 1190,
         "y": 460,
         "wires": []
     },
@@ -1596,7 +1626,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1050,
+        "x": 1170,
         "y": 580,
         "wires": []
     },
@@ -1810,35 +1840,113 @@
         ]
     },
     {
-        "id": "615669b1330a651f",
-        "type": "json",
-        "z": "a94bd1cc5a6fde26",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 690,
-        "y": 320,
-        "wires": [
-            [
-                "821bd3a334fab03b"
-            ]
-        ]
-    },
-    {
         "id": "39e5ad23d4337e8e",
         "type": "debug",
         "z": "a94bd1cc5a6fde26",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 750,
-        "y": 240,
+        "x": 850,
+        "y": 220,
         "wires": []
+    },
+    {
+        "id": "c1804ac331e12111",
+        "type": "function",
+        "z": "a94bd1cc5a6fde26",
+        "name": "转换",
+        "func": "\nif (Buffer.isBuffer(msg.payload))\n    msg.payload = msg.payload.toJSON();\nelse {\n    try{\n        msg.payload = JSON.parse(msg.payload);\n    }catch(e){}\n}\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 340,
+        "wires": [
+            [
+                "39e5ad23d4337e8e",
+                "821bd3a334fab03b"
+            ]
+        ]
+    },
+    {
+        "id": "d4425d878bcca652",
+        "type": "debug",
+        "z": "a94bd1cc5a6fde26",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "collection",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "53d26fe368be7925",
+        "type": "function",
+        "z": "a94bd1cc5a6fde26",
+        "name": "转换",
+        "func": "\nif (Buffer.isBuffer(msg.payload))\n    msg.payload = msg.payload.toJSON();\nelse {\n    try{\n        msg.payload = JSON.parse(msg.payload);\n    }catch(e){}\n}\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 380,
+        "wires": [
+            [
+                "05c96c86f6fe24ae"
+            ]
+        ]
+    },
+    {
+        "id": "3c14fb1d18817c51",
+        "type": "function",
+        "z": "a94bd1cc5a6fde26",
+        "name": "转换",
+        "func": "\nif (Buffer.isBuffer(msg.payload))\n    msg.payload = msg.payload.toJSON();\nelse {\n    try{\n        msg.payload = JSON.parse(msg.payload);\n    }catch(e){}\n}\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 660,
+        "wires": [
+            [
+                "af75deeb2568b54e"
+            ]
+        ]
+    },
+    {
+        "id": "6b7481897f3a0393",
+        "type": "function",
+        "z": "a94bd1cc5a6fde26",
+        "name": "转换",
+        "func": "\nif (Buffer.isBuffer(msg.payload))\n    msg.payload = msg.payload.toJSON();\nelse {\n    try{\n        msg.payload = JSON.parse(msg.payload);\n    }catch(e){}\n}\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 700,
+        "wires": [
+            [
+                "2b6aef5620e1034d"
+            ]
+        ]
     }
 ]

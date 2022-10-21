@@ -969,7 +969,7 @@
         "type": "debug",
         "z": "e783d53461d94d52",
         "name": "影子输出",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1757,6 +1757,7 @@
         "id": "2182b140b7f7102f",
         "type": "function",
         "z": "e783d53461d94d52",
+        "d": true,
         "name": "南向订阅设备状态",
         "func": "let id = msg.payload.id;\nnode.send({\n        action: \"subscribe\",\n        topic: \"0/0/dev/\"+id+\"/0/0/evt/status\"\n})\n",
         "outputs": 1,
@@ -2124,7 +2125,7 @@
         "name": "南向订阅",
         "topic": "",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto",
         "broker": "acbe893ce0e86722",
         "nl": false,
         "rap": true,
@@ -2134,7 +2135,7 @@
         "y": 400,
         "wires": [
             [
-                "821bd3a334fab03b"
+                "c1804ac331e12111"
             ]
         ]
     },
@@ -2199,8 +2200,8 @@
         "links": [
             "6e1b243376ea48e3"
         ],
-        "x": 805,
-        "y": 400,
+        "x": 1015,
+        "y": 380,
         "wires": []
     },
     {
@@ -2336,8 +2337,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 400,
+        "x": 860,
+        "y": 380,
         "wires": [
             [
                 "160e3ce504dc0b49"
@@ -3668,6 +3669,436 @@
         "wires": [
             [
                 "dbb174eced0e90b2"
+            ]
+        ]
+    },
+    {
+        "id": "c1804ac331e12111",
+        "type": "function",
+        "z": "0d352f1d7c785601",
+        "name": "",
+        "func": "\nif (Buffer.isBuffer(msg.payload))\n    return [msg, null];\nelse {\n    msg.payload = JSON.parse(msg.payload);\n    return [null, msg];\n}\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 380,
+        "wires": [
+            [
+                "76c8dc96b1339cfb",
+                "821bd3a334fab03b"
+            ],
+            [
+                "821bd3a334fab03b"
+            ]
+        ]
+    },
+    {
+        "id": "76c8dc96b1339cfb",
+        "type": "debug",
+        "z": "0d352f1d7c785601",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "263131c471f38e6f",
+        "type": "mqtt in",
+        "z": "258449913ea08d71",
+        "name": "南向订阅",
+        "topic": "0/0/dev/ESP8266x0098b1f8/0/0/0/0",
+        "qos": "2",
+        "datatype": "buffer",
+        "broker": "acbe893ce0e86722",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "a7d096148227a238"
+            ]
+        ]
+    },
+    {
+        "id": "a7d096148227a238",
+        "type": "debug",
+        "z": "258449913ea08d71",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "15cb59640cc685af",
+        "type": "mqtt out",
+        "z": "258449913ea08d71",
+        "name": "北向发布",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e0b970ba11de7cc5",
+        "x": 1220,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6ef82f991558bdea",
+        "type": "function",
+        "z": "258449913ea08d71",
+        "name": "topic",
+        "func": "if(!msg.topic)\n    msg.topic = \"0/0/0/0/dev/\"+ msg.id +\"/0/0\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 580,
+        "wires": [
+            [
+                "15cb59640cc685af"
+            ]
+        ]
+    },
+    {
+        "id": "56fb1fef80c1ead9",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "handshake",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":2,\"cmd_sid\":112}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 660,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "ea78a604be572a85",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "reboot",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":3, \"cmd_sid\":112}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 600,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "8ee326fb53fd3a98",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "penet",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":7}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.60500",
+                "v": "[48,49,50,51,52,53]",
+                "vt": "bin"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 520,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "04ed946683f18fab",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "resetconfig",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":11}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 720,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "99d9ff0c32de7474",
+        "type": "change",
+        "z": "258449913ea08d71",
+        "name": "",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 580,
+        "wires": [
+            [
+                "7f6fed63b5d3ea50"
+            ]
+        ]
+    },
+    {
+        "id": "aa9f6ba9f08aefc9",
+        "type": "change",
+        "z": "258449913ea08d71",
+        "name": "ESP8266x0098b1f8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x0098b1f8",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 520,
+        "wires": [
+            [
+                "6ef82f991558bdea"
+            ]
+        ]
+    },
+    {
+        "id": "f3f1e81595a4e64c",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "config",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"61007\":1152}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 840,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "f323c3c708e02547",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "debug=false",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"61006\":0}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 920,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "a3e2ce6aaf48e7ec",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "debug=true",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"61006\":1}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 960,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "022f5e27d2c14926",
+        "type": "function",
+        "z": "258449913ea08d71",
+        "name": "",
+        "func": "\nif (Buffer.isBuffer(msg.payload))\n    return [msg, null];\nelse {\n    msg.payload = JSON.parse(msg.payload);\n    return [null, msg];\n}\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 420,
+        "wires": [
+            [],
+            [
+                "a7d096148227a238"
+            ]
+        ]
+    },
+    {
+        "id": "3ec10aa15d4189bb",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 650,
+        "y": 420,
+        "wires": [
+            [
+                "022f5e27d2c14926"
+            ]
+        ]
+    },
+    {
+        "id": "7f6fed63b5d3ea50",
+        "type": "change",
+        "z": "258449913ea08d71",
+        "name": "ndiotbcff4d06cf1d",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiotbcff4d06cf1d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 640,
+        "wires": [
+            [
+                "6ef82f991558bdea"
             ]
         ]
     }
