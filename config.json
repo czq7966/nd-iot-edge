@@ -761,5 +761,143 @@
                 "app": "{APP_ID}"
             }
         }
+    },
+    "test": {
+        "global": {
+            "data": {
+                "app": {
+                    "id": "{app}",
+                    "name": "测试APP",
+                    "domain": {
+                        "id": "{dom}",
+                        "name": "网龙公司",
+                        "dispatcher": {
+                            "id": "{dsp}",
+                            "name": "调度器",
+                            "events": {},
+                            "edge": {
+                                "id": "{edg}",
+                                "name": "边缘服务",
+                                "device_max": 0,
+                                "z2m_max": 0,
+                                "events": {},
+                                "devices":{},
+                                "mqtt": {
+                                    "broker" : {
+                                        "url": "mqtt://push-access.sdp.101.com:1780",
+                                        "username": "ioe",
+                                        "password": ""
+                                    },
+                                    "topics": {
+                                        "subs": {
+                                            "dio_evt_status": "0/0/dio/{dio}/0/0/evt/status",                                                                        
+                                            "dsp_evt_status": "0/0/dsp/{dsp}/0/0/evt/status",
+                                            "dev_evt_report": "{app}/{dom}/dev/+/edg/{edg}/evt/report",
+                                            "dev_svc_reboot": "{app}/{dom}/dev/+/+/+/svc/reboot"
+                                        },
+                                        "dysubs": {     
+                                            "dev_evt_status": "0/0/dev/{dev}/0/0/evt/status",
+                                            "dev_evt_penet": "{app}/{dom}/dev/{dev}/edg/{edg}/evt/penet",
+                                            "dev_svc_get":"{app}/{dom}/+/+/dev/{dev}/svc/get",
+                                            "dev_svc_set":"{app}/{dom}/+/+/dev/{dev}/svc/set",
+                                            "z3co_svc_request": "{app}/{dom}/0/0/dev/{dev}/svc/request"                                          
+                                        },                                       
+                                        "services": {
+                                            "edg_svc_login": "+/+/+/+/edg/{edg}/svc/login",
+                                            "edg_svc_handshake": "{app}/{dom}/dev/+/edg/{edg}/svc/handshake",
+                                            "edg_svc_get_z2m_datafile": "{app}/+/+/+/edg/{edg}/svc/get_z2m_datafile",
+                                            "edg_svc_set_z2m_datafile": "{app}/+/+/+/edg/{edg}/svc/set_z2m_datafile"
+                                        },
+                                        "pubs": {
+                                            "dsp_svc_login": "login",
+                                            "dio_svc_get_z2m_datafile": "{app}/{dom}/dio/0/edg/{edg}/svc/get_z2m_datafile",
+                                            "dio_svc_set_z2m_datafile": "{app}/{dom}/dio/0/edg/{edg}/svc/set_z2m_datafile",
+                                            "edg_evt_status": "status",
+        
+                                            "dev_svc_get": "get",
+                                            "dev_svc_set": "set",
+                                            "dev_svc_penet": "penet",
+                                            "dev_svc_handshake": "handshake"
+                                        }
+                                    },
+                                    "south": {
+                                        "broker" : {
+                                            "url": "mqtt://push-access.sdp.101.com:1780",
+                                            "username": "62f36682a30e9400102f4f23",
+                                            "password": ""
+                                        }                                        
+                                    },
+                                    "north": {
+                                        "broker" : {
+                                            "url": "mqtt://push-access.sdp.101.com:1780",
+                                            "username": "60b603a0d9419c00107e378d",
+                                            "password": ""
+                                        }                                        
+                                    }                                    
+                                },
+                                "mongodb": {
+                                    "develop": {
+                                        "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                    },
+                                    "test": {
+                                        "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                    },
+                                    "preproduct": {
+                                        "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                    },
+                                    "product": {
+                                        "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                    },
+                                    "default": {
+                                        "url": "mongodb://qa_mdb_iot_edge:XOCDU0AWqeeT@m2.all.debug2.mongod3.sdp:34005/qa_mdb_iot_edge?autoConnectRetry=true"
+                                    }                                 
+                                },
+                                "shadows": {
+                                    "dio_url": "https://nd-iot-edge.debug.ndaeweb.com/dio",
+                                    "mqtt": {
+                                        "south": {
+                                            "broker" : {
+                                                "url": "mqtt://push-access.sdp.101.com:1780",
+                                                "username": "62f36682a30e9400102f4f23",
+                                                "password": ""
+                                            }                                        
+                                        },
+                                        "north": {
+                                            "broker" : {
+                                                "url": "mqtt://push-access.sdp.101.com:1780",
+                                                "username": "60b603a0d9419c00107e378d",
+                                                "password": ""
+                                            }                                        
+                                        }                                          
+                                    }
+                                },  
+                                "z2m": {
+                                    "tcpPort": 18190,
+                                    "frontendPort": 18090,
+                                    "z2mDir": "/services/zigbee2mqtt",
+                                    "dataDir": "/data/zigbee2mqtt/data",
+                                    "z2mDir_win": "E:/data/zigbee2mqtt",
+                                    "dataDir_win": "E:/iotdata/zigbee2mqtt/data"
+                                }  
+                            }
+                        }                        
+                    }
+                },
+                "domain": {},
+                "dispatcher": {},
+                "edge": {},
+                "devices": {},
+                "mqtt": {},
+                "topics": {},
+                "ids": {}
+            },
+            "common": {},
+            "ids": {
+                "app": "{APP_ID}",
+                "dom": "{DOM_ID}",
+                "dsp": "{DSP_ID}",
+                "edg": "{EDG_ID}"
+            }   
+        }
     }
 }
