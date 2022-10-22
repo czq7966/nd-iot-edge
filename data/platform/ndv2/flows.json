@@ -72,6 +72,14 @@
         "env": []
     },
     {
+        "id": "e83211ed03a904de",
+        "type": "tab",
+        "label": "测试",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "4f298837cfcb1b75",
         "type": "mqtt-broker",
         "name": "push",
@@ -1857,7 +1865,7 @@
         "type": "function",
         "z": "6964f3903689fe45",
         "name": "设备事件",
-        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device && msg.payload.device.attrs;\nif ( attrs && hd.entry.type == \"evt\" ) {\n    return msg;\n}",
+        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device && msg.payload.device.attrs;\nif ( attrs && hd.entry && hd.entry.type == \"evt\" ) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1909,7 +1917,7 @@
         "type": "function",
         "z": "6964f3903689fe45",
         "name": "设备服务",
-        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device && msg.payload.device.attrs;\nif ( attrs && hd.entry.type == \"svc\" ) {\n    return msg;\n}",
+        "func": "let hd = msg.payload.hd;\nlet attrs = msg.payload.device && msg.payload.device.attrs;\nif ( attrs && hd.entry && hd.entry.type == \"svc\" ) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2607,7 +2615,7 @@
         "name": "北向输出订阅",
         "topic": "",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto",
         "broker": "b5ef31a7a90ee4e8",
         "nl": false,
         "rap": true,
@@ -2649,7 +2657,7 @@
         "name": "北向连接",
         "topic": "",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto",
         "broker": "b5ef31a7a90ee4e8",
         "nl": false,
         "rap": true,
@@ -2739,7 +2747,7 @@
         "name": "北向边缘输出订阅",
         "topic": "",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "auto",
         "broker": "b5ef31a7a90ee4e8",
         "nl": false,
         "rap": true,
@@ -3205,7 +3213,7 @@
         "y": 900,
         "wires": [
             [
-                "b420914baa33ba39"
+                "d5bcd897f2aece01"
             ]
         ]
     },
@@ -3261,9 +3269,7 @@
         "x": 410,
         "y": 960,
         "wires": [
-            [
-                "b420914baa33ba39"
-            ]
+            []
         ]
     },
     {
@@ -3390,7 +3396,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 920,
+        "y": 900,
         "wires": [
             [
                 "58223b63f110e16a",
@@ -3410,11 +3416,476 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 1020,
+        "y": 980,
         "wires": [
             [
                 "8c3489842ec5c5ae",
                 "58223b63f110e16a"
+            ]
+        ]
+    },
+    {
+        "id": "d5bcd897f2aece01",
+        "type": "function",
+        "z": "a7e9ad408343191c",
+        "name": "云启设备",
+        "func": "\nlet devices = [\n\"ndiot485519614d25\",\n\"ndiot485519622888\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"test-nd\",\n        pid: null,\n        desc: \"武汉云启/232透传/\" + devices[idx] ,\n        model: \"COM-PENET\",\n        vendor: \"ND\",\n        type: \"\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1060,
+        "wires": [
+            [
+                "58223b63f110e16a"
+            ]
+        ]
+    },
+    {
+        "id": "15cb59640cc685af",
+        "type": "mqtt out",
+        "z": "e83211ed03a904de",
+        "name": "北向发布",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b5ef31a7a90ee4e8",
+        "x": 1340,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "6ef82f991558bdea",
+        "type": "function",
+        "z": "e83211ed03a904de",
+        "name": "topic",
+        "func": "if(!msg.topic)\n    msg.topic = \"0/0/0/0/dev/\"+ msg.id +\"/0/0\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 480,
+        "wires": [
+            [
+                "15cb59640cc685af"
+            ]
+        ]
+    },
+    {
+        "id": "56fb1fef80c1ead9",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "handshake",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":2,\"cmd_sid\":112}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 360,
+        "y": 560,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "ea78a604be572a85",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "reboot",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":3, \"cmd_sid\":112}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 350,
+        "y": 500,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "8ee326fb53fd3a98",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "penet",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":7}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.60500",
+                "v": "[246,1,1,1,249,111]",
+                "vt": "bin"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 350,
+        "y": 420,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "04ed946683f18fab",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "resetconfig",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":11}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 360,
+        "y": 620,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "99d9ff0c32de7474",
+        "type": "change",
+        "z": "e83211ed03a904de",
+        "name": "",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 560,
+        "wires": [
+            [
+                "b98812096e5c2c5a"
+            ]
+        ]
+    },
+    {
+        "id": "aa9f6ba9f08aefc9",
+        "type": "change",
+        "z": "e83211ed03a904de",
+        "name": "ESP8266x0098b1f8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x0098b1f8",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 420,
+        "wires": [
+            [
+                "6ef82f991558bdea"
+            ]
+        ]
+    },
+    {
+        "id": "f3f1e81595a4e64c",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "config",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"61007\":1152}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 350,
+        "y": 740,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "f323c3c708e02547",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "debug=false",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"61006\":0}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 350,
+        "y": 820,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "a3e2ce6aaf48e7ec",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "debug=true",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"61006\":1}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 350,
+        "y": 860,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "7f6fed63b5d3ea50",
+        "type": "change",
+        "z": "e83211ed03a904de",
+        "name": "ndiotbcff4d06cf1d",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiotbcff4d06cf1d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 540,
+        "wires": [
+            [
+                "6ef82f991558bdea"
+            ]
+        ]
+    },
+    {
+        "id": "e3f9d8bdd9cb5df8",
+        "type": "change",
+        "z": "e83211ed03a904de",
+        "name": "ndiot30839898b1f8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot30839898b1f8",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 640,
+        "wires": [
+            [
+                "6ef82f991558bdea"
+            ]
+        ]
+    },
+    {
+        "id": "02605cac9a7be7a2",
+        "type": "change",
+        "z": "e83211ed03a904de",
+        "name": "云启ndiot485519614d25",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519614d25",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 740,
+        "wires": [
+            [
+                "6ef82f991558bdea"
+            ]
+        ]
+    },
+    {
+        "id": "8eb54d161b03d751",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "penet-on",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":7}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.60500",
+                "v": "[246,1,1,1,249,111]",
+                "vt": "bin"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "cddc4ba7d78261a9",
+        "type": "inject",
+        "z": "e83211ed03a904de",
+        "name": "penet-off",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":7}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.60500",
+                "v": "[246,1,5,0,252,111]",
+                "vt": "bin"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "b98812096e5c2c5a",
+        "type": "change",
+        "z": "e83211ed03a904de",
+        "name": "云启ndiot485519622888",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519622888",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 780,
+        "wires": [
+            [
+                "6ef82f991558bdea"
             ]
         ]
     }

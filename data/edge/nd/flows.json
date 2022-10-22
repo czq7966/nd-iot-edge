@@ -2662,6 +2662,7 @@
         "id": "b1b26ec4df650231",
         "type": "status",
         "z": "0d352f1d7c785601",
+        "d": true,
         "name": "",
         "scope": [
             "a5fab40b8a440bb5",
@@ -3848,7 +3849,7 @@
             },
             {
                 "p": "payload.pld.60500",
-                "v": "[48,49,50,51,52,53]",
+                "v": "[246,1,1,1,249,111]",
                 "vt": "bin"
             }
         ],
@@ -3905,7 +3906,7 @@
         "y": 660,
         "wires": [
             [
-                "e3f9d8bdd9cb5df8"
+                "02605cac9a7be7a2"
             ]
         ]
     },
@@ -4126,6 +4127,93 @@
         "wires": [
             [
                 "6ef82f991558bdea"
+            ]
+        ]
+    },
+    {
+        "id": "02605cac9a7be7a2",
+        "type": "change",
+        "z": "258449913ea08d71",
+        "name": "云启ndiot485519614d25",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519614d25",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 840,
+        "wires": [
+            [
+                "6ef82f991558bdea"
+            ]
+        ]
+    },
+    {
+        "id": "8eb54d161b03d751",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "penet-on",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":7}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.60500",
+                "v": "[246,1,1,1,249,111]",
+                "vt": "bin"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
+            ]
+        ]
+    },
+    {
+        "id": "cddc4ba7d78261a9",
+        "type": "inject",
+        "z": "258449913ea08d71",
+        "name": "penet-off",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":7}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.60500",
+                "v": "[246,1,5,0,252,111]",
+                "vt": "bin"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "99d9ff0c32de7474"
             ]
         ]
     }
