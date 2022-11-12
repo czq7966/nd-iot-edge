@@ -48,6 +48,38 @@
         "env": []
     },
     {
+        "id": "9da2418aa0a6b57e",
+        "type": "tab",
+        "label": "海信空调",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "faa93e460ff11a6c",
+        "type": "tab",
+        "label": "云启设备",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "35c66c9d9511a052",
+        "type": "tab",
+        "label": "微信测试",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e150bfc8bf45e848",
+        "type": "tab",
+        "label": "测试设备",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "acbe893ce0e86722",
         "type": "mqtt-broker",
         "name": "south",
@@ -133,6 +165,32 @@
         "port": "1883",
         "clientid": "",
         "autoConnect": false,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ec385154ba1b4fae",
+        "type": "mqtt-broker",
+        "name": "bemfa",
+        "broker": "bemfa.com",
+        "port": "9501",
+        "clientid": "aa11295e7e7a275d41580a1fbdc787ec",
+        "autoConnect": true,
         "usetls": false,
         "protocolVersion": "4",
         "keepalive": "60",
@@ -1430,13 +1488,15 @@
         "z": "5cebb8291db047dc",
         "name": "南向订阅",
         "links": [
-            "9e37d384371f67cd"
+            "9e37d384371f67cd",
+            "1d752f42c9305449",
+            "6bb67d699183c871"
         ],
         "x": 165,
         "y": 380,
         "wires": [
             [
-                "bf7b3e0c1bb7737f"
+                "a33fdc542c669b38"
             ]
         ]
     },
@@ -1467,7 +1527,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
+        "x": 270,
         "y": 420,
         "wires": [
             [
@@ -1516,13 +1576,15 @@
         "z": "5cebb8291db047dc",
         "name": "北向订阅",
         "links": [
-            "717675b7e9e6ca34"
+            "717675b7e9e6ca34",
+            "1d752f42c9305449",
+            "6bb67d699183c871"
         ],
-        "x": 215,
+        "x": 175,
         "y": 660,
         "wires": [
             [
-                "817cca931c84ccae"
+                "9e67994f492ba542"
             ]
         ]
     },
@@ -1530,16 +1592,11 @@
         "id": "759b06c2074c4c05",
         "type": "link in",
         "z": "5cebb8291db047dc",
-        "name": "北向输出",
+        "name": "北向输出From",
         "links": [
-            "49a8b560db5011dd",
-            "b9b3b0731dab17c3",
-            "58223b63f110e16a",
-            "6cd10a04faf309f3",
-            "3d3a3ee73aaa9577",
-            "1739a22b9100871f"
+            "58223b63f110e16a"
         ],
-        "x": 215,
+        "x": 175,
         "y": 720,
         "wires": [
             [
@@ -1592,8 +1649,8 @@
         "correl": "",
         "expiry": "",
         "broker": "e17e911f7907092f",
-        "x": 460,
-        "y": 720,
+        "x": 480,
+        "y": 760,
         "wires": []
     },
     {
@@ -1611,7 +1668,8 @@
         "y": 380,
         "wires": [
             [
-                "df9c945be4accaec"
+                "df9c945be4accaec",
+                "ffaa9296975e4a48"
             ]
         ]
     },
@@ -1820,15 +1878,16 @@
         "id": "4d76e367e9c40ef6",
         "type": "debug",
         "z": "5cebb8291db047dc",
-        "name": "",
+        "name": "北向输入输出",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
+        "x": 940,
         "y": 620,
         "wires": []
     },
@@ -2052,7 +2111,6 @@
         "y": 380,
         "wires": [
             [
-                "ffaa9296975e4a48",
                 "ddb6b7a0c3df6b4d"
             ],
             [
@@ -2064,15 +2122,16 @@
         "id": "ffaa9296975e4a48",
         "type": "debug",
         "z": "5cebb8291db047dc",
-        "name": "",
+        "name": "南北输入输出",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
+        "x": 1060,
         "y": 300,
         "wires": []
     },
@@ -2080,14 +2139,14 @@
         "id": "67dd5b8f1c0e282b",
         "type": "function",
         "z": "5cebb8291db047dc",
-        "name": "主题",
+        "name": "主题From",
         "func": "if (!msg.topic)\n    msg.topic = \"0/0/dev/\" + msg.id + \"/0/0/0/0\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 300,
         "y": 720,
         "wires": [
             [
@@ -2109,8 +2168,85 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 630,
-        "y": 800,
+        "y": 840,
         "wires": []
+    },
+    {
+        "id": "f1e5ab36b69fff92",
+        "type": "function",
+        "z": "5cebb8291db047dc",
+        "name": "主题To",
+        "func": "if(!msg.topic)\n    msg.topic = \"0/0/0/0/dev/\"+ msg.id +\"/0/0\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 820,
+        "wires": [
+            [
+                "63c3c17c28d43547"
+            ]
+        ]
+    },
+    {
+        "id": "f57a8ab6804a9b01",
+        "type": "link in",
+        "z": "5cebb8291db047dc",
+        "name": "北向输出To",
+        "links": [
+            "b1545ad8b237ae2d",
+            "1739a22b9100871f",
+            "3d3a3ee73aaa9577",
+            "8f85f4ec0e9b4413",
+            "62c0c019487bf743"
+        ],
+        "x": 175,
+        "y": 820,
+        "wires": [
+            [
+                "f1e5ab36b69fff92"
+            ]
+        ]
+    },
+    {
+        "id": "a33fdc542c669b38",
+        "type": "function",
+        "z": "5cebb8291db047dc",
+        "name": "订阅主题",
+        "func": "let topics = [\n    \"0/0/0/0/dev/\" + msg.id + \"/0/0\",\n    \"0/0/dev/\" + msg.id + \"/0/0/0/0\"\n    ]\n    \nreturn {\n        action: \"subscribe\",\n        topic: topics\n    }\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 380,
+        "wires": [
+            [
+                "bf7b3e0c1bb7737f"
+            ]
+        ]
+    },
+    {
+        "id": "9e67994f492ba542",
+        "type": "function",
+        "z": "5cebb8291db047dc",
+        "name": "订阅主题",
+        "func": "\nlet topics = [\n    \"0/0/0/0/dev/\" + msg.id + \"/0/0\",\n    \"0/0/dev/\" + msg.id + \"/0/0/0/0\"\n    ]\n    \nreturn {\n        action: \"subscribe\",\n        topic: topics\n    }\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 660,
+        "wires": [
+            [
+                "817cca931c84ccae"
+            ]
+        ]
     },
     {
         "id": "8590583325d03bf1",
@@ -2143,7 +2279,7 @@
         "y": 220,
         "wires": [
             [
-                "bb48c4c383e870fa"
+                "94551d4b5e18718f"
             ]
         ]
     },
@@ -2263,14 +2399,14 @@
         "id": "d5bcd897f2aece01",
         "type": "function",
         "z": "a7e9ad408343191c",
-        "name": "云启设备",
-        "func": "\nlet devices = [\n\"ndiot485519614d25\",\n\"ndiot485519622888\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"test-nd\",\n        pid: null,\n        desc: \"武汉云启/232透传/\" + devices[idx] ,\n        model: \"COM-PENET\",\n        vendor: \"ND\",\n        type: \"\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "name": "云启232设备",
+        "func": "\nlet devices = [\n\"ndiot485519614d25\",\n\"ndiot485519622888\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"yunqi\",\n        pid: null,\n        desc: \"武汉云启/232透传/\" + devices[idx] ,\n        model: \"COM-PENET\",\n        vendor: \"ND\",\n        type: \"\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 570,
         "y": 340,
         "wires": [
             [
@@ -2289,12 +2425,69 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 400,
+        "x": 540,
+        "y": 600,
         "wires": [
             [
                 "58223b63f110e16a",
                 "8c3489842ec5c5ae"
+            ]
+        ]
+    },
+    {
+        "id": "b18d82ab5cb7f814",
+        "type": "function",
+        "z": "a7e9ad408343191c",
+        "name": "云启Z3设备",
+        "func": "\nlet devices = [\n\"ndiot84f3eb5dce30\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"yunqi\",\n        pid: null,\n        desc: \"武汉云启/Z3网关/\" + devices[idx] ,\n        model: \"COM-PENET-Z3\",\n        vendor: \"ND\",\n        type: \"CO\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 380,
+        "wires": [
+            [
+                "58223b63f110e16a"
+            ]
+        ]
+    },
+    {
+        "id": "fa2b47ec7d94a32e",
+        "type": "function",
+        "z": "a7e9ad408343191c",
+        "name": "云启485设备",
+        "func": "\nlet devices = [\n\"ndiot485519666fc5\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"yunqi\",\n        pid: null,\n        desc: \"武汉云启/485透传/\" + devices[idx] ,\n        model: \"COM-PENET-HALF\",\n        vendor: \"ND\",\n        type: \"\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 420,
+        "wires": [
+            [
+                "58223b63f110e16a"
+            ]
+        ]
+    },
+    {
+        "id": "94551d4b5e18718f",
+        "type": "function",
+        "z": "a7e9ad408343191c",
+        "name": "测试设备",
+        "func": "\nlet devices = [\n\"ndiot30839898b1f8\",\n\"ndiotac0bfbc1b48c\",\n\"ndiot3083989773c4\",\n\"ndiot9c9c1f8f8517\",\n\"ESP8266x009773c4\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"yunqi\",\n        pid: null,\n        desc: \"测试设备/\" + devices[idx] ,\n        model: \"RFIR-PENET-AC-GREE\",\n        vendor: \"ND\",\n        type: \"AC\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 500,
+        "wires": [
+            [
+                "58223b63f110e16a"
             ]
         ]
     },
@@ -2433,11 +2626,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
-        "y": 320,
+        "x": 460,
+        "y": 440,
         "wires": [
             [
-                "f99eb80740153631"
+                "041ffd3cea7d605c"
             ]
         ]
     },
@@ -2445,13 +2638,13 @@
         "id": "4b6ab02243b6c504",
         "type": "change",
         "z": "183e27ab6ab701b7",
-        "name": "ESP8266x0098b1f8",
+        "name": "测试ndiot9c9c1f8f8517(8285)",
         "rules": [
             {
                 "t": "set",
                 "p": "id",
                 "pt": "msg",
-                "to": "ESP8266x0098b1f8",
+                "to": "ndiot9c9c1f8f8517",
                 "tot": "str"
             }
         ],
@@ -2460,8 +2653,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 760,
-        "y": 180,
+        "x": 780,
+        "y": 440,
         "wires": [
             [
                 "2d9fa1d0d33c2055"
@@ -2746,7 +2939,7 @@
         "to": "",
         "reg": false,
         "x": 780,
-        "y": 640,
+        "y": 700,
         "wires": [
             [
                 "2d9fa1d0d33c2055"
@@ -2766,7 +2959,7 @@
             },
             {
                 "p": "payload.pld",
-                "v": "{\"60007\":\"\",\"60008\":\"\",\"60009\":0,\"61013\":0}",
+                "v": "{\"60007\":\"\",\"60008\":\"\",\"60009\":0,\"61013\":0,\"61035\":13}",
                 "vt": "json"
             }
         ],
@@ -2776,7 +2969,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 720,
+        "y": 800,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -2815,11 +3008,323 @@
         "name": "",
         "mode": "link",
         "links": [
-            "759b06c2074c4c05"
+            "f57a8ab6804a9b01"
         ],
         "x": 1215,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "f4b7bb6106d760c5",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "云启Z3-ndiot84f3eb5dce30",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot84f3eb5dce30",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 580,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "e4a06127bd9800ae",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "云启485-ndiot485519666fc5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519666fc5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 620,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "e400283952bb78e9",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "get-ota-url",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "get",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"ota_update_url\":\"\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 840,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "df2791daf68a9477",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "intranet",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "intranet",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"intranet_mqtt_ip\":\"192.168.14.88\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 880,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "7dc3b11fea78cfc6",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "sniff=false",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":17}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"rfir_sniff_enable\":0}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 680,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "efb42f7cf9a57594",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "debug=true",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"61006\":1}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 720,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "2a07a16ed05e0297",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "ndiot3083989773c4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot3083989773c4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 360,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "6497185aafd05fbd",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "ESP8266x009773c4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x009773c4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 820,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "cc0458c4216c434c",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "东门4美的空调35",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00c66764",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 880,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "028b41fcb99a71d1",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "get gpio 13",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":15}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"61035\":13}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 940,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "041ffd3cea7d605c",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "飘渺/3-PM2-F07",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00c1a22a",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 920,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
     },
     {
         "id": "204bcd23787fdbe1",
@@ -2934,10 +3439,1220 @@
         "name": "",
         "mode": "link",
         "links": [
-            "759b06c2074c4c05"
+            "f57a8ab6804a9b01"
         ],
         "x": 965,
         "y": 80,
         "wires": []
+    },
+    {
+        "id": "d9953b9a8b800f4b",
+        "type": "change",
+        "z": "9da2418aa0a6b57e",
+        "name": "",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "c1859ace3835c77d"
+            ]
+        ]
+    },
+    {
+        "id": "be6cda4d590805b9",
+        "type": "inject",
+        "z": "9da2418aa0a6b57e",
+        "name": "查询",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "get",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "d9953b9a8b800f4b"
+            ]
+        ]
+    },
+    {
+        "id": "b1545ad8b237ae2d",
+        "type": "link out",
+        "z": "9da2418aa0a6b57e",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "f57a8ab6804a9b01"
+        ],
+        "x": 945,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c1859ace3835c77d",
+        "type": "change",
+        "z": "9da2418aa0a6b57e",
+        "name": "485半双工ndiotac0bfbc1cd77",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiotac0bfbc1cd77",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 320,
+        "wires": [
+            [
+                "b1545ad8b237ae2d"
+            ]
+        ]
+    },
+    {
+        "id": "b04a50240032e56f",
+        "type": "inject",
+        "z": "9da2418aa0a6b57e",
+        "name": "Power-on",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "on",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 400,
+        "wires": [
+            [
+                "d9953b9a8b800f4b"
+            ]
+        ]
+    },
+    {
+        "id": "1d752f42c9305449",
+        "type": "link out",
+        "z": "9da2418aa0a6b57e",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "a8d748a92d2ea486",
+            "b54a20b9094ed6fb"
+        ],
+        "x": 905,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "441647dfde560880",
+        "type": "inject",
+        "z": "9da2418aa0a6b57e",
+        "name": "Power-off",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "d9953b9a8b800f4b"
+            ]
+        ]
+    },
+    {
+        "id": "33c124f148a0983d",
+        "type": "change",
+        "z": "9da2418aa0a6b57e",
+        "name": "云启485-ndiot485519666fc5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519666fc5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 460,
+        "wires": [
+            [
+                "b1545ad8b237ae2d"
+            ]
+        ]
+    },
+    {
+        "id": "4a2a626e2aefc03d",
+        "type": "inject",
+        "z": "9da2418aa0a6b57e",
+        "name": "北方订阅",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "4287143b36e3ee62"
+            ]
+        ]
+    },
+    {
+        "id": "4287143b36e3ee62",
+        "type": "change",
+        "z": "9da2418aa0a6b57e",
+        "name": "485半双工ndiotac0bfbc1cd77",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiotac0bfbc1cd77",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 100,
+        "wires": [
+            [
+                "1d752f42c9305449"
+            ]
+        ]
+    },
+    {
+        "id": "fa1aa14c72f66187",
+        "type": "inject",
+        "z": "9da2418aa0a6b57e",
+        "name": "mode-cool",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.mode",
+                "v": "cool",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "d9953b9a8b800f4b"
+            ]
+        ]
+    },
+    {
+        "id": "5119599556303e10",
+        "type": "inject",
+        "z": "9da2418aa0a6b57e",
+        "name": "mode-heat",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.mode",
+                "v": "heat",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 560,
+        "wires": [
+            [
+                "d9953b9a8b800f4b"
+            ]
+        ]
+    },
+    {
+        "id": "6bb67d699183c871",
+        "type": "link out",
+        "z": "faa93e460ff11a6c",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "a8d748a92d2ea486",
+            "b54a20b9094ed6fb"
+        ],
+        "x": 905,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e46211d964be8ecb",
+        "type": "inject",
+        "z": "faa93e460ff11a6c",
+        "name": "南北向订阅",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 280,
+        "y": 280,
+        "wires": [
+            [
+                "dd1b46b1ae5ea07d",
+                "be67014cabbade7e",
+                "0fc0155f883829c5",
+                "34293ebe72191622"
+            ]
+        ]
+    },
+    {
+        "id": "dd1b46b1ae5ea07d",
+        "type": "change",
+        "z": "faa93e460ff11a6c",
+        "name": "云启ndiot485519614d25",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519614d25",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "6bb67d699183c871"
+            ]
+        ]
+    },
+    {
+        "id": "be67014cabbade7e",
+        "type": "change",
+        "z": "faa93e460ff11a6c",
+        "name": "云启ndiot485519622888",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519622888",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 240,
+        "wires": [
+            [
+                "6bb67d699183c871"
+            ]
+        ]
+    },
+    {
+        "id": "0fc0155f883829c5",
+        "type": "change",
+        "z": "faa93e460ff11a6c",
+        "name": "云启Z3-ndiot84f3eb5dce30",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot84f3eb5dce30",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "6bb67d699183c871"
+            ]
+        ]
+    },
+    {
+        "id": "34293ebe72191622",
+        "type": "change",
+        "z": "faa93e460ff11a6c",
+        "name": "云启485-ndiot485519666fc5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519666fc5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 320,
+        "wires": [
+            [
+                "6bb67d699183c871"
+            ]
+        ]
+    },
+    {
+        "id": "95f6ffc4c65cfffe",
+        "type": "change",
+        "z": "faa93e460ff11a6c",
+        "name": "云启232-ndiot485519614d25",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519614d25",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 680,
+        "wires": [
+            [
+                "8f85f4ec0e9b4413"
+            ]
+        ]
+    },
+    {
+        "id": "1ba2f9f8f0b1a1cb",
+        "type": "comment",
+        "z": "faa93e460ff11a6c",
+        "name": "海信TV",
+        "info": "",
+        "x": 150,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e65e03c4d201234b",
+        "type": "inject",
+        "z": "faa93e460ff11a6c",
+        "name": "查询",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "get",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "aaaa",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 600,
+        "wires": [
+            [
+                "95f6ffc4c65cfffe"
+            ]
+        ]
+    },
+    {
+        "id": "8f85f4ec0e9b4413",
+        "type": "link out",
+        "z": "faa93e460ff11a6c",
+        "name": "北向输出To",
+        "mode": "link",
+        "links": [
+            "f57a8ab6804a9b01"
+        ],
+        "x": 965,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "cb7b67918b5bebd7",
+        "type": "change",
+        "z": "faa93e460ff11a6c",
+        "name": "云启232-ndiot485519622888",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot485519622888",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 560,
+        "wires": [
+            [
+                "8f85f4ec0e9b4413"
+            ]
+        ]
+    },
+    {
+        "id": "b8c5c6d6c30ffa37",
+        "type": "inject",
+        "z": "faa93e460ff11a6c",
+        "name": "开机",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "1234",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"power\":\"on\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 680,
+        "wires": [
+            [
+                "95f6ffc4c65cfffe"
+            ]
+        ]
+    },
+    {
+        "id": "97c836676ac8631f",
+        "type": "inject",
+        "z": "faa93e460ff11a6c",
+        "name": "关机",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"power\":\"off\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 740,
+        "wires": [
+            [
+                "95f6ffc4c65cfffe"
+            ]
+        ]
+    },
+    {
+        "id": "f1159b400936e4a7",
+        "type": "inject",
+        "z": "faa93e460ff11a6c",
+        "name": "静音开",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"mute\":\"on\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 800,
+        "wires": [
+            [
+                "95f6ffc4c65cfffe"
+            ]
+        ]
+    },
+    {
+        "id": "9003882531102dac",
+        "type": "inject",
+        "z": "faa93e460ff11a6c",
+        "name": "静音关",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"mute\":\"off\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 860,
+        "wires": [
+            [
+                "95f6ffc4c65cfffe"
+            ]
+        ]
+    },
+    {
+        "id": "c4a633d3d7689eb3",
+        "type": "inject",
+        "z": "faa93e460ff11a6c",
+        "name": "音量50",
+        "props": [
+            {
+                "p": "payload.hd.entry.type",
+                "v": "svc",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "1111",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"volume\": 50}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 920,
+        "wires": [
+            [
+                "95f6ffc4c65cfffe"
+            ]
+        ]
+    },
+    {
+        "id": "c9f8076ce7a79d93",
+        "type": "mqtt in",
+        "z": "35c66c9d9511a052",
+        "name": "bemfa",
+        "topic": "",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "ec385154ba1b4fae",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 530,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "34510c05cebe0b5d",
+        "type": "mqtt out",
+        "z": "35c66c9d9511a052",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ec385154ba1b4fae",
+        "x": 550,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c6f9c972212ed7f4",
+        "type": "inject",
+        "z": "35c66c9d9511a052",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ndiotbcff4d06cf1d1",
+        "payload": "112334455112334455112334455112112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455112334455334455112334455112334455",
+        "payloadType": "str",
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "34510c05cebe0b5d"
+            ]
+        ]
+    },
+    {
+        "id": "aca16b4c2070fd62",
+        "type": "inject",
+        "z": "35c66c9d9511a052",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "26cc8fd46605f3b8",
+        "type": "inject",
+        "z": "35c66c9d9511a052",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ndiotbcff4d06cf1d1",
+        "payload": "0",
+        "payloadType": "str",
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "34510c05cebe0b5d"
+            ]
+        ]
+    },
+    {
+        "id": "c39e300364bdf67a",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 240,
+        "wires": [
+            [
+                "dc4f0b23d6994aec"
+            ]
+        ]
+    },
+    {
+        "id": "326a10bab2261415",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "ndiot30839898b1f8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot30839898b1f8",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 240,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "4ad23c2b0dad587e",
+        "type": "function",
+        "z": "e150bfc8bf45e848",
+        "name": "topic",
+        "func": "if(!msg.topic)\n    msg.topic = \"0/0/0/0/dev/\"+ msg.id +\"/0/0\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 220,
+        "wires": [
+            [
+                "62c0c019487bf743"
+            ]
+        ]
+    },
+    {
+        "id": "62c0c019487bf743",
+        "type": "link out",
+        "z": "e150bfc8bf45e848",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "f57a8ab6804a9b01"
+        ],
+        "x": 1145,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "386f29adece66322",
+        "type": "inject",
+        "z": "e150bfc8bf45e848",
+        "name": "开",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "on",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "c39e300364bdf67a"
+            ]
+        ]
+    },
+    {
+        "id": "6c50e34b372aa592",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "测试ndiot9c9c1f8f8517(8285)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot9c9c1f8f8517",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 300,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "f6fcccf62d4171d2",
+        "type": "inject",
+        "z": "e150bfc8bf45e848",
+        "name": "关",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "aaaassdfggdfdf",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "2",
+        "topic": "",
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "c39e300364bdf67a"
+            ]
+        ]
+    },
+    {
+        "id": "6a1f5b7496e79556",
+        "type": "inject",
+        "z": "e150bfc8bf45e848",
+        "name": "开25",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.temperature",
+                "v": "25",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.mode",
+                "v": "cool",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "c39e300364bdf67a"
+            ]
+        ]
+    },
+    {
+        "id": "889ae61e5bae0d42",
+        "type": "inject",
+        "z": "e150bfc8bf45e848",
+        "name": "开22",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.temperature",
+                "v": "22",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "abdefdfsds",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "c39e300364bdf67a"
+            ]
+        ]
+    },
+    {
+        "id": "8252638ff3151fcb",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "东门4美的空调35",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00c66764",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 400,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "0b1fa83be8cc47dd",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "ESP8266x009773c4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x009773c4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 440,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "dc4f0b23d6994aec",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "飘渺/3-PM2-F07",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00c1a22a",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 480,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
     }
 ]
