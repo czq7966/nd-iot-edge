@@ -2630,7 +2630,7 @@
         "y": 440,
         "wires": [
             [
-                "041ffd3cea7d605c"
+                "0ad5bfb485b9b622"
             ]
         ]
     },
@@ -3318,8 +3318,62 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
+        "x": 760,
+        "y": 1040,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "f04548e4b628390d",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "东门4美的空调36",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00c5f9c5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
         "y": 920,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "0ad5bfb485b9b622",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "东门4美的空调37",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x002bab4d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 960,
         "wires": [
             [
                 "2d9fa1d0d33c2055"
@@ -4339,7 +4393,7 @@
         "y": 240,
         "wires": [
             [
-                "dc4f0b23d6994aec"
+                "bdaf1b0acf486110"
             ]
         ]
     },
@@ -4649,6 +4703,60 @@
         "reg": false,
         "x": 740,
         "y": 480,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "60cd665c5f448871",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "东门4美的空调36",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00c5f9c5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 540,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "bdaf1b0acf486110",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "东门4美的空调37",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x002bab4d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 600,
         "wires": [
             [
                 "4ad23c2b0dad587e"
