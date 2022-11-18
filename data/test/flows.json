@@ -210,6 +210,32 @@
         "sessionExpiry": ""
     },
     {
+        "id": "b6327497ef1b520e",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "push-access.sdp.101.com",
+        "port": "1780",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
         "id": "f544f205.d51a7",
         "type": "inject",
         "z": "7c7a09edf982e2f4",
@@ -1467,7 +1493,7 @@
         "z": "5cebb8291db047dc",
         "name": "南向订阅",
         "topic": "",
-        "qos": "2",
+        "qos": "0",
         "datatype": "auto",
         "broker": "acbe893ce0e86722",
         "nl": false,
@@ -1490,7 +1516,8 @@
         "links": [
             "9e37d384371f67cd",
             "1d752f42c9305449",
-            "6bb67d699183c871"
+            "6bb67d699183c871",
+            "e648b9faeccdadb1"
         ],
         "x": 165,
         "y": 380,
@@ -1555,7 +1582,7 @@
         "z": "5cebb8291db047dc",
         "name": "北向订阅",
         "topic": "",
-        "qos": "2",
+        "qos": "0",
         "datatype": "json",
         "broker": "b5ef31a7a90ee4e8",
         "nl": false,
@@ -1578,7 +1605,8 @@
         "links": [
             "717675b7e9e6ca34",
             "1d752f42c9305449",
-            "6bb67d699183c871"
+            "6bb67d699183c871",
+            "e648b9faeccdadb1"
         ],
         "x": 175,
         "y": 660,
@@ -1932,7 +1960,7 @@
         "type": "function",
         "z": "5cebb8291db047dc",
         "name": "南向连接",
-        "func": "let data = global.get(\"data\");\n// let common = global.get(\"common\");\n// data.mqtt.clientid = data.mqtt.clientid || (data.ids.edg + \"-\" + common.guid(8));\n\nmsg = {};\nmsg.action = \"connect\";\nmsg.broker = {\n    autoConnect: true,\n    cleansession: false,\n    force: false,\n    // clientid: data.mqtt.clientid\n}\nObject.assign(msg.broker, data.shadows.mqtt.south.broker);\nreturn msg;",
+        "func": "let data = global.get(\"data\");\n// let common = global.get(\"common\");\n// data.mqtt.clientid = data.mqtt.clientid || (data.ids.edg + \"-\" + common.guid(8));\n\nmsg = {};\nmsg.action = \"connect\";\nmsg.broker = {\n    autoConnect: true,\n    cleansession: false,\n    force: false,\n    qos: 1\n    // clientid: data.mqtt.clientid\n}\nObject.assign(msg.broker, data.shadows.mqtt.south.broker);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1971,7 +1999,7 @@
         "type": "function",
         "z": "5cebb8291db047dc",
         "name": "北向连接",
-        "func": "let data = global.get(\"data\");\n\nmsg = {};\nmsg.action = \"connect\";\nmsg.broker = {\n    autoConnect: true,\n    cleansession: false,\n    force: false,\n}\nObject.assign(msg.broker, data.shadows.mqtt.north.broker);\nreturn msg;\n\n",
+        "func": "let data = global.get(\"data\");\n\nmsg = {};\nmsg.action = \"connect\";\nmsg.broker = {\n    autoConnect: true,\n    cleansession: false,\n    force: false,\n    qos: 1\n}\nObject.assign(msg.broker, data.shadows.mqtt.north.broker);\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2055,8 +2083,8 @@
         "y": 580,
         "wires": [
             [
-                "817cca931c84ccae",
-                "c90a4f8ca243faf5"
+                "c90a4f8ca243faf5",
+                "817cca931c84ccae"
             ]
         ]
     },
@@ -2093,7 +2121,9 @@
         "x": 680,
         "y": 580,
         "wires": [
-            []
+            [
+                "817cca931c84ccae"
+            ]
         ]
     },
     {
@@ -2215,7 +2245,7 @@
         "type": "function",
         "z": "5cebb8291db047dc",
         "name": "订阅主题",
-        "func": "let topics = [\n    \"0/0/0/0/dev/\" + msg.id + \"/0/0\",\n    \"0/0/dev/\" + msg.id + \"/0/0/0/0\"\n    ]\n    \nreturn {\n        action: \"subscribe\",\n        topic: topics\n    }\n",
+        "func": "let topics = [\n    \"0/0/0/0/dev/\" + msg.id + \"/0/0\",\n    \"0/0/dev/\" + msg.id + \"/0/0/0/0\"\n    ]\n    \nreturn {\n        action: \"subscribe\",\n        topic: topics,\n        qos: 0\n    }\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2245,6 +2275,167 @@
         "wires": [
             [
                 "817cca931c84ccae"
+            ]
+        ]
+    },
+    {
+        "id": "b1b26ec4df650231",
+        "type": "status",
+        "z": "5cebb8291db047dc",
+        "name": "",
+        "scope": [
+            "817cca931c84ccae",
+            "bf7b3e0c1bb7737f",
+            "f79e3ab6a4818600",
+            "63c3c17c28d43547"
+        ],
+        "x": 1030,
+        "y": 860,
+        "wires": [
+            [
+                "21f8b284430ba53f"
+            ]
+        ]
+    },
+    {
+        "id": "21f8b284430ba53f",
+        "type": "function",
+        "z": "5cebb8291db047dc",
+        "name": "",
+        "func": "let date = new Date()\nmsg.tm=date.toLocaleString();\n\nreturn {payload: msg};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1230,
+        "y": 860,
+        "wires": [
+            [
+                "d6cadcc63d204593"
+            ]
+        ]
+    },
+    {
+        "id": "d6cadcc63d204593",
+        "type": "debug",
+        "z": "5cebb8291db047dc",
+        "name": "连接断开",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "d3a09336aab5ab55",
+        "type": "mqtt in",
+        "z": "5cebb8291db047dc",
+        "name": "北向订阅",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "b6327497ef1b520e",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 1080,
+        "y": 1100,
+        "wires": [
+            [
+                "7f1ecd6f3eb747d0"
+            ]
+        ]
+    },
+    {
+        "id": "7f1ecd6f3eb747d0",
+        "type": "debug",
+        "z": "5cebb8291db047dc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "69173a9bce24be6a",
+        "type": "function",
+        "z": "5cebb8291db047dc",
+        "name": "订阅主题",
+        "func": "\nlet topics = [\n    \"0/0/0/0/dev/\" + msg.id + \"/0/0\",\n    \"0/0/dev/\" + msg.id + \"/0/0/0/0\"\n    ]\n    \nreturn {\n        action: \"subscribe\",\n        topic: topics\n    }\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1100,
+        "wires": [
+            [
+                "d3a09336aab5ab55"
+            ]
+        ]
+    },
+    {
+        "id": "0f7a21f8be34aaf8",
+        "type": "inject",
+        "z": "5cebb8291db047dc",
+        "name": "",
+        "props": [
+            {
+                "p": "id",
+                "v": "ESP8266x002bab4d",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 650,
+        "y": 1100,
+        "wires": [
+            [
+                "69173a9bce24be6a"
+            ]
+        ]
+    },
+    {
+        "id": "0c39f1139041982e",
+        "type": "inject",
+        "z": "5cebb8291db047dc",
+        "name": "",
+        "props": [
+            {
+                "p": "id",
+                "v": "ESP8266x002bab4d1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 650,
+        "y": 1220,
+        "wires": [
+            [
+                "69173a9bce24be6a"
             ]
         ]
     },
@@ -2630,9 +2821,7 @@
         "y": 440,
         "wires": [
             [
-                "f4b7bb6106d760c5",
-                "2fcbb420275f5c4c",
-                "e4a06127bd9800ae"
+                "0ad5bfb485b9b622"
             ]
         ]
     },
@@ -3379,6 +3568,66 @@
         "wires": [
             [
                 "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "e648b9faeccdadb1",
+        "type": "link out",
+        "z": "183e27ab6ab701b7",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "a8d748a92d2ea486",
+            "b54a20b9094ed6fb"
+        ],
+        "x": 1385,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c1fd65fc8557d933",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "南北向订阅",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 760,
+        "y": 120,
+        "wires": [
+            [
+                "6f05b0562e65712f"
+            ]
+        ]
+    },
+    {
+        "id": "6f05b0562e65712f",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "东门4美的空调37",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x002bab4d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 120,
+        "wires": [
+            [
+                "e648b9faeccdadb1"
             ]
         ]
     },
@@ -4395,7 +4644,7 @@
         "y": 240,
         "wires": [
             [
-                "dc4f0b23d6994aec"
+                "bdaf1b0acf486110"
             ]
         ]
     },
