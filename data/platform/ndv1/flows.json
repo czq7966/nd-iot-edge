@@ -733,7 +733,6 @@
         "y": 200,
         "wires": [
             [
-                "94be1a28e798f623",
                 "ed3221e66d72139e"
             ]
         ]
@@ -821,22 +820,6 @@
         "wires": []
     },
     {
-        "id": "94be1a28e798f623",
-        "type": "debug",
-        "z": "e342aadccf1c03c7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 750,
-        "y": 240,
-        "wires": []
-    },
-    {
         "id": "e6b73c501bd8f3b1",
         "type": "link in",
         "z": "e342aadccf1c03c7",
@@ -857,7 +840,7 @@
         "type": "function",
         "z": "e342aadccf1c03c7",
         "name": "设备事件请求",
-        "func": "let hd = msg.payload.hd;\nif (hd.stp == 0 && hd.entry.type == \"evt\"  ||\n    hd.stp == 1 && hd.entry.id == \"get\" \n) {\n    return msg;\n}",
+        "func": "let hd = msg.payload.hd;\nhd.stp = hd.stp || 0\nif (hd.stp == 0 && hd.entry.type == \"evt\"  ||\n    hd.stp == 1 && hd.entry.id == \"get\" \n) {\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -990,8 +973,7 @@
         "y": 360,
         "wires": [
             [
-                "2e97b10f5e0cc409",
-                "73f0a9e0e17111b0"
+                "2e97b10f5e0cc409"
             ]
         ]
     },
@@ -1006,22 +988,6 @@
         ],
         "x": 955,
         "y": 720,
-        "wires": []
-    },
-    {
-        "id": "73f0a9e0e17111b0",
-        "type": "debug",
-        "z": "e342aadccf1c03c7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 460,
         "wires": []
     },
     {
@@ -1738,7 +1704,7 @@
         "links": [
             "e6b73c501bd8f3b1"
         ],
-        "x": 1015,
+        "x": 1295,
         "y": 240,
         "wires": []
     },

@@ -236,6 +236,58 @@
         "sessionExpiry": ""
     },
     {
+        "id": "20e4069ee939b665",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "push-access.sdp.101.com",
+        "port": "1780",
+        "clientid": "864452062773310",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "86e3b59af328a1b6",
+        "type": "mqtt-broker",
+        "name": "youren",
+        "broker": "mqtt.usr.cn",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
         "id": "f544f205.d51a7",
         "type": "inject",
         "z": "7c7a09edf982e2f4",
@@ -2440,6 +2492,25 @@
         ]
     },
     {
+        "id": "301a8b94c43d4720",
+        "type": "mqtt in",
+        "z": "5cebb8291db047dc",
+        "name": "",
+        "topic": "pub",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "20e4069ee939b665",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "8590583325d03bf1",
         "type": "comment",
         "z": "a7e9ad408343191c",
@@ -2470,7 +2541,7 @@
         "y": 220,
         "wires": [
             [
-                "94551d4b5e18718f"
+                "7b05cdb543d55079"
             ]
         ]
     },
@@ -2551,7 +2622,7 @@
         "type": "function",
         "z": "a7e9ad408343191c",
         "name": "长乐/会展/空调",
-        "func": "\nlet devices = [\n\"ESP8266x004ac032\",\n\"ESP8266x00c02bbb\",\n\"ESP8266x00c05283\",\n\"ESP8266x00c08aa9\",\n\"ESP8266x00c07ff8\",\n\"ESP8266x00c00186\",\n\"ESP8266x004a5bf8\",\n\"ESP8266x004a5971\",\n\"ESP8266x00c0504f\",\n\"ESP8266x00c03831\",\n\"ESP8266x00491ed3\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"test\",\n        pid: null,\n        desc: \"长乐/会展/空调/\" + (idx+10) +\"号\",\n        model: \"ACPGDTM7000F\",\n        vendor: \"ND\",\n        type: \"AC\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "func": "\nlet devices = [\n\"ndiot58bf254ac032\",\n\"ndiot58bf25c02bbb\",\n\"ndiot58bf25c05283\",\n\"ndiot58bf25c08aa9\",\n\"ndiot58bf25c07ff8\",\n\"ndiot58bf25c00186\",\n\"ndiot58bf254a5bf8\",\n\"ndiot58bf254a5971\",\n\"ndiot58bf25c0504f\",\n\"ndiot58bf25c03831\",\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"test\",\n        pid: null,\n        desc: \"长乐/会展/空调/\" + (idx+10) +\"号\",\n        model: \"ACPGDTM7000F\",\n        vendor: \"ND\",\n        type: \"AC\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2616,8 +2687,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 600,
+        "x": 580,
+        "y": 540,
         "wires": [
             [
                 "58223b63f110e16a",
@@ -2675,7 +2746,64 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 500,
+        "y": 480,
+        "wires": [
+            [
+                "58223b63f110e16a"
+            ]
+        ]
+    },
+    {
+        "id": "8bd8362640197e6e",
+        "type": "function",
+        "z": "a7e9ad408343191c",
+        "name": "亚太76-95台格力",
+        "func": "\nlet devices = [\n    \"ESP8266x009b705e\",\n\"ESP8266x00995869\",\n\"ESP8266x0098e938\",\n\"ESP8266x009b7026\",\n\"ESP8266x00995b7b\",\n\"ESP8266x0098e583\",\n\"ESP8266x00995ae9\",\n\"ESP8266x00995889\",\n\"ESP8266x009b6dea\",\n\"ESP8266x0098aace\",\n\"ESP8266x0098af65\",\n\"ESP8266x009b608e\",\n\"ESP8266x0098e939\",\n\"ESP8266x009b69ba\",\n\"ESP8266x009b6e04\",\n\"ESP8266x008dbc9e\",\n\"ESP8266x006d74b7\",\n\"ESP8266x006d7544\",\n\"ESP8266x008d37d0\",\n\"ESP8266x008d69bb\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"nd\",\n        pid: null,\n        name: \"YT45-\" + (idx+76) ,\n        model: \"RFIR-AC-GREE-ND\",\n        vendor: \"ND\",\n        type: \"AC\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 620,
+        "wires": [
+            [
+                "58223b63f110e16a"
+            ]
+        ]
+    },
+    {
+        "id": "a2bc8e701bed7b16",
+        "type": "function",
+        "z": "a7e9ad408343191c",
+        "name": "东门1-3楼50台美的",
+        "func": "\nlet devices = [\n    \"ESP8266x00621d9a\",\n\"ESP8266x006718af\",\n\"ESP8266x006184d4\",\n\"ESP8266x00617e82\",\n\"ESP8266x00621b8c\",\n\"ESP8266x0061857f\",\n\"ESP8266x00617937\",\n\"ESP8266x006718d3\",\n\"ESP8266x006177d2\",\n\"ESP8266x0067150d\",\n\"ESP8266x0061793b\",\n\"ESP8266x006178e9\",\n\"ESP8266x0067146b\",\n\"ESP8266x00621d15\",\n\"ESP8266x006d7574\",\n\"ESP8266x006d75a8\",\n\"ESP8266x006d762c\",\n\"ESP8266x008d382a\",\n\"ESP8266x006d75bb\",\n\"ESP8266x006157e5\",\n\"ESP8266x006d760d\",\n\"ESP8266x008d9635\",\n\"ESP8266x008d69d6\",\n\"ESP8266x00901e7d\",\n\"ESP8266x008d3886\",\n\"ESP8266x006d1325\",\n\"ESP8266x006d260a\",\n\"ESP8266x006d1597\",\n\"ESP8266x006d7569\",\n\"ESP8266x00901f41\",\n\"ESP8266x006d7162\",\n\"ESP8266x00901e97\",\n\"ESP8266x00671931\",\n\"ESP8266x00614c4b\",\n\"ESP8266x006180e3\",\n\"ESP8266x006185d8\",\n\"ESP8266x0062202e\",\n\"ESP8266x006180c8\",\n\"ESP8266x006718bf\",\n\"ESP8266x00671504\",\n\"ESP8266x006718e4\",\n\"ESP8266x00618311\",\n\"ESP8266x006714ea\",\n\"ESP8266x00671458\",\n\"ESP8266x00621bb4\",\n\"ESP8266x00618313\",\n\"ESP8266x00671aed\",\n\"ESP8266x00615744\",\n\"ESP8266x00614c45\",\n\"ESP8266x0067150c\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"nd\",\n        pid: null,\n        name: \"DM123-\" + (idx+1) ,\n        model: \"RFIR-AC-MEDIA-ND\",\n        vendor: \"ND\",\n        type: \"AC\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 660,
+        "wires": [
+            [
+                "58223b63f110e16a"
+            ]
+        ]
+    },
+    {
+        "id": "4a2fc9ac2d29abd0",
+        "type": "function",
+        "z": "a7e9ad408343191c",
+        "name": "东门4楼30台美的",
+        "func": "\nlet devices = [\n    \"ESP8266x00621d7f\",\n\"ESP8266x008dbf69\",\n\"ESP8266x00618321\",\n\"ESP8266x00617956\",\n\"ESP8266x00621c36\",\n\"ESP8266x00671508\",\n\"ESP8266x006177ea\",\n\"ESP8266x006716f9\",\n\"ESP8266x006719d3\",\n\"ESP8266x0061793d\",\n\"ESP8266x006182f1\",\n\"ESP8266x006185e9\",\n\"ESP8266x00621c03\",\n\"ESP8266x00671463\",\n\"ESP8266x006718dc\",\n\"ESP8266x006d74ef\",\n\"ESP8266x006178f1\",\n\"ESP8266x00621c0b\",\n\"ESP8266x006719a0\",\n\"ESP8266x008d382e\",\n\"ESP8266x006718f4\",\n\"ESP8266x006d2563\",\n\"ESP8266x006d74ce\",\n\"ESP8266x008d2278\",\n\"ESP8266x008d35bd\",\n\"ESP8266x006d74d5\",\n\"ESP8266x008dc67f\",\n\"ESP8266x006d2639\",\n\"ESP8266x006d2554\",\n\"ESP8266x008d390f\"\n\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"nd\",\n        pid: null,\n        name: \"DM4-\" + (idx+1) ,\n        model: \"RFIR-AC-MEDIA-ND\",\n        vendor: \"ND\",\n        type: \"AC\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 700,
         "wires": [
             [
                 "58223b63f110e16a"
@@ -2821,7 +2949,7 @@
         "y": 440,
         "wires": [
             [
-                "0ad5bfb485b9b622"
+                "f2e48ffd24ec38d3"
             ]
         ]
     },
@@ -3150,7 +3278,7 @@
             },
             {
                 "p": "payload.pld",
-                "v": "{\"60007\":\"\",\"60008\":\"\",\"60009\":0,\"61013\":0,\"61035\":13}",
+                "v": "{\"60007\":\"\",\"60008\":\"\",\"60009\":0,\"61013\":0,\"61035\":13,\"wifi_rssi\":0}",
                 "vt": "json"
             }
         ],
@@ -3600,7 +3728,7 @@
         "y": 120,
         "wires": [
             [
-                "6f05b0562e65712f"
+                "e62312bcd54101ba"
             ]
         ]
     },
@@ -3625,6 +3753,141 @@
         "reg": false,
         "x": 1050,
         "y": 120,
+        "wires": [
+            [
+                "e648b9faeccdadb1"
+            ]
+        ]
+    },
+    {
+        "id": "ec974e84c2515efb",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "飘渺/3-PM2-F23",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00c20ed6",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 1100,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "f7110566d3d5237d",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "ndiot30839898b1f8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiot30839898b1f8",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 160,
+        "wires": [
+            [
+                "e648b9faeccdadb1"
+            ]
+        ]
+    },
+    {
+        "id": "f5084defea8a594d",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "485半双工ndiotac0bfbc1cd77",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiotac0bfbc1cd77",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 80,
+        "wires": [
+            [
+                "e648b9faeccdadb1"
+            ]
+        ]
+    },
+    {
+        "id": "f2e48ffd24ec38d3",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "测试",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x009b705e",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 1180,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "e62312bcd54101ba",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "测试",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x008d932e",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 200,
         "wires": [
             [
                 "e648b9faeccdadb1"
@@ -4644,7 +4907,7 @@
         "y": 240,
         "wires": [
             [
-                "bdaf1b0acf486110"
+                "ec5397b7a4d1b26a"
             ]
         ]
     },
@@ -5011,6 +5274,68 @@
         "wires": [
             [
                 "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "ec5397b7a4d1b26a",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "DM4-1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00621d7f",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 680,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "0c9ab9a973241202",
+        "type": "inject",
+        "z": "e150bfc8bf45e848",
+        "name": "开25",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.mode",
+                "v": "fan",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 500,
+        "wires": [
+            [
+                "c39e300364bdf67a"
             ]
         ]
     }
