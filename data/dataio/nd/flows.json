@@ -2309,7 +2309,7 @@
         "type": "function",
         "z": "b7b9b4f87ca81b1c",
         "name": "获取区域设备",
-        "func": "let data = global.get(\"data\");\nlet doms = data.domains;\nlet edg_id = msg.payload.pld.edg_id;\n\nlet dom_ids = []\nObject.values(doms).forEach(dom => {\n    if (dom.attrs.edg_id == edg_id) {\n        dom_ids.push({dom_id: dom.id})\n    }\n})\nif (dom_ids.length) { \n    msg.collection = \"ndiot_devices\";\n    msg.operation = \"find\";\n    msg.payload = {\n        app_id: \"ndiot\",\n        $or: dom_ids\n    }\n    \n    return msg;\n}",
+        "func": "let data = global.get(\"data\");\nlet doms = data.domains;\nlet edg_id = msg.payload.pld.edg_id;\n\nlet dom_ids = []\nObject.values(doms).forEach(dom => {\n    if (dom.attrs.edg_id == edg_id) {\n        dom_ids.push({dom_id: dom.id})\n    }\n})\nif (dom_ids.length) { \n    msg.collection = \"ndiot_devices\";\n    msg.operation = \"find\";\n    msg.payload = {\n        app_id: \"ndiot\",\n        disable: {$ne:1},\n        $or: dom_ids\n    }\n    \n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
