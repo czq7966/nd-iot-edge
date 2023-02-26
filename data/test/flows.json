@@ -1585,7 +1585,8 @@
         "z": "5cebb8291db047dc",
         "name": "南向输出",
         "links": [
-            "8a709b1a39d198bd"
+            "8a709b1a39d198bd",
+            "a4c724445726f30c"
         ],
         "x": 165,
         "y": 420,
@@ -1600,7 +1601,7 @@
         "type": "function",
         "z": "5cebb8291db047dc",
         "name": "主题",
-        "func": "msg.topic = \"0/0/0/0/dev/\" + msg.id + \"/0/0\"\nreturn msg;",
+        "func": "msg.topic = msg.topic ? msg.topic : (\"0/0/0/0/dev/\" + msg.id + \"/0/0\")\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4192,6 +4193,57 @@
                 "2d9fa1d0d33c2055"
             ]
         ]
+    },
+    {
+        "id": "c89858424f2219d5",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "模拟南向输入",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 250,
+        "y": 1380,
+        "wires": [
+            [
+                "7c82b2d0daa1edd7"
+            ]
+        ]
+    },
+    {
+        "id": "7c82b2d0daa1edd7",
+        "type": "function",
+        "z": "183e27ab6ab701b7",
+        "name": "消息内容",
+        "func": " msg = {\n                    \"topic\" : \"0/0/dev/ndiot58bf25c04040/0/0/0/0\",\n                    \"payload\" : Buffer.from([\n                            68,\n                            78,\n                            0,\n                            0,\n                            7,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            224,\n                            0,\n                            136,\n                            0,\n                            84,\n                            236,\n                            132,\n                            0,\n                            64,\n                            64,\n                            176,\n                            176,\n                            2,\n                            1,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            1,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            102,\n                            0,\n                            2,\n                            2,\n                            2,\n                            1,\n                            1,\n                            136,\n                            49,\n                            48,\n                            49,\n                            48,\n                            49,\n                            48,\n                            57,\n                            50,\n                            80,\n                            210,\n                            187,\n                            178,\n                            227,\n                            211,\n                            234,\n                            193,\n                            220,\n                            183,\n                            167,\n                            188,\n                            228,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            57,\n                            58,\n                            14,\n                            21,\n                            2,\n                            23,\n                            1,\n                            1,\n                            121,\n                            48,\n                            48,\n                            49,\n                            48,\n                            50,\n                            49,\n                            54,\n                            57,\n                            80,\n                            177,\n                            195,\n                            183,\n                            191,\n                            197,\n                            231,\n                            193,\n                            220,\n                            177,\n                            195,\n                            181,\n                            205,\n                            209,\n                            185,\n                            191,\n                            170,\n                            185,\n                            216,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            0,\n                            58,\n                            58,\n                            14,\n                            21,\n                            2,\n                            23,\n                            28,\n                            35,\n                            35\n                        ]\n                    ),\n\n\n                }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 1380,
+        "wires": [
+            [
+                "a4c724445726f30c"
+            ]
+        ]
+    },
+    {
+        "id": "a4c724445726f30c",
+        "type": "link out",
+        "z": "183e27ab6ab701b7",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "4409a5474178a44d"
+        ],
+        "x": 825,
+        "y": 1380,
+        "wires": []
     },
     {
         "id": "204bcd23787fdbe1",
