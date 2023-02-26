@@ -1,33 +1,33 @@
-# dataio
+echo "dataio"
 cd E:/data/nd-iot-edge/data/dataio/nd
-npm i node-red-nd-device-shadow@0.1.2
+npm i node-red-nd-device-shadow@0.1.3
 
-# dispatcher
+echo "dispatcher"
 cd E:/data/nd-iot-edge/data/dispatcher/nd
-npm i node-red-nd-device-shadow@0.1.2
+npm i node-red-nd-device-shadow@0.1.3
 
-# edge
+echo "edge"
 cd E:/data/nd-iot-edge/data/edge/nd
-npm i node-red-nd-device-shadow@0.1.2
+npm i node-red-nd-device-shadow@0.1.3
 
-# log
+echo "log"
 cd E:/data/nd-iot-edge/data/log/nd
-npm i node-red-nd-device-shadow@0.1.2
+npm i node-red-nd-device-shadow@0.1.3
 
 
-# platform bfy
+echo "platform bfy"
 cd E:/data/nd-iot-edge/data/platform/bfy
-npm i node-red-nd-device-shadow@0.1.2
+npm i node-red-nd-device-shadow@0.1.3
 
-# platform ndv1
+echo "platform ndv1"
 cd E:/data/nd-iot-edge/data/platform/ndv1
-npm i node-red-nd-device-shadow@0.1.2
+npm i node-red-nd-device-shadow@0.1.3
 
-# platform ndv2
+echo "platform ndv2"
 cd E:/data/nd-iot-edge/data/platform/ndv2
-npm i node-red-nd-device-shadow@0.1.2
+npm i node-red-nd-device-shadow@0.1.3
 
 cd E:/data/nd-iot-edge
 
-# cd E:\data\nd-iot-edge\data\edge\nd\node_modules
-# mklink /D node-red-nd-device-shadow E:\data\ndiot-device-shadow\dist\node-red
+REM cd E:\data\nd-iot-edge\data\edge\nd\node_modules
+rem mklink /D node-red-nd-device-shadow E:\data\ndiot-device-shadow\dist\node-red

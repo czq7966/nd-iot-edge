@@ -241,7 +241,7 @@
         "name": "",
         "broker": "push-access.sdp.101.com",
         "port": "1780",
-        "clientid": "864452062773310",
+        "clientid": "testaaa",
         "autoConnect": true,
         "usetls": false,
         "protocolVersion": "4",
@@ -2541,7 +2541,7 @@
         "y": 220,
         "wires": [
             [
-                "7b05cdb543d55079"
+                "94551d4b5e18718f"
             ]
         ]
     },
@@ -2578,7 +2578,9 @@
         "x": 330,
         "y": 280,
         "wires": [
-            []
+            [
+                "94551d4b5e18718f"
+            ]
         ]
     },
     {
@@ -2739,7 +2741,7 @@
         "type": "function",
         "z": "a7e9ad408343191c",
         "name": "测试设备",
-        "func": "\nlet devices = [\n\"ndiot30839898b1f8\",\n\"ndiotac0bfbc1b48c\",\n\"ndiot3083989773c4\",\n\"ndiot9c9c1f8f8517\",\n\"ESP8266x009773c4\"\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"yunqi\",\n        pid: null,\n        desc: \"测试设备/\" + devices[idx] ,\n        model: \"RFIR-PENET-AC-GREE\",\n        vendor: \"ND\",\n        type: \"AC\"\n    }  \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
+        "func": "\nlet devices = [\n\"ndiot58bf25c04040\",\n\n    ];\n    \nlet joinOrLeave = (idx) => {\n    let hd = {\n        entry: {\n            type: \"evt\",\n            id: msg.action\n        }\n    }\n\n\n    let pld = {\n        id: devices[idx],\n        app_id: \"ndiot\",\n        dom_id: \"dev\",\n        pid: null,\n        desc: \"振华大厦消防系统485透传网关\" ,\n        model: \"QTL-TX3016A\",\n        vendor: \"ND\",\n        type: \"\"\n    }      \n    \n    \n    let topic = \"0/0/dev/\" + pld.id + \"/0/0/evt/\"+ hd.entry.id\n    \n    let _msg = {\n        id: pld.id,\n        payload: {\n            hd: hd,\n            pld: pld\n        },\n        topic: topic\n    }\n    \n    node.send(_msg);\n    \n\n}\n\nlet idx = 0;\n\nlet start = () => {\n    if(idx < devices.length) {\n        joinOrLeave(idx);\n        setTimeout(() => {\n            start();   \n        }, 1000)\n\n    }\n    idx++;\n}\n\nstart();\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2847,7 +2849,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 220,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -2872,7 +2874,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 210,
-        "y": 260,
+        "y": 320,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -2883,7 +2885,7 @@
         "id": "a7a8e80835907d3f",
         "type": "inject",
         "z": "183e27ab6ab701b7",
-        "name": "penet",
+        "name": "penet 1",
         "props": [
             {
                 "p": "payload.hd",
@@ -2892,7 +2894,7 @@
             },
             {
                 "p": "payload.pld.60500",
-                "v": "[246,1,1,1,249,111]",
+                "v": "[1,6,0,0,0,18,9,199]",
                 "vt": "bin"
             }
         ],
@@ -2913,7 +2915,7 @@
         "id": "f9735e36d97b8c46",
         "type": "inject",
         "z": "183e27ab6ab701b7",
-        "name": "resetconfig",
+        "name": "resetconfig all",
         "props": [
             {
                 "p": "payload.hd",
@@ -2926,7 +2928,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 200,
+        "x": 210,
         "y": 460,
         "wires": [
             [
@@ -2949,7 +2951,7 @@
         "y": 440,
         "wires": [
             [
-                "f2e48ffd24ec38d3"
+                "5bd3d224ea024e10"
             ]
         ]
     },
@@ -3003,7 +3005,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 500,
+        "y": 540,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -3033,7 +3035,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 210,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -3063,7 +3065,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 210,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -3239,33 +3241,6 @@
         ]
     },
     {
-        "id": "93dafb3f48e8f8b1",
-        "type": "change",
-        "z": "183e27ab6ab701b7",
-        "name": "485半双工ndiotac0bfbc1cd77",
-        "rules": [
-            {
-                "t": "set",
-                "p": "id",
-                "pt": "msg",
-                "to": "ndiotac0bfbc1cd77",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 780,
-        "y": 700,
-        "wires": [
-            [
-                "2d9fa1d0d33c2055"
-            ]
-        ]
-    },
-    {
         "id": "d493f92cd0be5b0f",
         "type": "inject",
         "z": "183e27ab6ab701b7",
@@ -3278,7 +3253,7 @@
             },
             {
                 "p": "payload.pld",
-                "v": "{\"60007\":\"\",\"60008\":\"\",\"60009\":0,\"61013\":0,\"61035\":13,\"wifi_rssi\":0}",
+                "v": "{\"60007\":\"\",\"60008\":\"\",\"60009\":0,\"61013\":0,\"wifi_rssi\":0,\"report_reg_timeout\":0,\"report_reg_enable\":0,\"report_reg_data\":0,\"wifi_ssid\":\"\",\"dev_mac\":\"\",\"dev_id\":\"\"}",
                 "vt": "json"
             }
         ],
@@ -3313,7 +3288,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 210,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -3470,37 +3445,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 200,
-        "y": 680,
-        "wires": [
-            [
-                "960a3f7f22291e50"
-            ]
-        ]
-    },
-    {
-        "id": "efb42f7cf9a57594",
-        "type": "inject",
-        "z": "183e27ab6ab701b7",
-        "name": "debug=true",
-        "props": [
-            {
-                "p": "payload.hd",
-                "v": "{\"cmd_id\":1}",
-                "vt": "json"
-            },
-            {
-                "p": "payload.pld",
-                "v": "{\"61006\":1}",
-                "vt": "json"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 210,
-        "y": 720,
+        "y": 700,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -3611,7 +3556,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 200,
-        "y": 940,
+        "y": 980,
         "wires": [
             [
                 "960a3f7f22291e50"
@@ -3638,7 +3583,7 @@
         "to": "",
         "reg": false,
         "x": 760,
-        "y": 1040,
+        "y": 1000,
         "wires": [
             [
                 "2d9fa1d0d33c2055"
@@ -3724,11 +3669,11 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 760,
+        "x": 740,
         "y": 120,
         "wires": [
             [
-                "e62312bcd54101ba"
+                "d76c34fa15e16136"
             ]
         ]
     },
@@ -3779,7 +3724,7 @@
         "to": "",
         "reg": false,
         "x": 740,
-        "y": 1100,
+        "y": 1040,
         "wires": [
             [
                 "2d9fa1d0d33c2055"
@@ -3844,13 +3789,13 @@
         "id": "f2e48ffd24ec38d3",
         "type": "change",
         "z": "183e27ab6ab701b7",
-        "name": "测试",
+        "name": "东门水吧",
         "rules": [
             {
                 "t": "set",
                 "p": "id",
                 "pt": "msg",
-                "to": "ESP8266x009b705e",
+                "to": "ESP8266x00621d9a",
                 "tot": "str"
             }
         ],
@@ -3859,8 +3804,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
-        "y": 1180,
+        "x": 760,
+        "y": 1080,
         "wires": [
             [
                 "2d9fa1d0d33c2055"
@@ -3871,13 +3816,13 @@
         "id": "e62312bcd54101ba",
         "type": "change",
         "z": "183e27ab6ab701b7",
-        "name": "测试",
+        "name": "东门水吧",
         "rules": [
             {
                 "t": "set",
                 "p": "id",
                 "pt": "msg",
-                "to": "ESP8266x008d932e",
+                "to": "ESP8266x00621d9a",
                 "tot": "str"
             }
         ],
@@ -3886,11 +3831,365 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
+        "x": 1020,
         "y": 200,
         "wires": [
             [
                 "e648b9faeccdadb1"
+            ]
+        ]
+    },
+    {
+        "id": "93dafb3f48e8f8b1",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "485半双工ndiotac0bfbc1cd77",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ndiotac0bfbc1cd77",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 680,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "028cfaa8077b0af6",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "DM2-F01",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x006177d2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 760,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "466750bd4110679a",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "DM2-F01",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x006177d2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 20,
+        "wires": [
+            [
+                "e648b9faeccdadb1"
+            ]
+        ]
+    },
+    {
+        "id": "5bd3d224ea024e10",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "测试设备",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x006e2f4d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 1140,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
+            ]
+        ]
+    },
+    {
+        "id": "d76c34fa15e16136",
+        "type": "change",
+        "z": "183e27ab6ab701b7",
+        "name": "测试设备",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x006e2f4d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 240,
+        "wires": [
+            [
+                "e648b9faeccdadb1"
+            ]
+        ]
+    },
+    {
+        "id": "4fece78f3d26a9d7",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "penet 2",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":7}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.60500",
+                "v": "[1,6,0,0,0,17,73,198]",
+                "vt": "bin"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "a1ee31bff807e776",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "config reg report",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.report_reg_data",
+                "v": "[0,0,0,0,1,0,0,0,2,0,0,0,3,0,0,0,4,0,0,0,5,0,0,0,107,238,13,0]",
+                "vt": "bin"
+            },
+            {
+                "p": "payload.pld.report_reg_enable",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "payload.pld.report_reg_timeout",
+                "v": "5",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "356dd2cf157d4dae",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "penet 3",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":7}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.60500",
+                "v": "[1,4,0,0,0,16,241,198]",
+                "vt": "bin"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "daa154d40b50b19f",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "config penet report",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":1}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.report_penet_data",
+                "v": "[2,0,0,1]",
+                "vt": "bin"
+            },
+            {
+                "p": "payload.pld.report_penet_enable",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "payload.pld.report_penet_timeout",
+                "v": "5",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "a10ad60008d553bf",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "resetconfig ",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":11}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld.report_penet_enable",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 500,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "f49e22a907cec6cb",
+        "type": "inject",
+        "z": "183e27ab6ab701b7",
+        "name": "sniff=true",
+        "props": [
+            {
+                "p": "payload.hd",
+                "v": "{\"cmd_id\":17}",
+                "vt": "json"
+            },
+            {
+                "p": "payload.pld",
+                "v": "{\"rfir_sniff_enable\":1}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 740,
+        "wires": [
+            [
+                "960a3f7f22291e50"
+            ]
+        ]
+    },
+    {
+        "id": "5ecc70c3ff98f2b7",
+        "type": "function",
+        "z": "183e27ab6ab701b7",
+        "name": "批量",
+        "func": "let ids = [\n\"ESP8266x008d932e\",\n\"ESP8266x006d25c6\",\n\"ESP8266x002bcc81\",\n    ];\n    \nids.forEach(id => {\n    msg.id = id;\n    node.send(msg);\n})\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 1220,
+        "wires": [
+            [
+                "2d9fa1d0d33c2055"
             ]
         ]
     },
@@ -4907,7 +5206,7 @@
         "y": 240,
         "wires": [
             [
-                "ec5397b7a4d1b26a"
+                "49d26de7991c0aec"
             ]
         ]
     },
@@ -4984,6 +5283,11 @@
             {
                 "p": "payload.pld.power",
                 "v": "on",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "1",
                 "vt": "str"
             }
         ],
@@ -5080,12 +5384,17 @@
             },
             {
                 "p": "payload.pld.temperature",
-                "v": "25",
+                "v": "18",
                 "vt": "str"
             },
             {
                 "p": "payload.pld.mode",
                 "v": "cool",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "2",
                 "vt": "str"
             }
         ],
@@ -5094,8 +5403,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 320,
+        "x": 170,
+        "y": 300,
         "wires": [
             [
                 "c39e300364bdf67a"
@@ -5134,8 +5443,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 190,
-        "y": 400,
+        "x": 170,
+        "y": 340,
         "wires": [
             [
                 "c39e300364bdf67a"
@@ -5243,7 +5552,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 540,
+        "y": 520,
         "wires": [
             [
                 "4ad23c2b0dad587e"
@@ -5270,7 +5579,7 @@
         "to": "",
         "reg": false,
         "x": 750,
-        "y": 600,
+        "y": 560,
         "wires": [
             [
                 "4ad23c2b0dad587e"
@@ -5297,7 +5606,7 @@
         "to": "",
         "reg": false,
         "x": 710,
-        "y": 680,
+        "y": 600,
         "wires": [
             [
                 "4ad23c2b0dad587e"
@@ -5308,7 +5617,7 @@
         "id": "0c9ab9a973241202",
         "type": "inject",
         "z": "e150bfc8bf45e848",
-        "name": "开25",
+        "name": "送风",
         "props": [
             {
                 "p": "payload.hd.entry.id",
@@ -5324,6 +5633,11 @@
                 "p": "payload.pld.mode",
                 "v": "fan",
                 "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "3",
+                "vt": "str"
             }
         ],
         "repeat": "",
@@ -5332,7 +5646,176 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 170,
-        "y": 500,
+        "y": 400,
+        "wires": [
+            [
+                "c39e300364bdf67a"
+            ]
+        ]
+    },
+    {
+        "id": "440b1118a16e2af0",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "东门水吧",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x00621d9a",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 640,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "49d26de7991c0aec",
+        "type": "change",
+        "z": "e150bfc8bf45e848",
+        "name": "测试设备",
+        "rules": [
+            {
+                "t": "set",
+                "p": "id",
+                "pt": "msg",
+                "to": "ESP8266x006e2f4d",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 680,
+        "wires": [
+            [
+                "4ad23c2b0dad587e"
+            ]
+        ]
+    },
+    {
+        "id": "e0c5f0d39c1fe7bc",
+        "type": "inject",
+        "z": "e150bfc8bf45e848",
+        "name": "get查询",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "get",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "abcde",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "c39e300364bdf67a"
+            ]
+        ]
+    },
+    {
+        "id": "27e6e7a2c8d67daf",
+        "type": "inject",
+        "z": "e150bfc8bf45e848",
+        "name": "抽湿",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.mode",
+                "v": "dry",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "3",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 440,
+        "wires": [
+            [
+                "c39e300364bdf67a"
+            ]
+        ]
+    },
+    {
+        "id": "6bea153bb7c61720",
+        "type": "inject",
+        "z": "e150bfc8bf45e848",
+        "name": "制热",
+        "props": [
+            {
+                "p": "payload.hd.entry.id",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.power",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.mode",
+                "v": "heat",
+                "vt": "str"
+            },
+            {
+                "p": "payload.hd.sid",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "p": "payload.pld.temperature",
+                "v": "28",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 480,
         "wires": [
             [
                 "c39e300364bdf67a"
