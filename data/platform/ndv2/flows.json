@@ -1551,18 +1551,136 @@
         "rules": [
             {
                 "t": "eq",
+                "v": "config",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "handshake",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "reboot",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "get",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "set",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "report",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "penet",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "update",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "online",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "offline",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "resetconfig",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "device_joined",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "device_leave",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "device_interview",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "get_gpio",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "set_gpio",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rfir_sniff",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "rfir_send",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "intranet",
+                "vt": "str"
+            },
+            {
+                "t": "else"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 1,
+        "outputs": 20,
         "x": 750,
-        "y": 420,
+        "y": 280,
         "wires": [
+            [],
+            [],
+            [],
+            [],
+            [],
             [
                 "b9d354b64d5593e9"
+            ],
+            [],
+            [],
+            [
+                "5ddb2a13593bfb11"
+            ],
+            [
+                "5ddb2a13593bfb11"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+                "5ddb2a13593bfb11"
             ]
         ]
     },
@@ -1619,15 +1737,15 @@
         "id": "b9d354b64d5593e9",
         "type": "function",
         "z": "6964f3903689fe45",
-        "name": "上报",
-        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_prop;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(10),\n    message_type: \"properties_notify\",\n    device_id: attrs.id,\n    properties: common.objToTslProps(pld)\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "name": "属性上报",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_prop;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(10),\n    message_type: \"properties_notify\",\n    device_id: attrs.id,\n    send_time: new Date().valueOf(),\n    properties: common.objToTslProps(pld)\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
-        "y": 420,
+        "x": 980,
+        "y": 320,
         "wires": [
             [
                 "c2f706b387b16375",
@@ -2004,6 +2122,43 @@
         "statusType": "auto",
         "x": 690,
         "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5ddb2a13593bfb11",
+        "type": "function",
+        "z": "6964f3903689fe45",
+        "name": "事件上报",
+        "func": "let data = global.get(\"data\");\nlet common = global.get(\"common\");\nlet hd = msg.payload.hd;\nlet pld = msg.payload.pld;\nlet attrs = msg.payload.device.attrs;\nlet topic = data.topics.platform.pubs.plf_dev_evt;\nlet ids = {\n    dom: attrs.dom_id,\n    pdev: attrs.pid,\n    dev: attrs.id\n}\ntopic = common.expandTopic.expand(topic, ids);\nlet payload = {\n    tsl_version: \"1.0\",\n    message_id: common.guid(10),\n    message_type: \"event_notify\",\n    device_id: attrs.id,\n    send_time: new Date().valueOf(),\n    events:[{\n        identifier: hd.entry.id,\n        parameters: common.objToTslProps(pld)\n    }]\n}\n\nreturn {\n    topic: topic,\n    payload: payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 440,
+        "wires": [
+            [
+                "417b33e037afcae7",
+                "abf7b206f8c26611"
+            ]
+        ]
+    },
+    {
+        "id": "417b33e037afcae7",
+        "type": "debug",
+        "z": "6964f3903689fe45",
+        "name": "事件上报",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 440,
         "wires": []
     },
     {
